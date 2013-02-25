@@ -1,0 +1,55 @@
+[color]
+	ui = auto
+[alias]
+	ap = add -p
+	au = add -u
+	br = branch
+	ci = commit
+	cia = commit --amend
+	ciaa = commit --amend -C HEAD
+	cip = commit --patch
+	co = checkout
+	cp = cherry-pick
+	dc = diff --cached
+	df = diff
+	fe = fetch
+	l = log --graph --decorate --all
+	ol = log --pretty=oneline
+	pt = push -u origin
+	r = rebase
+	ra = rebase --abort
+	rc = rebase --continue
+	ri = rebase --interactive --autosquash
+	ro = rebase --onto
+	rs = rebase --skip
+	s = stash
+	sha = !git rev-parse HEAD |tee /dev/tty |tr -d '\n' |pbcopy
+	sk = stash --keep-index
+	sp = stash pop
+	st = status -sb
+	su = submodule update --init
+	x = !gitx
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim -f
+[push]
+	default = tracking
+[merge]
+	ff = false
+[branch]
+	autosetuprebase = always
+	autosetupmerge = true
+[advice]
+	pushNonFastForward = false
+	statusHints = false
+	commitBeforeMerge = false
+	resolveConflict = false
+	detachedHead = false
+[rerere]
+	enabled = true
+[diff]
+	renames = true
+[rebase]
+	autosquash = true
+[help]
+	autocorrect = 1
