@@ -16,3 +16,7 @@ alias vi=vim
 
 export HISTSIZE=10000
 shopt -s histappend
+
+function remove-swf {
+    rm -v ~/Downloads/*.swf
+}
