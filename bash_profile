@@ -6,4 +6,4 @@ export NODE_PATH=node_modules:/usr/local/lib/node:/usr/local/lib/node_modules
 
 eval "$(rbenv init - --no-rehash)"
 
-source .bashrc
+source ~/.bashrc
