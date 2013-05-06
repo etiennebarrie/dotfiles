@@ -31,7 +31,7 @@
 	x = !gitx
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim -f
+	editor = mvim -f
 [push]
 	default = tracking
 [merge]
