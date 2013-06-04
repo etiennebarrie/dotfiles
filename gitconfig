@@ -23,7 +23,7 @@
 	ro = rebase --onto
 	rs = rebase --skip
 	s = stash
-	sha = !git rev-parse HEAD |tee /dev/tty |tr -d '\n' |pbcopy
+	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
 	sk = stash --keep-index
 	sp = stash pop
 	st = status -sb
