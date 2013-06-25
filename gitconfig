@@ -53,3 +53,5 @@
 	autosquash = true
 [help]
 	autocorrect = 1
+[interactive]
+	singlekey = true
