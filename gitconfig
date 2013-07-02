@@ -29,6 +29,8 @@
 	st = status -sb
 	su = submodule update --init
 	x = !gitx
+	ss = show stash
+	ma = merge --abort
 [core]
 	excludesfile = ~/.gitignore
 	editor = mvim -f
