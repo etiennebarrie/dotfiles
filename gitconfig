@@ -35,7 +35,7 @@
 	excludesfile = ~/.gitignore
 	editor = mvim -f
 [push]
-	default = tracking
+	default = upstream
 [merge]
 	ff = false
 [branch]
