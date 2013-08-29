@@ -31,6 +31,7 @@
 	x = !gitx
 	ss = show stash
 	ma = merge --abort
+	pushu = push --set-upstream origin HEAD
 [core]
 	excludesfile = ~/.gitignore
 	editor = mvim -f
