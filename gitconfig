@@ -12,7 +12,7 @@
 	cp = cherry-pick
 	dc = diff --cached
 	df = diff
-	fe = fetch
+	fe = fetch --prune
 	l = log --graph --decorate --all
 	ol = log --pretty=oneline
 	pt = push -u origin
