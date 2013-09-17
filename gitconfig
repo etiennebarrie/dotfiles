@@ -32,6 +32,7 @@
 	ss = show stash
 	ma = merge --abort
 	pushu = push --set-upstream origin HEAD
+	cpa = cherry-pick --abort
 [core]
 	excludesfile = ~/.gitignore
 	editor = mvim -f
