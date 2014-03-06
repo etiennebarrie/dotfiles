@@ -10,8 +10,8 @@
 	cip = commit --patch
 	co = checkout
 	cp = cherry-pick
-	dc = diff --cached
-	df = diff
+	dc = diff --color-words --cached
+	df = diff --color-words
 	fe = fetch --prune
 	l = log --graph --decorate --all
 	ol = log --pretty=oneline
@@ -52,6 +52,7 @@
 [rerere]
 	enabled = true
 [diff]
+	algorithm = minimal
 	renames = true
 [rebase]
 	autosquash = true
