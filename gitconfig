@@ -9,6 +9,7 @@
 	ciaa = commit --amend -C HEAD
 	cip = commit --patch
 	co = checkout
+	com = checkout origin/master -B master
 	cp = cherry-pick
 	dc = diff --color-words --cached
 	df = diff --color-words
