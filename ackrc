@@ -1,4 +1,0 @@
---type-set=scss=.scss,.less
---type-add=js=.jsx,.jsxinc,.coffee
---type-set=haml=.haml
---ignore-dir=coverage
