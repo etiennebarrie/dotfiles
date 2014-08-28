@@ -24,6 +24,7 @@
 	rc = rebase --continue
 	ri = rebase --interactive --autosquash
 	ro = rebase --onto
+	rom = rebase origin/master
 	rs = rebase --skip
 	s = stash
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
