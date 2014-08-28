@@ -1,3 +1,5 @@
+[include]
+	path = .gitconfig.local
 [color]
 	ui = auto
 [alias]
@@ -64,5 +66,3 @@
 	autocorrect = 1
 [interactive]
 	singlekey = true
-[include]
-	path = .gitconfig.local
