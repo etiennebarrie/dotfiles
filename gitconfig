@@ -8,7 +8,7 @@
 	br = branch
 	ci = commit
 	cia = commit --amend
-	ciaa = commit --amend -C HEAD
+	ciaa = commit --amend --no-edit
 	cip = commit --patch
 	co = checkout
 	com = checkout origin/master -B master
