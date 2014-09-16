@@ -1,8 +1,13 @@
-# brew install bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
+if which brew >/dev/null; then
+	# brew install bash-completion
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		source $(brew --prefix)/etc/bash_completion
+	fi
+	source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+else
+	source /etc/bash_completion
 fi
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+
 PS1='\w$(__git_ps1 " (%s)") \$ '
 
 alias sc='./script/rails console'
