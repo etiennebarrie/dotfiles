@@ -1,5 +1,11 @@
 dep 'Spotify.app'
 dep 'tree.bin'
+dep 'ag.bin' do
+  installs {
+    via :apt, 'silversearcher-ag'
+    via :brew, 'the_silver_searcher'
+  }
+end
 
 dep 'homebrew tap', :tap_name do
   met? {
@@ -32,6 +38,7 @@ dep 'cli' do
 
   requires 'rcm'
   requires 'tree.bin'
+  requires 'ag.bin'
 end
 
 dep 'all' do
