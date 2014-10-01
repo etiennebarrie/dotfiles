@@ -39,7 +39,6 @@
 	cpa = cherry-pick --abort
 [core]
 	excludesfile = ~/.gitignore
-	editor = mvim -f
 [push]
 	default = upstream
 [merge]
