@@ -5,6 +5,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'Align'
+Plugin 'AndrewRadev/switch.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
@@ -24,6 +26,7 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+set smarttab
 set number
 set directory=tmp/vimswp,~/.vim/swp
 set ignorecase
@@ -58,8 +61,12 @@ nmap <C-L> <C-W>l
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 
+" Ruby
+autocmd FileType ruby setlocal iskeyword+=?,!,@-@
+
 " Mappings
 nmap <D-F> :Ag 
 cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap - :Switch<cr>
