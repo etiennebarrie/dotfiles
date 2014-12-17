@@ -16,7 +16,7 @@ alias mkdird='d=`date +%y%m%d`; mkdir $d; cd $d'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 alias o='open .'
 alias m='mvim .'
-alias be='bundle exec'
+function be { bundle check >/dev/null || bundle install && bundle exec $@; }
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 alias vi=vim
 
