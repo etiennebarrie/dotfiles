@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'Align'
 Plugin 'AndrewRadev/switch.vim'
+Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
