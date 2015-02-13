@@ -1,8 +1,9 @@
 [color]
 	ui = auto
 [alias]
-	ap = add -p
-	au = add -u
+	an = add --intent-to-add
+	ap = add --patch
+	au = add --update
 	br = branch
 	ci = commit
 	cia = commit --amend
