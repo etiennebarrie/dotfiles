@@ -60,6 +60,7 @@
 	renames = true
 [rebase]
 	autosquash = true
+	autostash = true
 [help]
 	autocorrect = 1
 [interactive]
