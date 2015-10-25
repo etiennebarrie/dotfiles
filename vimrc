@@ -1,3 +1,6 @@
+" Reload on save
+autocmd BufWritePost ?vimrc source $MYVIMRC
+
 " Vundle setup
 set nocompatible
 filetype off
@@ -11,6 +14,7 @@ Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
+Plugin 'nixprime/cpsm'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -30,9 +34,15 @@ set shiftround
 set expandtab
 set smarttab
 set number
-set directory=tmp/vimswp,~/.vim/swp
 set ignorecase
 set smartcase
+
+" Files
+set autoread
+set noswapfile
+set undofile
+set undodir=~/.vim/undo
+set wildignore=*/tmp/*
 
 let mapleader=","
 
@@ -56,6 +66,8 @@ highlight SpecialText guifg=gray
 nmap Y y$
 
 " Tab & Windows nav
+set splitright
+set splitbelow
 nmap H :tabprevious<CR>
 nmap L :tabnext<CR>
 nmap <C-H> <C-W>h
@@ -64,7 +76,7 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 
 " Ruby
-autocmd FileType ruby setlocal iskeyword+=?,!,@-@
+autocmd FileType ruby setlocal iskeyword+=?,!
 
 " Mappings
 nmap <D-F> :Ag 
@@ -72,3 +84,6 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap - :Switch<cr>
+
+" cpsm
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
