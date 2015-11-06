@@ -6,7 +6,7 @@
 	au = add --update
 	br = branch
 	ci = commit
-	cia = commit --amend
+	cia = commit --amend --no-edit
 	ciaa = commit --amend --no-edit --reset-author
 	cip = commit --patch
 	co = checkout
