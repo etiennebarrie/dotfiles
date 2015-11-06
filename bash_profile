@@ -12,3 +12,6 @@ export GOPATH=~/Code/go
 export PATH=$PATH:$GOPATH/bin
 
 source ~/.bashrc
+if [ -f ~/.bash_profile.local ]; then
+	source ~/.bash_profile.local
+fi
