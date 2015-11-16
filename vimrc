@@ -84,6 +84,7 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap - :Switch<cr>
+xnoremap . :normal.<cr>
 
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
