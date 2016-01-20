@@ -22,6 +22,7 @@ alias s='bin/rails server'
 alias c='bin/rails console'
 
 export HISTSIZE=10000
+export HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
 
 function remove-swf {
