@@ -22,7 +22,8 @@
 	r = rebase
 	ra = rebase --abort
 	rc = rebase --continue
-	ri = "!EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
+	ri = "!git rebase --interactive `git merge-base @ origin/master`"
+	rii = "!EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
 	ro = rebase --onto
 	rom = rebase origin/master
 	rs = rebase --skip
