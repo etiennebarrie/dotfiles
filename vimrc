@@ -12,6 +12,7 @@ Plugin 'Align'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'eapache/auto-pairs'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nixprime/cpsm'
@@ -91,3 +92,6 @@ xnoremap . :normal.<cr>
 
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+
+" auto-pairs
+let g:AutoPairsOnlyWhitespace = 1
