@@ -90,6 +90,11 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap - :Switch<cr>
 xnoremap . :normal.<cr>
 
+" TextMate Enter
+imap <D-CR> <Esc><D-CR>
+imap <S-D-CR> <Esc>O
+map <D-CR> A<CR>
+
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
