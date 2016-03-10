@@ -33,3 +33,5 @@ if ! type -t chruby >/dev/null; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
 fi
+# https://twitter.com/tpope/status/165631968996900865
+export PATH=.git/safe/../../bin:$PATH
