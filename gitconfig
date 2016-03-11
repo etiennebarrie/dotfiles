@@ -29,6 +29,7 @@
 	rii = "!EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
 	ro = rebase --onto
 	rom = rebase origin/master
+	rr = "!f() { EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
 	rs = rebase --skip
 	s = stash
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
