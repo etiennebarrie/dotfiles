@@ -15,7 +15,7 @@
 	cpa = cherry-pick --abort
 	dc = diff --color-words --cached
 	df = diff --color-words
-	fe = fetch --prune
+	fe = fetch
 	l = log --graph --decorate --all
 	ma = merge --abort
 	ol = log --pretty=oneline
@@ -41,6 +41,8 @@
 	x = !gitx
 [core]
 	excludesfile = ~/.gitignore
+[fetch]
+	prune = true
 [push]
 	default = upstream
 [merge]
