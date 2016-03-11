@@ -12,13 +12,16 @@
 	co = checkout
 	com = checkout origin/master -B master
 	cp = cherry-pick
+	cpa = cherry-pick --abort
 	dc = diff --color-words --cached
 	df = diff --color-words
 	fe = fetch --prune
 	l = log --graph --decorate --all
+	ma = merge --abort
 	ol = log --pretty=oneline
 	pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	pushu = push --set-upstream origin HEAD
 	r = rebase
 	ra = rebase --abort
 	rc = rebase --continue
@@ -31,14 +34,11 @@
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
 	sk = stash --keep-index
 	sp = stash pop
+	ss = show stash
 	st = status -sb
 	su = submodule update --init
 	where-merged = "!f() { git log HEAD ^$@ --ancestry-path --merges --reverse --pretty=%H | head -1; }; f"
 	x = !gitx
-	ss = show stash
-	ma = merge --abort
-	pushu = push --set-upstream origin HEAD
-	cpa = cherry-pick --abort
 [core]
 	excludesfile = ~/.gitignore
 [push]
