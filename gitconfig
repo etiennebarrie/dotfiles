@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [alias]
-	an = add --intent-to-add .
+	an = add --intent-to-add
 	ap = add --patch
 	au = add --update
 	br = branch
