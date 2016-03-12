@@ -1,0 +1,7 @@
+{
+  "default_options": [
+    "--check-status",
+    "--style=solarized",
+    "--verbose"
+  ]
+}
