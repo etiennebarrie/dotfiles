@@ -72,5 +72,6 @@
 	singlekey = true
 [user]
 	name = Étienne Barrié
+	useconfigonly = true
 [column]
 	ui = auto row dense
