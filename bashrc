@@ -3,7 +3,6 @@ if which brew >/dev/null; then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		source $(brew --prefix)/etc/bash_completion
 	fi
-	source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 else
 	source /etc/bash_completion
 fi
