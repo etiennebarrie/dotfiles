@@ -37,9 +37,12 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set smarttab
+set autoindent
+set smartindent
 set number
 set ignorecase
 set smartcase
+set colorcolumn=120
 
 " Files
 set autoread
@@ -48,12 +51,12 @@ set undofile
 set undodir=~/.vim/undo
 set wildignore=*/tmp/*
 
-let mapleader=","
+let mapleader=" "
 
 " Search
 set hlsearch
 set incsearch
-nmap <leader>/ :nohlsearch<CR>
+nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " Status bar
 set ruler
@@ -72,15 +75,30 @@ nmap Y y$
 " Tab & Windows nav
 set splitright
 set splitbelow
+nmap <Leader><Leader> <C-^>
+
 nmap H :tabprevious<CR>
 nmap L :tabnext<CR>
+nmap <S-D-Left> :tabprevious<CR>
+nmap <S-D-Right> :tabnext<CR>
+
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 
+nnoremap <D-Left> <C-W>h
+nnoremap <D-Right> <C-W>l
+nnoremap <D-Down> <C-W>j
+nnoremap <D-Up> <C-W>k
+
 " Ruby
 autocmd FileType ruby setlocal iskeyword+=?,!
+autocmd FileType ruby map <buffer> <Leader>e oend<ESC>
+autocmd FileType eruby map <buffer> <Leader>e o<% end %><ESC>
+
+autocmd FileType gitconfig setlocal noexpandtab
+autocmd FileType gitconfig setlocal tabstop=4
 
 " Mappings
 nmap <D-F> :Ag<Space>
