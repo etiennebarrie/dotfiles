@@ -5,6 +5,9 @@ autocmd BufWritePost ?vimrc source $MYVIMRC
 set nocompatible
 filetype off
 
+" File navigation
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -14,8 +17,7 @@ Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'eapache/auto-pairs'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
-Plugin 'nixprime/cpsm'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -113,9 +115,6 @@ xnoremap . :normal.<cr>
 imap <D-CR> <Esc><D-CR>
 imap <S-D-CR> <Esc>O
 map <D-CR> A<CR>
-
-" cpsm
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
