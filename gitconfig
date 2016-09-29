@@ -50,8 +50,9 @@
 	default = upstream
 [merge]
 	ff = false
+[pull]
+	rebase = true
 [branch]
-	autosetuprebase = always
 	autosetupmerge = true
 [advice]
 	pushNonFastForward = false
