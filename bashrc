@@ -41,9 +41,9 @@ fi
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
   source ~/.gnupg/.gpg-agent-info
   export GPG_AGENT_INFO
-else
+else if type -t gpg-agent; then
   eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi
+fi fi
 
 # https://twitter.com/tpope/status/165631968996900865
 export PATH=.git/safe/../../bin:$PATH
