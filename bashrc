@@ -32,7 +32,7 @@ function remove-swf {
     rm -v ~/Downloads/*.swf
 }
 
-if ! type -t chruby >/dev/null; then
+if ! type -t chruby >/dev/null && [ -d /usr/local/share/chruby ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
 fi
