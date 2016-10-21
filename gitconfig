@@ -9,6 +9,7 @@
 	cia = commit --amend --no-edit
 	ciaa = commit --amend --no-edit --reset-author
 	cip = commit --patch
+	cl = clean --force -d
 	co = checkout
 	com = checkout origin/master -B master
 	cp = cherry-pick
