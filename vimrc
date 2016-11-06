@@ -59,7 +59,7 @@ let mapleader=" "
 " Search
 set hlsearch
 set incsearch
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 
 " Status bar
 set ruler
