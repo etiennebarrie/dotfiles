@@ -1,0 +1,63 @@
+[submodule "vim/pack/start/Align"]
+	path = vim/pack/bundle/start/Align
+	url = https://github.com/vim-scripts/Align.git
+[submodule "vim/pack/bundle/start/switch.vim"]
+	path = vim/pack/bundle/start/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "vim/pack/bundle/start/ag.vim"]
+	path = vim/pack/bundle/start/ag.vim
+	url = https://github.com/rking/ag.vim.git
+[submodule "vim/pack/bundle/start/auto-pairs"]
+	path = vim/pack/bundle/start/auto-pairs
+	url = https://github.com/eapache/auto-pairs.git
+[submodule "vim/pack/bundle/start/cpsm"]
+	path = vim/pack/bundle/start/cpsm
+	url = https://github.com/nixprime/cpsm.git
+[submodule "vim/pack/bundle/start/ctrlp.vim"]
+	path = vim/pack/bundle/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/bundle/start/nerdcommenter"]
+	path = vim/pack/bundle/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/pack/bundle/start/rust.vim"]
+	path = vim/pack/bundle/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/pack/bundle/start/syntastic"]
+	path = vim/pack/bundle/start/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/pack/bundle/start/vim-abolish"]
+	path = vim/pack/bundle/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/pack/bundle/start/vim-bundler"]
+	path = vim/pack/bundle/start/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "vim/pack/bundle/start/vim-coffee-script"]
+	path = vim/pack/bundle/start/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/pack/bundle/start/vim-endwise"]
+	path = vim/pack/bundle/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/pack/bundle/start/vim-eunuch"]
+	path = vim/pack/bundle/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/pack/bundle/start/vim-fugitive"]
+	path = vim/pack/bundle/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/pack/bundle/start/vim-go"]
+	path = vim/pack/bundle/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim/pack/bundle/start/vim-indent-object"]
+	path = vim/pack/bundle/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/pack/bundle/start/vim-multiple-cursors"]
+	path = vim/pack/bundle/start/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim/pack/bundle/start/vim-rails"]
+	path = vim/pack/bundle/start/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/pack/bundle/start/vim-ruby"]
+	path = vim/pack/bundle/start/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/pack/bundle/start/vim-surround"]
+	path = vim/pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
