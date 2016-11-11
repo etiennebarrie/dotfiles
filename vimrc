@@ -2,7 +2,7 @@
 autocmd BufWritePost ?vimrc source $MYVIMRC
 
 set nocompatible
-filetype off
+filetype plugin indent on
 
 " File navigation
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
