@@ -19,6 +19,9 @@
 [submodule "vim/pack/bundle/start/rust.vim"]
 	path = vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/pack/bundle/start/splitjoin.vim"]
+	path = vim/pack/bundle/start/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "vim/pack/bundle/start/switch.vim"]
 	path = vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
