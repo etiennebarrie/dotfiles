@@ -85,6 +85,11 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap - :Switch<cr>
 xnoremap . :normal.<cr>
 
+" vim-test
+let test#strategy = "terminal"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+
 " TextMate Enter
 imap <D-CR> <Esc><D-CR>
 imap <S-D-CR> <Esc>O

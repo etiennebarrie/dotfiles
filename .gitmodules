@@ -64,3 +64,6 @@
 [submodule "vim/pack/bundle/start/vim-surround"]
 	path = vim/pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/pack/bundle/start/vim-test"]
+	path = vim/pack/bundle/start/vim-test
+	url = https://github.com/janko-m/vim-test.git
