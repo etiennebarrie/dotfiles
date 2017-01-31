@@ -78,5 +78,3 @@
 	useconfigonly = true
 [column]
 	ui = auto row dense
-[commit]
-	gpgsign = true
