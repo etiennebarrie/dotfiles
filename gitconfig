@@ -41,7 +41,8 @@
 	sp = stash pop
 	ss = show stash
 	st = status -sb
-	su = submodule update --init
+	su = submodule update --init --recursive
+	suu = submodule update --init --recursive --remote
 	where-merged = "!f() { git log HEAD ^$@ --ancestry-path --merges --reverse --pretty=%H | head -1; }; f"
 	x = !gitx
 [core]
