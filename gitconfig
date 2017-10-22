@@ -81,3 +81,5 @@
 	useconfigonly = true
 [column]
 	ui = auto row dense
+[log]
+	date = iso
