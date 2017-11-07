@@ -36,9 +36,9 @@
 	rom = rebase origin/master
 	rr = "!f() { EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
 	rs = rebase --skip
-	s = stash
+	s = stash --include-untracked
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
-	sk = stash --keep-index
+	sk = stash --include-untracked --keep-index
 	sp = stash pop
 	ss = show stash
 	st = status -sb
