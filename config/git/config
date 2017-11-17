@@ -31,10 +31,10 @@
 	ra = rebase --abort
 	rc = rebase --continue
 	ri = "!git rebase --interactive `git merge-base @ origin/master`"
-	rii = "!EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
+	rii = "!GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
 	ro = rebase --onto
 	rom = rebase origin/master
-	rr = "!f() { EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
+	rr = "!f() { GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
 	rs = rebase --skip
 	s = stash --include-untracked
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
