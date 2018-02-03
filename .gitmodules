@@ -25,6 +25,9 @@
 [submodule "vim/pack/bundle/start/switch.vim"]
 	path = vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "vim/pack/bundle/start/syntastic"]
+	path = vim/pack/bundle/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
 [submodule "vim/pack/bundle/start/vim-abolish"]
 	path = vim/pack/bundle/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -55,6 +58,9 @@
 [submodule "vim/pack/bundle/start/vim-rails"]
 	path = vim/pack/bundle/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/pack/bundle/start/vim-rhubarb"]
+	path = vim/pack/bundle/start/vim-rhubarb
+	url = git://github.com/tpope/vim-rhubarb.git
 [submodule "vim/pack/bundle/start/vim-ruby"]
 	path = vim/pack/bundle/start/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
@@ -64,9 +70,3 @@
 [submodule "vim/pack/bundle/start/vim-test"]
 	path = vim/pack/bundle/start/vim-test
 	url = https://github.com/janko-m/vim-test.git
-[submodule "vim/pack/bundle/start/vim-rhubarb"]
-	path = vim/pack/bundle/start/vim-rhubarb
-	url = git://github.com/tpope/vim-rhubarb.git
-[submodule "vim/pack/bundle/start/syntastic"]
-	path = vim/pack/bundle/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic
