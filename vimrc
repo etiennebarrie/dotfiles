@@ -73,6 +73,11 @@ autocmd FileType ruby setlocal iskeyword+=?,!
 autocmd FileType ruby map <buffer> <Leader>e oend<ESC>
 autocmd FileType eruby map <buffer> <Leader>e o<% end %><ESC>
 
+" Rust
+autocmd FileType rust compiler cargo
+autocmd FileType rust set makeprg=cargo\ test
+
+" Git
 autocmd FileType gitconfig setlocal noexpandtab
 autocmd FileType gitconfig setlocal tabstop=4
 
