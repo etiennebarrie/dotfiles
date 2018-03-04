@@ -28,10 +28,6 @@ export HISTSIZE=10000
 export HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
 
-function remove-swf {
-    rm -v ~/Downloads/*.swf
-}
-
 if ! type -t chruby >/dev/null && [ -d /usr/local/share/chruby ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
