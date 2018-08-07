@@ -94,6 +94,7 @@ xnoremap . :normal.<cr>
 let test#strategy = "terminal"
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>r :TestLast<CR>
 
 " TextMate Enter
 imap <D-CR> <Esc><D-CR>
