@@ -22,7 +22,7 @@ alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tm
 alias vi=vim
 
 alias s='bin/rails server'
-alias c='bin/rails console'
+alias c='[ -x bin/console ] && bin/console || bin/rails console'
 
 export HISTSIZE=10000
 export HISTCONTROL='ignoreboth:erasedups'
