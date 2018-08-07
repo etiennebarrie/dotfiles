@@ -18,7 +18,7 @@ set smartindent
 set number
 set ignorecase
 set smartcase
-set colorcolumn=120
+set colorcolumn=121
 
 " Files
 set autoread
