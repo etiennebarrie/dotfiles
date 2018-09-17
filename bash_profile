@@ -4,8 +4,8 @@ if which mvim >/dev/null; then
 else
 	export EDITOR=vim
 fi
-export LC_CTYPE=en_US.UTF-8
 
+export LANG=en_US.UTF-8
 
 export PATH=~/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
