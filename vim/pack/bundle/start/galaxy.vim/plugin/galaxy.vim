@@ -9,7 +9,7 @@ function! GalaxyUrl(opts, ...) abort
   end
 
   let opts = copy(a:opts)
-  let opts.remote = "https://github.com/" . remote[1] . ".git"
+  let opts.remote = "https://github.com/" . remote[1]
   return call("rhubarb#FugitiveUrl", [opts])
 endfunction
 
