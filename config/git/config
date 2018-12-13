@@ -1,3 +1,5 @@
+[include]
+	path = local
 [color]
 	ui = auto
 [alias]
