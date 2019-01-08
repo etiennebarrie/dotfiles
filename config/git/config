@@ -83,3 +83,5 @@
 	ui = auto row dense
 [log]
 	date = iso
+[protocol]
+	version = 2
