@@ -104,3 +104,8 @@ map <D-CR> A<CR>
 
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
+
+" local
+if filereadable(expand('~/.vim/local.vimrc'))
+  source ~/.vim/local.vimrc
+endif
