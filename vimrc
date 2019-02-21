@@ -82,6 +82,10 @@ autocmd FileType gitconfig setlocal noexpandtab
 autocmd FileType gitconfig setlocal tabstop=4
 autocmd FileType gitcommit setlocal spell
 
+" GitHub
+nmap <leader>b :Gbrowse<CR>
+vmap <leader>b :Gbrowse!<CR>
+
 " Mappings
 nmap <D-F> :Ag<Space>
 vmap <D-F> y:Ag<Space>'<C-r>"'<CR>
