@@ -86,6 +86,7 @@ autocmd FileType gitcommit setlocal spell
 " GitHub
 nmap <leader>b :Gbrowse<CR>
 vmap <leader>b :Gbrowse!<CR>
+vmap <leader>B :Gbrowse<CR>
 
 " Mappings
 nmap <D-F> :Ag<Space>
