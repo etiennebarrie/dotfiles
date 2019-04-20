@@ -4,3 +4,5 @@
 set completion-ignore-case on
 set print-completions-horizontally on
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set skip-completed-text on
