@@ -1,5 +1,7 @@
 " Reload on save
-autocmd BufWritePost ?vimrc source $MYVIMRC
+augroup Reload|autocmd!
+  autocmd BufWritePost .vimrc,vimrc source $MYVIMRC|echo "vimrc reloaded"
+augroup end
 
 set nocompatible
 filetype plugin indent on
