@@ -40,6 +40,7 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 set ruler
 set showcmd
 set laststatus=2
+set wildmenu
 
 " Show unwanted chars
 set listchars=tab:»\ ,trail:·,nbsp:·
