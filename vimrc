@@ -111,6 +111,9 @@ map <D-CR> A<CR>
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
 
+" sort
+map <Leader>s vii:sort<CR>
+
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
   source ~/.vim/local.vimrc
