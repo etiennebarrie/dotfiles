@@ -82,9 +82,10 @@ autocmd FileType rust compiler cargo
 autocmd FileType rust set makeprg=cargo\ test
 
 " Git
-autocmd FileType gitconfig setlocal noexpandtab
-autocmd FileType gitconfig setlocal tabstop=4
 autocmd FileType gitcommit setlocal spell
+
+" JSON
+autocmd FileType json setlocal expandtab shiftwidth=2
 
 " GitHub
 nmap <leader>b :Gbrowse<CR>
