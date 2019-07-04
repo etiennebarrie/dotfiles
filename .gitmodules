@@ -76,3 +76,6 @@
 [submodule "vim/pack/bundle/start/vim-vinegar"]
 	path = vim/pack/bundle/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/pack/bundle/start/vim-commentary"]
+	path = vim/pack/bundle/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
