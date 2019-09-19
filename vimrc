@@ -6,9 +6,6 @@ augroup end
 set nocompatible
 filetype plugin indent on
 
-" File navigation
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
 " General
 set tabstop=2
 set shiftwidth=2
@@ -35,6 +32,9 @@ let mapleader=" "
 set hlsearch
 set incsearch
 nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
+
+set runtimepath+=/usr/local/opt/fzf
+nmap <C-p> :GFiles<CR>
 
 " Status bar
 set ruler

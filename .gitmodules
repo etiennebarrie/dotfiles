@@ -13,6 +13,9 @@
 [submodule "vim/pack/bundle/start/ctrlp.vim"]
 	path = vim/pack/bundle/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/bundle/start/fzf.vim"]
+	path = vim/pack/bundle/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/pack/bundle/start/nerdcommenter"]
 	path = vim/pack/bundle/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
