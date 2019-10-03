@@ -2,10 +2,10 @@ if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
 
-if which brew >/dev/null; then
+if command -v brew >/dev/null; then
 	# brew install bash-completion
-	if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		source $(brew --prefix)/etc/bash_completion
+	if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
+		source "$(brew --prefix)"/etc/bash_completion
 	fi
 else
 	source /etc/bash_completion
@@ -17,7 +17,7 @@ alias mkdird='d=`date +%y%m%d`; mkdir $d; cd $d'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 function o() { open "${@:-.}"; }
 function m() { mvim "${@:-.}"; }
-function be { bundle check >/dev/null || bundle install && bundle exec $@; }
+function be { bundle check >/dev/null || bundle install && bundle exec "$@"; }
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 alias vi=vim
 
