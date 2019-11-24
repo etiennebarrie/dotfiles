@@ -43,8 +43,9 @@ set laststatus=2
 set wildmenu
 
 " Show unwanted chars
-set listchars=tab:»\ ,trail:·,nbsp:·
+set listchars=tab:»\ ,trail:·,nbsp:·,precedes:‹,extends:›
 set list
+
 highlight NonText guifg=gray
 highlight SpecialText guifg=gray
 
