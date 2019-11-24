@@ -69,10 +69,10 @@ nmap <C-L> <C-W>l
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 
-nnoremap <D-Left> <C-W>h
-nnoremap <D-Right> <C-W>l
-nnoremap <D-Down> <C-W>j
-nnoremap <D-Up> <C-W>k
+nmap <D-Left> <C-W>h
+nmap <D-Right> <C-W>l
+nmap <D-Down> <C-W>j
+nmap <D-Up> <C-W>k
 
 " Ruby
 autocmd FileType ruby setlocal iskeyword+=?,!
