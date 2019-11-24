@@ -51,6 +51,9 @@ highlight SpecialText guifg=gray
 " Consistency
 nmap Y y$
 
+" Undo on newline
+inoremap <CR> <C-G>u<CR>
+
 " Tab & Windows nav
 set splitright
 set splitbelow
