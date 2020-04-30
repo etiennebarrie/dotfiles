@@ -1,0 +1,3 @@
+#!/bin/sh
+
+bundle check > /dev/null || bundle install && exec bundle exec "$@"
