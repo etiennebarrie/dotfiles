@@ -111,6 +111,10 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 xnoremap . :normal.<cr>
 nmap _ :Switch<CR>
+"" copy file path
+nmap <leader>f :let @+=@%<CR>:echo expand("%")<CR>
+"" cd in current file directory, allow to edit
+nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 
 " vim-test
 let test#strategy = "terminal"
