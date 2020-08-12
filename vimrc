@@ -37,7 +37,7 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 set runtimepath+=/usr/local/opt/fzf
 nmap <C-p> :GFiles<CR>
 nmap <D-p> :FZF<CR>
-nmap <C-S-b> :Buffers<CR>
+nmap <C-u> :Buffers<CR>
 
 " Status bar
 set ruler
