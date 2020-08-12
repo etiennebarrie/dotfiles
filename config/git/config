@@ -6,6 +6,7 @@
 	an = add --intent-to-add
 	ap = add --patch
 	au = add --update
+	base = merge-base @ origin/HEAD
 	br = branch
 	ci = commit
 	cia = commit --amend --no-edit
