@@ -110,6 +110,7 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 xnoremap . :normal.<cr>
+nmap _ :Switch<CR>
 
 " vim-test
 let test#strategy = "terminal"
