@@ -18,6 +18,7 @@ set number
 set ignorecase
 set smartcase
 set colorcolumn=121
+set relativenumber
 
 " Files
 set autoread
