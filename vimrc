@@ -62,6 +62,9 @@ set splitright
 set splitbelow
 nmap <Leader><Leader> <C-^>
 
+nmap <Leader>v :vsplit<CR>
+nmap <Leader>s :split<CR>
+
 nmap H :tabprevious<CR>
 nmap L :tabnext<CR>
 nmap <S-D-Left> :tabprevious<CR>
@@ -121,7 +124,7 @@ map <D-CR> A<CR>
 let g:AutoPairsOnlyWhitespace = 1
 
 " sort
-map <Leader>s vii:sort<CR>
+command Sort normal vii:sort<CR>
 
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
