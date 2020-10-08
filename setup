@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if ! type rcup >/dev/null 2>&1; then
+	wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
+	echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
+	sudo apt-get update
+	sudo apt-get install rcm
+fi
+
+if [ ! -f /etc/bash_completion ] && [ ! -f "$(brew --prefix)"/etc/bash_completion ]; then
+	sudo apt-get install bash-completion
+fi
+
+if [ "$PWD" != ~/.dotfiles ]; then
+	echo "DOTFILES_DIRS=$PWD" >> rcrc
+fi
+RCRC=rcrc rcup -f -v
