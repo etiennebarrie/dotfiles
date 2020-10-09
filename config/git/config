@@ -39,11 +39,11 @@
 	rom = rebase origin/master
 	rr = "!f() { GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
 	rs = rebase --skip
-	s = stash --include-untracked
+	s = stash --include-untracked --quiet
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
-	sk = stash --include-untracked --keep-index
-	sp = stash pop
-	ss = show stash
+	sk = stash push --keep-index --include-untracked --quiet
+	sp = stash pop --index
+	ss = stash show --patch
 	st = status -sb
 	su = submodule update --init --recursive
 	suu = "!f() { git submodule update --init --recursive --remote && git submodule summary; }; f"
