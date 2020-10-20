@@ -1,0 +1,7 @@
+*.css	diff=css
+*.html	diff=html
+*.html.erb	diff=html
+*.markdown	diff=markdown
+*.md	diff=markdown
+*.rb	diff=ruby
+*.rs	diff=rust
