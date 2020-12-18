@@ -34,6 +34,7 @@ c() {
 		bin/rails console "$@"
 	fi
 }
+ci() { hub ci-status --verbose "${1:-@{upstream\}}"; }
 
 export HISTSIZE=10000
 export HISTCONTROL='ignoreboth:erasedups'
