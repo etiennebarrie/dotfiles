@@ -13,9 +13,9 @@
 	ciaa = commit --amend --no-edit --reset-author
 	cip = commit --patch
 	cl = clean --force -d
-	clbr = "!f() { git fetch --prune && git branch --merged origin/master | grep -v ^* | grep -v '^  master$' | xargs git branch -d && for branch in `git branch -vv | grep -v ^* | awk '/: gone]/ {print $1}'`; do git branch -D $branch; done }; f"
+	clbr = "!f() { git fetch --prune && git branch --merged origin/HEAD | grep -v ^* | egrep -v '^  master|main$' | xargs git branch -d && for branch in `git branch -vv | grep -v ^* | awk '/: gone]/ {print $1}'`; do git branch -D $branch; done }; f"
 	co = checkout
-	com = checkout origin/master -B master
+	com = checkout origin/HEAD -B main
 	cp = cherry-pick
 	cpa = cherry-pick --abort
 	dc = diff --color-words --cached
@@ -36,10 +36,11 @@
 	ri = rebase --interactive --keep-base
 	rii = "!GIT_EDITOR=true git ri"
 	ro = rebase --onto
-	rom = rebase origin/master
-	rr = "!f() { GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
+	rom = rebase origin/HEAD
+	rr = "!f() { git rebase `git base` --exec \"$*\"; }; f"
 	rs = rebase --skip
 	s = stash --include-untracked --quiet
+	set-head = "!f() { git remote set-head --auto `git config --get --default origin checkout.defaultRemote`; }; f"
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
 	sp = stash pop --index
