@@ -33,8 +33,8 @@
 	r = rebase
 	ra = rebase --abort
 	rc = rebase --continue
-	ri = "!git rebase --interactive `git merge-base @ origin/master`"
-	rii = "!GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master`"
+	ri = rebase --interactive --keep-base
+	rii = "!GIT_EDITOR=true git ri"
 	ro = rebase --onto
 	rom = rebase origin/master
 	rr = "!f() { GIT_EDITOR=true git rebase --interactive `git merge-base @ origin/master` --exec \"$*\"; }; f"
