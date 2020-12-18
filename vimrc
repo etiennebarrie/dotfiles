@@ -86,6 +86,7 @@ autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o
 autocmd FileType ruby map <buffer> <Leader>e oend<ESC>
 autocmd FileType ruby vmap <buffer> <Leader>e >gv<ESC>oend<ESC>
 autocmd FileType eruby map <buffer> <Leader>e o<% end %><ESC>
+autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<ESC>
 let g:ruby_indent_assignment_style = 'variable'
 
 " Rust
