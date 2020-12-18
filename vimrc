@@ -82,7 +82,7 @@ nmap <D-Down> <C-W>j
 nmap <D-Up> <C-W>k
 
 " Ruby
-autocmd FileType ruby setlocal iskeyword+=?,!
+autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o
 autocmd FileType ruby map <buffer> <Leader>e oend<ESC>
 autocmd FileType ruby vmap <buffer> <Leader>e >gv<ESC>oend<ESC>
 autocmd FileType eruby map <buffer> <Leader>e o<% end %><ESC>
