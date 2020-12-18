@@ -14,7 +14,12 @@ fi
 
 PS1='\w$(__git_ps1 " (%s)") \$ '
 
-alias mkdird='d=`date +%y%m%d`; mkdir $d; cd $d'
+mkdird() {
+	local d
+	d=$(date +%F)
+	mkdir "$d"
+	cd "$d" || return 1
+}
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 function o() { open "${@:-.}"; }
 function m() { mvim "${@:-.}"; }
