@@ -43,7 +43,7 @@
 	set-head = "!f() { git remote set-head --auto `git config --get --default origin checkout.defaultRemote`; }; f"
 	sha = "!f() { git rev-parse --default HEAD $* |tee /dev/tty |tr -d '\n' |pbcopy; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
-	sp = stash pop --index
+	sp = stash pop --index --quiet
 	ss = stash show --patch
 	st = status -sb
 	su = submodule update --init --recursive
