@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if test -z "$1"; then
+	>&2 echo Usage: git alias '<alias>'
+	exit 1
+fi
+if ! value=$(git config --get alias."$1" 2>/dev/null); then
+	>&2 echo "No such alias: $1"
+	exit 1
+fi
+if [[ $value = !* ]]; then
+	echo "${value}"
+else
+	echo git "${value}" ;
+fi
