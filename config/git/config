@@ -59,6 +59,9 @@
 	default = upstream
 [merge]
 	ff = false
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
 [pull]
 	rebase = true
 [branch]
