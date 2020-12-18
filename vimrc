@@ -95,6 +95,7 @@ autocmd FileType rust set makeprg=cargo\ test
 
 " Git
 autocmd FileType gitcommit setlocal spell
+nmap <leader>g :e .git/index<CR>
 
 " JSON
 autocmd FileType json setlocal expandtab shiftwidth=2
