@@ -76,6 +76,7 @@
 	enabled = true
 [diff]
 	algorithm = minimal
+	mnemonicPrefix = true
 	renames = true
 [rebase]
 	autosquash = true
