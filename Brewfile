@@ -25,7 +25,6 @@ brew "siege"
 brew "the_silver_searcher"
 brew "rcm"
 brew "tree"
-brew "unrar"
 brew "youtube-dl"
 
 cask "dash"
