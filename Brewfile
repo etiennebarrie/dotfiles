@@ -15,7 +15,7 @@ brew "htop"
 brew "httpie"
 brew "hub"
 brew "jq"
-brew "macvim", args: ["without-python"]
+brew "macvim"
 brew "nginx"
 brew "nmap"
 brew "pkg-config"
