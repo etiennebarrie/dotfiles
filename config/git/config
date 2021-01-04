@@ -33,7 +33,7 @@
 	r = rebase
 	ra = rebase --abort
 	rc = rebase --continue
-	ri = rebase --interactive --keep-base
+	ri = "!git rebase --interactive `git base`"
 	rii = "!GIT_EDITOR=true git ri"
 	ro = rebase --onto
 	rom = rebase origin/HEAD
