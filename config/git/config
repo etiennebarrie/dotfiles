@@ -55,6 +55,8 @@
 [status]
 	short = true
 	branch = true
+[init]
+	defaultBranch = main
 [push]
 	default = upstream
 [merge]
