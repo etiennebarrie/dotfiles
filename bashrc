@@ -22,7 +22,13 @@ mkdird() {
 }
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 o() { open "${@:-.}"; }
-m() { mvim "${@:-.}"; }
+m() {
+	if [ $# -ne 0 ] && [ -d "$1" ]; then
+		mvim "${@:-.}" "+cd $1";
+	else
+		mvim "${@:-.}";
+	fi
+}
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 alias vi=vim
 
