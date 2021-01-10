@@ -60,6 +60,7 @@
 [merge]
 	ff = false
 	tool = vimdiff
+	guitool = gvimdiff
 [mergetool]
 	keepBackup = false
 [pull]
