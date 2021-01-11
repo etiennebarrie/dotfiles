@@ -16,6 +16,7 @@ PS1='\w$(__git_ps1 " (%s)") \$ '
 if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\u@\H '"$PS1"
 fi
+PROMPT_COMMAND='printf "\033[7m⏎\033[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
 
 mkdird() {
 	local d
