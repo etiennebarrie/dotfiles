@@ -7,10 +7,9 @@ set nocompatible
 filetype plugin indent on
 
 " General
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=0
 set shiftround
-set expandtab
 set smarttab
 set autoindent
 set smartindent
@@ -46,11 +45,8 @@ set laststatus=2
 set wildmenu
 
 " Show unwanted chars
-set listchars=tab:»\ ,trail:·,nbsp:·,precedes:‹,extends:›
+set listchars=tab:›\ ,trail:·,nbsp:·,precedes:«,extends:»
 set list
-
-highlight NonText guifg=gray
-highlight SpecialText guifg=gray
 
 " Consistency
 nmap Y y$
