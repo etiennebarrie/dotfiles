@@ -2,6 +2,8 @@
 	path = local
 [color]
 	ui = auto
+[commit]
+	verbose = true
 [alias]
 	an = add --intent-to-add
 	ap = add --patch
