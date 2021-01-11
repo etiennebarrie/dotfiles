@@ -13,6 +13,9 @@ else
 fi
 
 PS1='\w$(__git_ps1 " (%s)") \$ '
+if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then
+	PS1='\[\e]1;\w — \u@\H\e\\\]\u@\H '"$PS1"
+fi
 
 mkdird() {
 	local d
