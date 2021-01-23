@@ -24,7 +24,7 @@ mkdird() {
 	mkdir "$d"
 	cd "$d" || return 1
 }
-alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc'
 o() { open "${@:-.}"; }
 m() {
 	if [ $# -ne 0 ] && [ -d "$1" ]; then
