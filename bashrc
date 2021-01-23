@@ -45,6 +45,15 @@ c() {
 	fi
 }
 ci() { hub ci-status --verbose "${1:-@{upstream\}}"; }
+demo() {
+	if [ "$OLD_PS1" ]; then
+		PS1="$OLD_PS1"
+		unset OLD_PS1
+	else
+		OLD_PS1="$PS1"
+		PS1="\$ "
+	fi
+}
 
 export HISTSIZE=10000
 export HISTCONTROL='ignoreboth:erasedups'
