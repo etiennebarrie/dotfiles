@@ -34,9 +34,9 @@ set incsearch
 nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 
 set runtimepath+=/usr/local/opt/fzf
-nmap <C-p> :GFiles<CR>
-nmap <D-p> :FZF<CR>
-nmap <C-u> :Buffers<CR>
+nmap <C-P> :GFiles<CR>
+nmap <D-P> :FZF<CR>
+nmap <C-U> :Buffers<CR>
 
 " Status bar
 set ruler
@@ -79,10 +79,10 @@ nmap <D-Up> <C-W>k
 
 " Ruby
 autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o
-autocmd FileType ruby map <buffer> <Leader>e oend<ESC>
-autocmd FileType ruby vmap <buffer> <Leader>e >gv<ESC>oend<ESC>
-autocmd FileType eruby map <buffer> <Leader>e o<% end %><ESC>
-autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<ESC>
+autocmd FileType ruby map <buffer> <Leader>e oend<Esc>
+autocmd FileType ruby vmap <buffer> <Leader>e >gv<Esc>oend<Esc>
+autocmd FileType eruby map <buffer> <Leader>e o<% end %><Esc>
+autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<Esc>
 let g:ruby_indent_assignment_style = 'variable'
 
 " Rust
@@ -103,11 +103,11 @@ vmap <leader>B :Gbrowse<CR>
 
 " Mappings
 nmap <D-F> :Ag<Space>
-vmap <D-F> y:Ag<Space>'<C-r>"'<CR>
+vmap <D-F> y:Ag<Space>'<C-R>"'<CR>
 cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-xnoremap . :normal.<cr>
+xnoremap . :normal.<CR>
 nmap _ :Switch<CR>
 "" copy file path
 nmap <leader>f :let @+=@%<CR>:echo expand("%")<CR>
