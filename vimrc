@@ -116,6 +116,7 @@ nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 
 " vim-test
 let test#strategy = "terminal"
+let g:test#preserve_screen = 1
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>r :TestLast<CR>
