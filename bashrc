@@ -4,7 +4,6 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 if command -v brew >/dev/null; then
-	# brew install bash-completion
 	if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
 		source "$(brew --prefix)"/etc/bash_completion
 	fi
