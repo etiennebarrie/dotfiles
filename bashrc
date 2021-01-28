@@ -61,6 +61,8 @@ demo() {
 HISTSIZE=10000
 HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
+export LESS=FRXx4
+tabs -4
 
 if ! type -t chruby >/dev/null && [ -d ${PREFIX:-/usr/local}/share/chruby ]; then
   source ${PREFIX:-/usr/local}/share/chruby/chruby.sh
