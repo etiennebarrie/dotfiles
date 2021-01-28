@@ -4,11 +4,15 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 if command -v brew >/dev/null; then
-	if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
-		source "$(brew --prefix)"/etc/bash_completion
+	PREFIX="$(brew --prefix)"
+	if [ -r "$PREFIX"/etc/bash_completion ]; then
+		source "$PREFIX"/etc/bash_completion
 	fi
 else
-	source /etc/bash_completion
+	PREFIX=/usr/local
+	if [ -r /etc/bash_completion ]; then
+		source /etc/bash_completion
+	fi
 fi
 
 PS1='\w$(__git_ps1 " (%s)") \$ '
@@ -58,10 +62,12 @@ export HISTSIZE=10000
 export HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
 
-if ! type -t chruby >/dev/null && [ -d /usr/local/share/chruby ]; then
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
+if ! type -t chruby >/dev/null && [ -d ${PREFIX:-/usr/local}/share/chruby ]; then
+  source ${PREFIX:-/usr/local}/share/chruby/chruby.sh
+  source ${PREFIX:-/usr/local}/share/chruby/auto.sh
 fi
 
 # https://twitter.com/tpope/status/165631968996900865
 export PATH=.git/safe/../../bin:$PATH
+
+unset PREFIX
