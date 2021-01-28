@@ -96,6 +96,8 @@
 	ui = auto row dense
 [log]
 	date = iso
+[pager]
+	log = less +/^commit
 [protocol]
 	version = 2
 [core]
