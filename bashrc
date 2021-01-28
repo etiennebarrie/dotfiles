@@ -58,8 +58,8 @@ demo() {
 	fi
 }
 
-export HISTSIZE=10000
-export HISTCONTROL='ignoreboth:erasedups'
+HISTSIZE=10000
+HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
 
 if ! type -t chruby >/dev/null && [ -d ${PREFIX:-/usr/local}/share/chruby ]; then
@@ -68,6 +68,6 @@ if ! type -t chruby >/dev/null && [ -d ${PREFIX:-/usr/local}/share/chruby ]; the
 fi
 
 # https://twitter.com/tpope/status/165631968996900865
-export PATH=.git/safe/../../bin:$PATH
+PATH=.git/safe/../../bin:$PATH
 
 unset PREFIX
