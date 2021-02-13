@@ -57,6 +57,9 @@ demo() {
 		PS1="\$ "
 	fi
 }
+clone() {
+	eval "$(env clone "$@")"
+}
 
 HISTSIZE=10000
 HISTCONTROL='ignoreboth:erasedups'

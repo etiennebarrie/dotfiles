@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby --disable-all
+
+def config(*path)
+  require "pathname"
+  require "yaml"
+  config_home = Pathname ENV.fetch("XDG_CONFIG_HOME", ENV["HOME"] + "/.config")
+  YAML.load_file config_home.join(*path)
+rescue
+end
+
+def default_owner
+  config("gh/hosts.yml")&.dig("github.com", "user") ||
+    config("hub")&.dig("github.com", 0, "user")
+end
+
+def usage
+  owner_usage = default_owner ? "[owner=#{default_owner}]" : "owner"
+  warn "usage: #{File.basename $0} #{owner_usage}/repo"
+  exit 1
+end
+
+usage if ARGV.size != 1
+
+owner, name, *rest = ARGV.first.split("/", 3)
+owner, name = default_owner, owner unless name
+
+usage unless rest.empty?
+repo = "https://github.com/#{owner}/#{name}.git"
+path = "#{ENV["HOME"]}/src/github.com/#{owner}/#{name}"
+
+system "git", "clone", repo, path or exit $?.exitstatus
+puts "cd '#{path}'"
