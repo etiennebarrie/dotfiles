@@ -133,6 +133,9 @@ let g:AutoPairsOnlyWhitespace = 1
 " sort
 command Sort normal vii:sort<CR>
 
+" filter quicklist
+packadd cfilter
+
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
   source ~/.vim/local.vimrc
