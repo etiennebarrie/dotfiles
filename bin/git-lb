@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export GIT_PAGER='less +"/^commit [[:xdigit:]]{40,}"'
+branch="@"
+
+for arg; do
+	case $arg in
+		(-*) unset GIT_PAGER; break;;
+		(*) branch="$arg"; shift;;
+	esac
+done
+git log --reverse "$(git merge-base "$branch" origin/HEAD)".."$branch" "${@:---patch}"

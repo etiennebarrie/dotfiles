@@ -14,6 +14,7 @@ else
 		source /etc/bash_completion
 	fi
 fi
+_git_lb() { _git_log; }
 
 PS1='\w$(__git_ps1 " (%s)") \$ '
 if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then

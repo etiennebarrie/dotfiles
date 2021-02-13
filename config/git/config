@@ -24,7 +24,6 @@
 	fe = fetch
 	feco = "!f() { git fetch origin -f $1:$1 && git checkout $1; }; f"
 	l = log --graph --decorate --all
-	lb = "!f() { git log --reverse $(git merge-base @ origin/HEAD).. "${@:---patch}"; }; f"
 	ma = merge --abort
 	ol = log --pretty=oneline
 	pf = push --force-with-lease
@@ -96,8 +95,6 @@
 	ui = auto row dense
 [log]
 	date = iso
-[pager]
-	log = less +/^commit
 [protocol]
 	version = 2
 [core]
