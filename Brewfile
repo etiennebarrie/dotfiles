@@ -1,3 +1,4 @@
+# vim: set ft=ruby
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -18,11 +19,11 @@ brew "jq"
 brew "nginx"
 brew "nmap"
 brew "pkg-config"
+brew "rcm"
 brew "ruby-install"
 brew "shellcheck"
 brew "siege"
 brew "the_silver_searcher"
-brew "rcm"
 brew "tree"
 brew "youtube-dl"
 
