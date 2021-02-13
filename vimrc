@@ -110,7 +110,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 xnoremap . :normal.<CR>
 nmap _ :Switch<CR>
 "" copy file path
-nmap <leader>f :let @+=@%<CR>:echo expand("%")<CR>
+nmap <leader>f :let @+=@%<CR>:echo "<C-R>+"<CR>
+vmap <leader>f :<C-U>let @+="<C-R>=expand("%").":".expand(line("v"))<CR>"<CR>:echo "<C-R>+"<CR>
 "" cd in current file directory, allow to edit
 nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 
