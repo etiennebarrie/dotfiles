@@ -57,6 +57,7 @@
 	branch = true
 [init]
 	defaultBranch = main
+	templateDir = ~/.config/git/template
 [push]
 	default = upstream
 [merge]
