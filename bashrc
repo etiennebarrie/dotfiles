@@ -62,6 +62,23 @@ clone() {
 	eval "$(env clone "$@")"
 }
 
+setenv() {
+	if [ -z "$NO_ENV_PS1" ]; then
+		NO_ENV_PS1="$PS1"
+	fi
+	if [ $# -eq 0 ]; then
+		PS1="$NO_ENV_PS1"
+		unset NO_ENV_PS1
+		eval "$UNSETENV"
+		return
+	fi
+	for var do
+		UNSETENV="unset ${var%%=*}; $UNSETENV"
+	done
+	PS1="${PS1}${*} "
+	export "${@?}"
+}
+
 HISTSIZE=10000
 HISTCONTROL='ignoreboth:erasedups'
 shopt -s histappend
