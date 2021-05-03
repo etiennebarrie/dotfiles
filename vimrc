@@ -44,6 +44,10 @@ set showcmd
 set laststatus=2
 set wildmenu
 
+" Folds
+set foldlevelstart=99
+set foldmethod=syntax
+
 " Show unwanted chars
 set listchars=tab:›\ ,trail:·,nbsp:·,precedes:«,extends:»
 set list
