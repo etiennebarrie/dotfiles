@@ -5,6 +5,10 @@ set -xeuo pipefail
 if type brew >/dev/null 2>&1; then
 	brew bundle --no-lock
 else
+	if [ $(uname -s) = Darwin ]; then
+		open https://brew.sh
+		exit 1
+	fi
 	if ! type rcup >/dev/null 2>&1; then
 		wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 		echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
