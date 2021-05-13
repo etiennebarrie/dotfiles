@@ -68,6 +68,7 @@
 	keepBackup = false
 [pull]
 	rebase = true
+	recurse = true
 [branch]
 	autosetupmerge = true
 [advice]
