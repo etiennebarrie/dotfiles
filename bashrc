@@ -24,7 +24,7 @@ PROMPT_COMMAND='printf "\033[7m⏎\033[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
 
 mkdird() {
 	local d
-	d=$(date +%F)
+	d=~/$(date +%F)
 	mkdir "$d"
 	cd "$d" || return 1
 }
