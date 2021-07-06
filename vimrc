@@ -96,15 +96,16 @@ autocmd FileType rust set makeprg=cargo\ test
 " Git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit startinsert
-nmap <leader>g :e .git/index<CR>
+nmap <leader>G :e .git/index<CR>
+nmap <leader>g :G 
 
 " JSON
 autocmd FileType json setlocal expandtab shiftwidth=2
 
 " GitHub
-nmap <leader>b :Gbrowse<CR>
-vmap <leader>b :Gbrowse!<CR>
-vmap <leader>B :Gbrowse<CR>
+nmap <leader>b :GBrowse<CR>
+vmap <leader>b :GBrowse!<CR>
+vmap <leader>B :GBrowse<CR>
 
 " Mappings
 nmap <D-F> :Ag<Space>
