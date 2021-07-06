@@ -1,6 +1,7 @@
 [include]
 	path = local
 [commit]
+	template = ~/.config/git/commit-template
 	verbose = true
 [alias]
 	an = add --intent-to-add
