@@ -28,6 +28,7 @@
 	ma = merge --abort
 	ol = log --pretty=oneline
 	pf = push --force-with-lease
+	pff = push --force-with-lease --no-verify
 	pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	pushu = "!f() { : git push ; git push --set-upstream ${1:-origin} HEAD; }; f"
