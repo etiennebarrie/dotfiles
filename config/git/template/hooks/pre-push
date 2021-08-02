@@ -46,6 +46,8 @@ return_status=
 while read -r _ local_sha remote_ref _; do
 	if [ "$local_sha" = $z40 ]; then
 		: # branch deleted
+	elif [[ "$remote_ref" == refs/tags/* ]]; then
+		: # pushing a tag
 	elif [ "$local_sha" != "$(git rev-parse @)" ]; then
 		>&2 echo -e "$red$0: cannot test SHA that is not checked out, run tests manually and use --no-verify"
 		exit 1
