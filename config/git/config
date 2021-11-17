@@ -89,7 +89,7 @@
 	autosquash = true
 	autostash = true
 [help]
-	autoCorrect = 1
+	autoCorrect = prompt
 [interactive]
 	singlekey = true
 [user]
