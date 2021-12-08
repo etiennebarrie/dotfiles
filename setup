@@ -25,4 +25,4 @@ fi
 if [ "$PWD" != ~/.dotfiles ]; then
 	echo "DOTFILES_DIRS=$PWD" >> rcrc
 fi
-RCRC=rcrc rcup -f -v
+RCRC=./rcrc rcup -f -v
