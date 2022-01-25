@@ -54,6 +54,12 @@
 	x = !gitx
 [fetch]
 	prune = true
+[tag]
+	sort = version:refname
+[versionsort]
+	suffix = .alpha
+	suffix = .beta
+	suffix = .rc
 [status]
 	short = true
 	branch = true
