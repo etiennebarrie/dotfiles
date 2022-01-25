@@ -50,12 +50,14 @@ c() {
 }
 ci() { hub ci-status --verbose "${1:-@{upstream\}}"; }
 demo() {
-	if [ "$OLD_PS1" ]; then
+	if [ "$OLD_PS1$OLD_PS2" ]; then
 		PS1="$OLD_PS1"
-		unset OLD_PS1
+		PS2="$OLD_PS2"
+		unset OLD_PS1 OLD_PS2
 	else
 		OLD_PS1="$PS1"
-		PS1="\$ "
+		OLD_PS2="$PS2"
+		PS1="\$ " PS2=""
 	fi
 }
 clone() {
