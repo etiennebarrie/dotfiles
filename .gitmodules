@@ -85,3 +85,6 @@
 [submodule "vim/pack/bundle/start/projectionist"]
 	path = vim/pack/bundle/start/projectionist
 	url = https://tpope.io/vim/projectionist.git
+[submodule "vim/pack/bundle/start/vim-fetch"]
+	path = vim/pack/bundle/start/vim-fetch
+	url = https://github.com/wsdjeg/vim-fetch.git
