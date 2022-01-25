@@ -34,7 +34,7 @@
 	pushu = "!f() { : git push ; git push --set-upstream ${1:-origin} HEAD; }; f"
 	r = rebase
 	ra = rebase --abort
-	rc = rebase --continue
+	rc = -c core.editor=true rebase --continue
 	ri = "!git rebase --interactive `git base`"
 	rii = "!GIT_EDITOR=true git ri"
 	ro = rebase --onto
