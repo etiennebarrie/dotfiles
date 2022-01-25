@@ -43,7 +43,7 @@
 	rs = rebase --skip
 	s = stash --include-untracked --quiet
 	set-head = "!f() { git remote set-head --auto `git config --get --default origin checkout.defaultRemote`; }; f"
-	sha = "!f() { local sha=$(git rev-parse --default HEAD $*); echo -n $sha | pbcopy; echo $sha; }; f"
+	sha = "!f() { local sha=$(git rev-parse --default HEAD $*); printf "%s" $sha | pbcopy; echo $sha; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
 	sp = stash pop --index --quiet
 	ss = stash show --patch
