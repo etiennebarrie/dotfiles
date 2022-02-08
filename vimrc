@@ -32,6 +32,7 @@ let mapleader=" "
 set hlsearch
 set incsearch
 nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
+vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 set runtimepath+=/usr/local/opt/fzf
 nmap <C-P> :GFiles<CR>
