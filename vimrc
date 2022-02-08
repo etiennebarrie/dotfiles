@@ -88,6 +88,11 @@ autocmd FileType ruby map <buffer> <Leader>e oend<Esc>
 autocmd FileType ruby vmap <buffer> <Leader>e >gv<Esc>oend<Esc>
 autocmd FileType eruby map <buffer> <Leader>e o<% end %><Esc>
 autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<Esc>
+autocmd FileType ruby vmap <buffer> <Leader>i S)ip<Esc>
+autocmd FileType ruby nmap <buffer> <A-Up> ^[mw
+autocmd FileType ruby nmap <buffer> <A-Down> ]mw
+autocmd FileType ruby nmap <buffer> <S-A-Up> ^[[w
+autocmd FileType ruby nmap <buffer> <S-A-Down> ]]w
 let g:ruby_indent_assignment_style = 'variable'
 
 " Rust
