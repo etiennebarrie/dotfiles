@@ -97,8 +97,9 @@ autocmd FileType rust set makeprg=cargo\ test
 " Git
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit startinsert
-nmap <leader>G :e .git/index<CR>
-nmap <leader>g :G 
+nmap <leader>G :e <C-R>=trim(system("git rev-parse --git-dir"))<CR>/index<CR>
+nmap <leader>g :G<Space>
+nmap <leader>l :G blame<CR>
 
 " JSON
 autocmd FileType json setlocal expandtab shiftwidth=2
