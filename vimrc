@@ -139,7 +139,8 @@ let g:AutoPairsOnlyWhitespace = 1
 " sort
 command Sort normal vii:sort<CR>
 
-" filter quicklist
+" quicklist
+nmap <Leader>j :copen 20<CR><C-w>J
 packadd cfilter
 
 " Prevent menus
