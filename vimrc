@@ -142,6 +142,11 @@ command Sort normal vii:sort<CR>
 " filter quicklist
 packadd cfilter
 
+" Prevent menus
+let g:solarized_menu=0
+let g:DrChipTopLvlMenu = "" " Align
+let g:netrw_menu = 0
+
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
   source ~/.vim/local.vimrc
