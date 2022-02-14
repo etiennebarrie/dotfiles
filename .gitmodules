@@ -30,7 +30,7 @@
 	url = https://github.com/AndrewRadev/switch.vim.git
 [submodule "vim/pack/bundle/start/syntastic"]
 	path = vim/pack/bundle/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "vim/pack/bundle/start/vim-abolish"]
 	path = vim/pack/bundle/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
