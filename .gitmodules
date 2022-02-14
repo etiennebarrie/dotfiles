@@ -61,6 +61,9 @@
 [submodule "vim/pack/bundle/start/vim-rails"]
 	path = vim/pack/bundle/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/pack/bundle/start/vim-rake"]
+	path = vim/pack/bundle/start/vim-rake
+	url = https://github.com/tpope/vim-rake.git
 [submodule "vim/pack/bundle/start/vim-rhubarb"]
 	path = vim/pack/bundle/start/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
