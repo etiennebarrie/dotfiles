@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo HEAD "$(git rev-parse @)" refs/heads/does-not-exist 0000000000000000000000000000000000000000 |
+	exec "$(git rev-parse --git-dir)"/hooks/pre-push
