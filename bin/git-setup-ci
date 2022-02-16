@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require "pathname"
+git_dir = `git rev-parse --git-dir`
+abort unless Process.last_status.success?
+git_test = Pathname(git_dir.chomp).join("test")
+abort ".git/test already configured" if git_test.exist?
+
+require "yaml"
+commands = YAML.load_file(".github/workflows/ci.yml")["jobs"].flat_map do |_,job|
+  job["steps"].filter_map { |step| step["run"] }
+end
+git_test.write(["#!/bin/sh", "", "set -ex", *commands].flat_map { [_1, "\n"] }.join)
+git_test.chmod(git_test.stat.mode + 0o100) # u+x
