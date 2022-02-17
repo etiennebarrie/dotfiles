@@ -21,6 +21,8 @@ else
 fi
 _git_lb() { _git_log; }
 
+# shellcheck disable=SC2034
+GIT_PS1_SHOWSTASHSTATE=1
 PS1='\w$(__git_ps1 " (%s)") \$ '
 if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\u@\H '"$PS1"
