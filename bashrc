@@ -3,8 +3,13 @@ if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
 
+if [[ -x /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	export HOMEBREW_NO_ENV_HINTS=1
+fi
+
 if command -v brew >/dev/null; then
-	PREFIX="$(brew --prefix)"
+	PREFIX="$HOMEBREW_PREFIX"
 	if [ -r "$PREFIX"/etc/bash_completion ]; then
 		source "$PREFIX"/etc/bash_completion
 	fi
