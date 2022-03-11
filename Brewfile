@@ -6,7 +6,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 brew "bash"
-brew "bash-completion"
+brew "bash-completion@2"
 brew "bat"
 brew "chruby"
 brew "entr"

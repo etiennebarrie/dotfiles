@@ -4,6 +4,7 @@ set -xeuo pipefail
 
 if type brew >/dev/null 2>&1; then
 	brew bundle
+	rm "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh" # hub completion clears git's
 else
 	if [ "$(uname -s)" = Darwin ]; then
 		open https://brew.sh
@@ -17,7 +18,7 @@ else
 		sudo apt-get update
 		sudo apt-get install rcm
 	fi
-	if [ ! -f /etc/bash_completion ]; then
+	if [ ! -d /usr/share/bash-completion ]; then
 		sudo apt-get install bash-completion
 	fi
 fi

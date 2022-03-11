@@ -8,16 +8,8 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 	export HOMEBREW_NO_ENV_HINTS=1
 fi
 
-if command -v brew >/dev/null; then
-	PREFIX="$HOMEBREW_PREFIX"
-	if [ -r "$PREFIX"/etc/bash_completion ]; then
-		source "$PREFIX"/etc/bash_completion
-	fi
-else
-	PREFIX=/usr/local
-	if [ -r /etc/bash_completion ]; then
-		source /etc/bash_completion
-	fi
+if [ -r "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion" ]; then
+	source "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion"
 fi
 _git_lb() { _git_log; }
 
