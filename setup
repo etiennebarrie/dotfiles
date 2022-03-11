@@ -15,11 +15,11 @@ else
 			wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 			echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
 		fi
-		sudo apt-get update
-		sudo apt-get install rcm
+		sudo apt-get update --option DPkg::Lock::Timeout=60
+		sudo apt-get install rcm --option DPkg::Lock::Timeout=60
 	fi
 	if [ ! -d /usr/share/bash-completion ]; then
-		sudo apt-get install bash-completion
+		sudo apt-get install bash-completion --option DPkg::Lock::Timeout=60
 	fi
 fi
 
