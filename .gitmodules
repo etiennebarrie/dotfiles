@@ -19,6 +19,9 @@
 [submodule "vim/pack/bundle/start/nerdcommenter"]
 	path = vim/pack/bundle/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/pack/bundle/start/projectionist"]
+	path = vim/pack/bundle/start/projectionist
+	url = https://tpope.io/vim/projectionist.git
 [submodule "vim/pack/bundle/start/rust.vim"]
 	path = vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
@@ -40,12 +43,21 @@
 [submodule "vim/pack/bundle/start/vim-coffee-script"]
 	path = vim/pack/bundle/start/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/pack/bundle/start/vim-colors-solarized"]
+	path = vim/pack/bundle/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/pack/bundle/start/vim-commentary"]
+	path = vim/pack/bundle/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
 [submodule "vim/pack/bundle/start/vim-endwise"]
 	path = vim/pack/bundle/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
 [submodule "vim/pack/bundle/start/vim-eunuch"]
 	path = vim/pack/bundle/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/pack/bundle/start/vim-fetch"]
+	path = vim/pack/bundle/start/vim-fetch
+	url = https://github.com/wsdjeg/vim-fetch.git
 [submodule "vim/pack/bundle/start/vim-fugitive"]
 	path = vim/pack/bundle/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -76,18 +88,6 @@
 [submodule "vim/pack/bundle/start/vim-test"]
 	path = vim/pack/bundle/start/vim-test
 	url = https://github.com/janko-m/vim-test.git
-[submodule "vim/pack/bundle/start/vim-colors-solarized"]
-	path = vim/pack/bundle/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/pack/bundle/start/vim-vinegar"]
 	path = vim/pack/bundle/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "vim/pack/bundle/start/vim-commentary"]
-	path = vim/pack/bundle/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/pack/bundle/start/projectionist"]
-	path = vim/pack/bundle/start/projectionist
-	url = https://tpope.io/vim/projectionist.git
-[submodule "vim/pack/bundle/start/vim-fetch"]
-	path = vim/pack/bundle/start/vim-fetch
-	url = https://github.com/wsdjeg/vim-fetch.git
