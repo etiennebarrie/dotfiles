@@ -35,8 +35,14 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 let &runtimepath.="," . ($HOMEBREW_PREFIX ?? "/usr/local") . "/opt/fzf"
-nmap <C-P> :GFiles<CR>
-nmap <D-P> :FZF<CR>
+function s:files()
+	if empty(FugitiveGitDir())
+		:Files
+	else
+		:GFiles
+	endif
+endfunction
+nmap <silent> <C-P> :call <SID>files()<CR>
 nmap <C-U> :Buffers<CR>
 
 " Status bar
