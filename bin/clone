@@ -28,5 +28,5 @@ usage unless rest.empty?
 repo = "https://github.com/#{owner}/#{name}.git"
 path = "#{ENV["HOME"]}/src/github.com/#{owner}/#{name}"
 
-system "git", "clone", repo, path or exit $?.exitstatus
+system "git", "clone", repo, path or exit $?.exitstatus unless File.exist?(path)
 puts "cd '#{path}'"
