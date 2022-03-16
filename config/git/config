@@ -81,11 +81,12 @@
 [branch]
 	autosetupmerge = true
 [advice]
-	pushNonFastForward = false
-	statusHints = false
 	commitBeforeMerge = false
-	resolveConflict = false
 	detachedHead = false
+	pushNonFastForward = false
+	resolveConflict = false
+	skippedCherryPicks = false
+	statusHints = false
 [rerere]
 	enabled = true
 [diff]
