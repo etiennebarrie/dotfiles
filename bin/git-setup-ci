@@ -24,5 +24,6 @@ end
 
 abort "No test command found." unless commands
 
-git_test.write(["#!/bin/sh", "", "set -ex", *commands].flat_map { [_1, "\n"] }.join)
+git_test.write(["#!/bin/sh", "", "set -ex", "", *commands].flat_map { [_1, "\n"] }.join)
 git_test.chmod(git_test.stat.mode + 0o100) # u+x
+exec "$EDITOR #{git_test}"
