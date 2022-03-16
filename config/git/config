@@ -42,7 +42,7 @@
 	rom = rebase origin/HEAD
 	rr = "!f() { git rebase `git base` --exec \"$*\"; }; f"
 	rs = rebase --skip
-	s = stash --include-untracked --quiet
+	s = "!f() { : stash ; if [ $# -eq 0 ]; then git stash --include-untracked --quiet; else git stash \"$@\"; fi; }; f"
 	set-head = "!f() { git remote set-head --auto `git config --get --default origin checkout.defaultRemote`; }; f"
 	sha = "!f() { local sha=$(git rev-parse --default HEAD $*); printf "%s" $sha | pbcopy; echo $sha; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
