@@ -14,14 +14,14 @@ def default_owner
 end
 
 def usage
-  owner_usage = default_owner ? "[owner=#{default_owner}]" : "owner"
-  warn "usage: #{File.basename $0} #{owner_usage}/repo"
-  exit 1
+  owner_usage = default_owner ? "[owner=#{default_owner}/]" : "owner/"
+  warn "usage: #{File.basename $0} [https://github.com/]#{owner_usage}repo"
+  exit false
 end
 
 usage if ARGV.size != 1
 
-owner, name, *rest = ARGV.first.split("/", 3)
+owner, name, *rest = ARGV.first.delete_prefix("https://github.com/").split("/", 3)
 owner, name = default_owner, owner unless name
 
 usage unless rest.empty?
