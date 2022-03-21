@@ -1,66 +1,75 @@
 [submodule "vim/pack/bundle/start/Align"]
 	path = vim/pack/bundle/start/Align
 	url = https://github.com/vim-scripts/Align.git
+[submodule "vim/pack/bundle/start/abolish.vim"]
+	path = vim/pack/bundle/start/abolish.vim
+	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim/pack/bundle/start/ag.vim"]
 	path = vim/pack/bundle/start/ag.vim
 	url = https://github.com/rking/ag.vim.git
 [submodule "vim/pack/bundle/start/auto-pairs"]
 	path = vim/pack/bundle/start/auto-pairs
 	url = https://github.com/eapache/auto-pairs.git
-[submodule "vim/pack/bundle/start/cpsm"]
-	path = vim/pack/bundle/start/cpsm
-	url = https://github.com/nixprime/cpsm.git
-[submodule "vim/pack/bundle/start/ctrlp.vim"]
-	path = vim/pack/bundle/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/bundle/start/bundler.vim"]
+	path = vim/pack/bundle/start/bundler.vim
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "vim/pack/bundle/start/commentary.vim"]
+	path = vim/pack/bundle/start/commentary.vim
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/pack/bundle/start/endwise.vim"]
+	path = vim/pack/bundle/start/endwise.vim
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/pack/bundle/start/eunuch.vim"]
+	path = vim/pack/bundle/start/eunuch.vim
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/pack/bundle/start/fugitive.vim"]
+	path = vim/pack/bundle/start/fugitive.vim
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/pack/bundle/start/fzf.vim"]
 	path = vim/pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "vim/pack/bundle/start/nerdcommenter"]
-	path = vim/pack/bundle/start/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/pack/bundle/start/projectionist"]
-	path = vim/pack/bundle/start/projectionist
+[submodule "vim/pack/bundle/start/projectionist.vim"]
+	path = vim/pack/bundle/start/projectionist.vim
 	url = https://tpope.io/vim/projectionist.git
+[submodule "vim/pack/bundle/start/rails.vim"]
+	path = vim/pack/bundle/start/rails.vim
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/pack/bundle/start/rake.vim"]
+	path = vim/pack/bundle/start/rake.vim
+	url = https://github.com/tpope/vim-rake.git
+[submodule "vim/pack/bundle/start/rhubarb.vim"]
+	path = vim/pack/bundle/start/rhubarb.vim
+	url = https://github.com/tpope/vim-rhubarb.git
 [submodule "vim/pack/bundle/start/rust.vim"]
 	path = vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/pack/bundle/start/sleuth.vim"]
+	path = vim/pack/bundle/start/sleuth.vim
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "vim/pack/bundle/start/solarized.vim"]
+	path = vim/pack/bundle/start/solarized.vim
+	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/pack/bundle/start/splitjoin.vim"]
 	path = vim/pack/bundle/start/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "vim/pack/bundle/start/surround.vim"]
+	path = vim/pack/bundle/start/surround.vim
+	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/pack/bundle/start/switch.vim"]
 	path = vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
 [submodule "vim/pack/bundle/start/syntastic"]
 	path = vim/pack/bundle/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule "vim/pack/bundle/start/vim-abolish"]
-	path = vim/pack/bundle/start/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
-[submodule "vim/pack/bundle/start/vim-bundler"]
-	path = vim/pack/bundle/start/vim-bundler
-	url = https://github.com/tpope/vim-bundler.git
+[submodule "vim/pack/bundle/start/test.vim"]
+	path = vim/pack/bundle/start/test.vim
+	url = https://github.com/janko-m/vim-test.git
 [submodule "vim/pack/bundle/start/vim-coffee-script"]
 	path = vim/pack/bundle/start/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/pack/bundle/start/vim-colors-solarized"]
-	path = vim/pack/bundle/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/pack/bundle/start/vim-commentary"]
-	path = vim/pack/bundle/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/pack/bundle/start/vim-endwise"]
-	path = vim/pack/bundle/start/vim-endwise
-	url = https://github.com/tpope/vim-endwise.git
-[submodule "vim/pack/bundle/start/vim-eunuch"]
-	path = vim/pack/bundle/start/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch.git
 [submodule "vim/pack/bundle/start/vim-fetch"]
 	path = vim/pack/bundle/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch.git
-[submodule "vim/pack/bundle/start/vim-fugitive"]
-	path = vim/pack/bundle/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/pack/bundle/start/vim-go"]
 	path = vim/pack/bundle/start/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -70,27 +79,9 @@
 [submodule "vim/pack/bundle/start/vim-multiple-cursors"]
 	path = vim/pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "vim/pack/bundle/start/vim-rails"]
-	path = vim/pack/bundle/start/vim-rails
-	url = https://github.com/tpope/vim-rails.git
-[submodule "vim/pack/bundle/start/vim-rake"]
-	path = vim/pack/bundle/start/vim-rake
-	url = https://github.com/tpope/vim-rake.git
-[submodule "vim/pack/bundle/start/vim-rhubarb"]
-	path = vim/pack/bundle/start/vim-rhubarb
-	url = https://github.com/tpope/vim-rhubarb.git
 [submodule "vim/pack/bundle/start/vim-ruby"]
 	path = vim/pack/bundle/start/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/pack/bundle/start/vim-sleuth"]
-	path = vim/pack/bundle/start/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth.git
-[submodule "vim/pack/bundle/start/vim-surround"]
-	path = vim/pack/bundle/start/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/pack/bundle/start/vim-test"]
-	path = vim/pack/bundle/start/vim-test
-	url = https://github.com/janko-m/vim-test.git
-[submodule "vim/pack/bundle/start/vim-vinegar"]
-	path = vim/pack/bundle/start/vim-vinegar
+[submodule "vim/pack/bundle/start/vinegar.vim"]
+	path = vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
