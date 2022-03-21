@@ -82,6 +82,9 @@
 [submodule "vim/pack/bundle/start/vim-ruby"]
 	path = vim/pack/bundle/start/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/pack/bundle/start/vim-sleuth"]
+	path = vim/pack/bundle/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
 [submodule "vim/pack/bundle/start/vim-surround"]
 	path = vim/pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
