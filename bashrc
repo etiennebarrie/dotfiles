@@ -15,11 +15,13 @@ _git_lb() { _git_log; }
 
 # shellcheck disable=SC2034
 GIT_PS1_SHOWSTASHSTATE=1
-PS1='\w$(__git_ps1 " (%s)") \$ '
+# shellcheck disable=SC2154
+PS1='$(r=$?;(( r )) && echo "\[\e[1;31m\]✘$r\[\e[m\] ")'
+PS1="$PS1"'\w$(__git_ps1 " (%s)") \$ '
 if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\u@\H '"$PS1"
 fi
-PROMPT_COMMAND='printf "\033[7m⏎\033[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
+PROMPT_COMMAND='printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
 
 mkdird() {
 	local d
