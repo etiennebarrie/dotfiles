@@ -14,8 +14,8 @@ else
 		if [ "$(lsb_release --id --short)" = Debian ]; then
 			wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 			echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
+			sudo apt-get update
 		fi
-		sudo apt-get update --option DPkg::Lock::Timeout=60
 		sudo apt-get install rcm --option DPkg::Lock::Timeout=60
 	fi
 	if [ ! -d /usr/share/bash-completion ]; then
