@@ -3,10 +3,13 @@ if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
 
-if [[ -x /opt/homebrew/bin/brew ]]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	export HOMEBREW_NO_ENV_HINTS=1
-fi
+for HOMEBREW_PREFIX in /opt/homebrew /usr/local ; do
+	if [[ -x "$HOMEBREW_PREFIX/bin/brew" ]]; then
+		eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+		break
+	fi
+done
+export HOMEBREW_NO_ENV_HINTS=1
 
 if [ -r "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion" ]; then
 	source "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion"
