@@ -20,6 +20,10 @@ set ignorecase
 set smartcase
 set colorcolumn=121
 set relativenumber
+augroup cursorline|autocmd!
+  autocmd BufEnter,WinEnter * setlocal cursorline
+  autocmd WinLeave *          setlocal nocursorline
+augroup end
 
 " Files
 set autoread
