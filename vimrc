@@ -1,6 +1,8 @@
 " Reload on save
 augroup Reload|autocmd!
-  autocmd BufWritePost .vimrc,vimrc source $MYVIMRC|echo "vimrc reloaded"
+  autocmd BufWritePost {,.,g,.g}vimrc
+        \ source $MYVIMRC | source $MYGVIMRC |
+        \ redraw | echo "vimrc reloaded"
 augroup end
 
 set nocompatible
