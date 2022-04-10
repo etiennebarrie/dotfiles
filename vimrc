@@ -20,6 +20,7 @@ set ignorecase
 set smartcase
 set colorcolumn=121
 set relativenumber
+set signcolumn=number
 augroup cursorline|autocmd!
   autocmd BufEnter,WinEnter * setlocal cursorline
   autocmd WinLeave *          setlocal nocursorline
@@ -146,6 +147,15 @@ let g:test#preserve_screen = 1
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>r :TestLast<CR>
+
+" Syntastic
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_error_symbol = "✘"
+let g:syntastic_warning_symbol = "✘"
 
 " TextMate Enter
 imap <D-CR> <Esc><D-CR>
