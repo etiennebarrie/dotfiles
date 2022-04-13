@@ -98,8 +98,9 @@ nmap <D-Up> <C-W>k
 " Ruby
 autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
 autocmd FileType ruby map <buffer> <Leader>e oend<Esc>
-autocmd FileType ruby vmap <buffer> <Leader>e >gv<Esc>oend<Esc>
+autocmd FileType ruby vmap <buffer> <Leader>e >`>oend<Esc>
 autocmd FileType eruby map <buffer> <Leader>e o<% end %><Esc>
+autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
 autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<Esc>
 autocmd FileType ruby vmap <buffer> <Leader>i S)ip<Esc>
 autocmd FileType ruby nmap <buffer> <A-Up> ^[mw
