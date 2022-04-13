@@ -27,7 +27,6 @@ set autoread
 set noswapfile
 set undofile
 set undodir=~/.vim/undo
-set wildignore=*/tmp/*
 
 let mapleader=" "
 
@@ -48,11 +47,11 @@ endfunction
 nmap <silent> <C-P> :call <SID>files()<CR>
 nmap <C-U> :Buffers<CR>
 
-" Status bar
+" Command line and status line
 set ruler
 set showcmd
 set laststatus=2
-set wildmenu
+setglobal wildmenu wildmode=longest:full,full
 
 " Folds
 set foldlevelstart=99
