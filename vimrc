@@ -9,10 +9,6 @@ set nocompatible
 filetype plugin indent on
 
 " General
-set tabstop=4
-set shiftwidth=0
-set shiftround
-set smarttab
 set autoindent
 set smartindent
 set number
@@ -95,6 +91,9 @@ nmap <D-Right> <C-W>l
 nmap <D-Down> <C-W>j
 nmap <D-Up> <C-W>k
 
+" Indent with two spaces
+autocmd FileType json,vim setlocal expandtab shiftwidth=2
+
 " Ruby
 autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
 autocmd FileType ruby map <buffer> <Leader>e oend<Esc>
@@ -120,9 +119,6 @@ autocmd FileType gitcommit startinsert
 nmap <leader>G :e <C-R>=trim(system("git rev-parse --git-dir"))<CR>/index<CR>
 nmap <leader>g :G<Space>
 nmap <leader>l :G blame<CR>
-
-" JSON
-autocmd FileType json setlocal expandtab shiftwidth=2
 
 " GitHub
 nmap <leader>b :GBrowse<CR>
