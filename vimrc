@@ -7,6 +7,7 @@ augroup end
 
 set nocompatible
 filetype plugin indent on
+syntax on
 
 " General
 set autoindent
