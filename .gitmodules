@@ -1,6 +1,3 @@
-[submodule "vim/pack/bundle/start/Align"]
-	path = vim/pack/bundle/start/Align
-	url = https://github.com/vim-scripts/Align.git
 [submodule "vim/pack/bundle/start/abolish.vim"]
 	path = vim/pack/bundle/start/abolish.vim
 	url = https://github.com/tpope/vim-abolish.git
@@ -85,3 +82,6 @@
 [submodule "vim/pack/bundle/start/vinegar.vim"]
 	path = vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/pack/bundle/start/vim-easy-align"]
+	path = vim/pack/bundle/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git

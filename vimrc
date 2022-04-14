@@ -172,8 +172,11 @@ packadd cfilter
 
 " Prevent menus
 let g:solarized_menu=0
-let g:DrChipTopLvlMenu = "" " Align
 let g:netrw_menu = 0
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
