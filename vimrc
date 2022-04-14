@@ -14,6 +14,7 @@ set smartindent
 set number
 set ignorecase
 set smartcase
+set tabstop=4
 set colorcolumn=121
 set relativenumber
 set signcolumn=number
