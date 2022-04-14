@@ -46,8 +46,8 @@ function s:files()
 		:GFiles
 	endif
 endfunction
-nmap <silent> <C-P> :call <SID>files()<CR>
-nmap <C-U> :Buffers<CR>
+nmap <C-P> <Cmd>call <SID>files()<CR>
+nmap <C-U> <Cmd>Buffers<CR>
 
 " Command line and status line
 set ruler
@@ -74,13 +74,13 @@ set splitright
 set splitbelow
 nmap <Leader><Leader> <C-^>
 
-nmap <Leader>v :vsplit<CR>
-nmap <Leader>s :split<CR>
+nmap <Leader>v <Cmd>vsplit<CR>
+nmap <Leader>s <Cmd>split<CR>
 
-nmap H :tabprevious<CR>
-nmap L :tabnext<CR>
-nmap <S-D-Left> :tabprevious<CR>
-nmap <S-D-Right> :tabnext<CR>
+nmap H <Cmd>tabprevious<CR>
+nmap L <Cmd>tabnext<CR>
+nmap <S-D-Left> <Cmd>tabprevious<CR>
+nmap <S-D-Right> <Cmd>tabnext<CR>
 
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
@@ -119,12 +119,12 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit startinsert
 nmap <leader>G :e <C-R>=trim(system("git rev-parse --git-dir"))<CR>/index<CR>
 nmap <leader>g :G<Space>
-nmap <leader>l :G blame<CR>
+nmap <leader>l <Cmd>G blame<CR>
 
 " GitHub
-nmap <leader>b :GBrowse<CR>
+nmap <leader>b <Cmd>GBrowse<CR>
 vmap <leader>b :GBrowse!<CR>
-vmap <leader>B :GBrowse<CR>
+vmap <leader>B <Cmd>GBrowse<CR>
 
 " Mappings
 nmap <D-F> :Ag<Space>
@@ -133,7 +133,7 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 xnoremap . :normal.<CR>
-nmap _ :Switch<CR>
+nmap _ <Cmd>Switch<CR>
 "" copy file path
 nmap <leader>f :let @+=@%<CR>:echo "<C-R>+"<CR>
 vmap <leader>f :<C-U>let @+="<C-R>=expand("%").":".expand(line("v"))<CR>"<CR>:echo "<C-R>+"<CR>
@@ -143,9 +143,9 @@ nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 " vim-test
 let test#strategy = "terminal"
 let g:test#preserve_screen = 1
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>r :TestLast<CR>
+nmap <silent> <leader>t <Cmd>TestNearest<CR>
+nmap <silent> <leader>T <Cmd>TestFile<CR>
+nmap <silent> <leader>r <Cmd>TestLast<CR>
 
 " Syntastic
 let g:syntastic_auto_loc_list = 1
