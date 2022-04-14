@@ -5,63 +5,55 @@ augroup Reload|autocmd!
         \ redraw | echo "vimrc reloaded"
 augroup end
 
-set nocompatible
+setglobal nocompatible
 filetype plugin indent on
 syntax on
 
 " General
-set autoindent
-set smartindent
-set number
-set ignorecase
-set smartcase
 set tabstop=4
+set number relativenumber signcolumn=number
+setglobal ignorecase smartcase
+setglobal shiftround autoindent smartindent
 set colorcolumn=121
-set relativenumber
-set signcolumn=number
 augroup cursorline|autocmd!
   autocmd BufEnter,WinEnter * setlocal cursorline
   autocmd WinLeave *          setlocal nocursorline
 augroup end
 
 " Files
-set autoread
+setglobal autoread
 set noswapfile
-set undofile
-set undodir=~/.vim/undo
+set undofile undodir=~/.vim/undo
 
 let mapleader=" "
 
 " Search
-set hlsearch
-set incsearch
+setglobal hlsearch
+setglobal incsearch
 nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
 vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 let &runtimepath.="," . ($HOMEBREW_PREFIX ?? "/usr/local") . "/opt/fzf"
 function s:files()
-	if empty(FugitiveGitDir())
-		:Files
-	else
-		:GFiles
-	endif
+  if empty(FugitiveGitDir())
+    :Files
+  else
+    :GFiles
+  endif
 endfunction
 nmap <C-P> <Cmd>call <SID>files()<CR>
 nmap <C-U> <Cmd>Buffers<CR>
 
 " Command line and status line
-set ruler
-set showcmd
-set laststatus=2
+setglobal ruler showcmd
+setglobal laststatus=2
 setglobal wildmenu wildmode=longest:full,full
 
 " Folds
-set foldlevelstart=99
-set foldmethod=syntax
+set foldlevelstart=99 foldmethod=syntax
 
 " Show unwanted chars
-set listchars=tab:›\ ,trail:·,nbsp:·,precedes:«,extends:»
-set list
+set list listchars=tab:›\ ,trail:·,nbsp:·,precedes:«,extends:»
 
 " Consistency
 nmap Y y$
@@ -70,8 +62,7 @@ nmap Y y$
 inoremap <CR> <C-G>u<CR>
 
 " Tab & Windows nav
-set splitright
-set splitbelow
+setglobal splitright splitbelow
 nmap <Leader><Leader> <C-^>
 
 nmap <Leader>v <Cmd>vsplit<CR>
@@ -96,17 +87,17 @@ nmap <D-Up> <C-W>k
 autocmd FileType json,vim setlocal expandtab shiftwidth=2
 
 " Ruby
-autocmd FileType ruby setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
-autocmd FileType ruby map <buffer> <Leader>e oend<Esc>
-autocmd FileType ruby vmap <buffer> <Leader>e >`>oend<Esc>
-autocmd FileType eruby map <buffer> <Leader>e o<% end %><Esc>
+autocmd FileType ruby  setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
+autocmd FileType ruby  nmap <buffer> <Leader>e oend<Esc>
+autocmd FileType ruby  vmap <buffer> <Leader>e >`>oend<Esc>
+autocmd FileType eruby nmap <buffer> <Leader>e o<% end %><Esc>
 autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
-autocmd FileType ruby nmap <buffer> <Leader>i i.inspect<Esc>
-autocmd FileType ruby vmap <buffer> <Leader>i S)ip<Esc>
-autocmd FileType ruby nmap <buffer> <A-Up> ^[mw
-autocmd FileType ruby nmap <buffer> <A-Down> ]mw
-autocmd FileType ruby nmap <buffer> <S-A-Up> ^[[w
-autocmd FileType ruby nmap <buffer> <S-A-Down> ]]w
+autocmd FileType ruby  nmap <buffer> <Leader>i i.inspect<Esc>
+autocmd FileType ruby  vmap <buffer> <Leader>i S)ip<Esc>
+autocmd FileType ruby  nmap <buffer> <A-Up> ^[mw
+autocmd FileType ruby  nmap <buffer> <A-Down> ]mw
+autocmd FileType ruby  nmap <buffer> <S-A-Up> ^[[w
+autocmd FileType ruby  nmap <buffer> <S-A-Down> ]]w
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
 
