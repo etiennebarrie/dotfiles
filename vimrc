@@ -90,6 +90,8 @@ autocmd FileType json,vim setlocal expandtab shiftwidth=2
 autocmd FileType ruby  setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
 autocmd FileType ruby  nmap <buffer> <Leader>e oend<Esc>
 autocmd FileType ruby  vmap <buffer> <Leader>e >`>oend<Esc>
+autocmd FileType ruby  nmap <buffer> <Leader>d odebugger<Esc>
+autocmd FileType ruby  nmap <buffer> <Leader>D Odebugger<Esc>
 autocmd FileType eruby nmap <buffer> <Leader>e o<% end %><Esc>
 autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
 autocmd FileType ruby  nmap <buffer> <Leader>i i.inspect<Esc>
