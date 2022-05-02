@@ -137,9 +137,9 @@ nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 " vim-test
 let test#strategy = "terminal"
 let g:test#preserve_screen = 1
-nmap <silent> <leader>t <Cmd>TestNearest<CR>
-nmap <silent> <leader>T <Cmd>TestFile<CR>
-nmap <silent> <leader>r <Cmd>TestLast<CR>
+nmap <leader>t <Cmd>TestNearest<CR>
+nmap <leader>T <Cmd>TestFile<CR>
+nmap <leader>r <Cmd>TestLast<CR>
 
 " Syntastic
 let g:syntastic_auto_loc_list = 1
