@@ -56,7 +56,9 @@ demo() {
 	fi
 }
 clone() {
-	eval "$(env clone "$@")"
+	local string
+	string=$(env clone "$@") || return $?
+	eval "$string"
 }
 
 setenv() {
