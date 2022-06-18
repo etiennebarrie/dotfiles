@@ -1,0 +1,8 @@
+#!/bin/sh
+
+git ls-files --cached --others --exclude-standard | entr -ccd "$@"
+if [ $? -eq 2 ]; then
+	exec "$0" "$@"
+else
+	exit $?
+fi

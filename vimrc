@@ -24,6 +24,7 @@ augroup end
 setglobal autoread
 set noswapfile
 set undofile undodir=~/.vim/undo
+set nowritebackup
 
 let mapleader=" "
 
