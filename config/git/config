@@ -69,6 +69,7 @@
 	templateDir = ~/.config/git/template
 [push]
 	default = upstream
+	useForceIfIncludes = true
 [merge]
 	ff = false
 	tool = vimdiff
