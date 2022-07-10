@@ -1,0 +1,68 @@
+#!/usr/bin/env -S ruby --disable-all
+require "json"
+
+if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
+  context_option = ARGV.delete_at(context_index)
+  _, context = context_option.split("=", 2)
+  context ||= ARGV.delete_at(context_index)
+end
+
+commit = ARGV.shift || "@{u}"
+commit = %x(git rev-parse --verify --end-of-options "#{commit}").chomp
+exit(false) unless Process.last_status.success?
+
+statuses_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/status)
+exit(false) unless Process.last_status.success?
+check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/check-runs)
+exit(false) unless Process.last_status.success?
+
+statuses = JSON.parse(statuses_json, symbolize_names: true).fetch(:statuses)
+statuses += JSON.parse(check_runs_json, symbolize_names: true).fetch(:check_runs)
+  .map do |check_run|
+    check_run => status:, conclusion:, name:, html_url:
+    {
+      state: status == "completed" ? conclusion : "pending",
+      context: name,
+      target_url: html_url,
+    }
+  end
+
+def symbol_color(state)
+  case state
+  when "success"
+    symbol = "✔︎"
+    color = 32
+  when "failure", "error", "action_required", "cancelled", "timed_out"
+    symbol = "✖︎"
+    color = 31
+  when "neutral"
+    symbol = "◦"
+    color = 30
+  when "pending"
+    symbol = "●"
+    color = 33
+  end
+  if @tty
+    "\033[#{color}m#{symbol}\033[m"
+  else
+    state
+  end
+end
+
+@tty = $stdout.tty?
+
+if context
+  status = statuses.detect { _1[:context] == context }
+  abort "no status with context or check run with name: #{context.inspect}" unless status
+  puts status.fetch(:target_url)
+else
+  context_length = statuses.map { _1[:context].size }.max
+  statuses.each do |status|
+    status => state:, context:, target_url:
+    puts [
+      symbol_color(state),
+      context.then { @tty ? _1.ljust(context_length) : _1 },
+      target_url,
+    ].join("\t")
+  end
+end
