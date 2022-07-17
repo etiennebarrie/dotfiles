@@ -1,16 +1,11 @@
-#!/usr/bin/env ruby --disable-all
-
-def config(*path)
-  require "pathname"
-  require "yaml"
-  config_home = Pathname ENV.fetch("XDG_CONFIG_HOME", ENV["HOME"] + "/.config")
-  YAML.load_file config_home.join(*path)
-rescue
-end
+#!/usr/bin/env -S ruby --disable-all
 
 def default_owner
-  config("gh/hosts.yml")&.dig("github.com", "user") ||
-    config("hub")&.dig("github.com", 0, "user")
+  %w[pathname yaml].each { require _1 }
+  config_home = Pathname ENV.fetch "XDG_CONFIG_HOME", ENV["HOME"] + "/.config"
+  config = YAML.load_file config_home.join "gh/hosts.yml"
+  config&.dig "github.com", "user"
+rescue SystemCallError
 end
 
 def usage

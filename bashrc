@@ -43,7 +43,6 @@ c() {
 		bin/rails console "$@"
 	fi
 }
-ci() { hub ci-status --verbose "${1:-@{upstream\}}"; }
 demo() {
 	if [ "$OLD_PS1$OLD_PS2" ]; then
 		PS1="$OLD_PS1"
