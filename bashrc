@@ -86,6 +86,8 @@ setenv() {
 
 HISTSIZE=10000
 HISTCONTROL='ignoreboth:erasedups'
+HISTIGNORE='git ci *:git co *:git pull:git s*:m *'
+
 shopt -s histappend
 export LESS=FRXx4
 tabs -4
