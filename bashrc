@@ -63,6 +63,9 @@ commit() {
 	git add .
 	git commit --all --message "$ $(history 2 | head -1 | cut -d ' ' -f 4-)"
 }
+io() {
+	"$@" 2> >(sed 's/^/err: /') > >(sed 's/^/out: /')
+}
 
 setenv() {
 	if [ -z "$NO_ENV_PS1" ]; then
