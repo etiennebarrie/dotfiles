@@ -111,7 +111,7 @@ autocmd FileType rust set makeprg=cargo\ test
 " Git
 autocmd FileType gitcommit setlocal spell formatoptions+=aq nojoinspaces
 autocmd FileType gitcommit startinsert
-autocmd FileType git nmap <buffer> <Leader>f <Cmd>let @*=expand("%:t")<CR>
+autocmd FileType git nmap <buffer> <Leader>f <Cmd>let @*=expand("%:t")<CR>:echo @*<CR>
 nmap <leader>G :e <C-R>=trim(system("git rev-parse --git-dir"))<CR>/index<CR>
 nmap <leader>g :G<Space>
 nmap <leader>l <Cmd>G blame<CR>
