@@ -134,6 +134,8 @@ nmap <leader>f :let @+=@%<CR>:echo "<C-R>+"<CR>
 vmap <leader>f :<C-U>let @+="<C-R>=expand("%").":".expand(line("v"))<CR>"<CR>:echo "<C-R>+"<CR>
 "" cd in current file directory, allow to edit
 nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
+"" turns :E into :e
+cabbrev E e
 
 " vim-test
 let test#strategy = "terminal"
