@@ -61,7 +61,8 @@ clone() {
 }
 commit() {
 	git add .
-	git commit --all --message "$ $(history 2 | head -1 | cut -d ' ' -f 4-)"
+	# shellcheck disable=SC2016
+	git commit --all --message "$ $(history 2 | head -1 | ruby --disable-all -ne 'puts $_.split(" ", 2).last')"
 }
 io() {
 	"$@" 2> >(sed 's/^/err: /') > >(sed 's/^/out: /')
