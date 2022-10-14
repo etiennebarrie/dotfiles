@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby -S --disable-all
 
 require "pathname"
 git_dir = `git rev-parse --git-dir`
@@ -10,20 +10,20 @@ top_level = Pathname(`git rev-parse --show-toplevel`.chomp)
 abort unless Process.last_status.success?
 
 require "yaml"
-ci = Pathname.glob(top_level.join(".github/workflows/*.yml")).first
-
-commands = YAML.load_file(ci)["jobs"].flat_map do |_,job|
-  job["steps"].filter_map { |step| step["run"] }
-end if ci
-
-commands ||= if top_level.join("Rakefile").exist?
-  ["bundle exec rake"].tap do
-    $stderr.puts "Rakefile present, using `#{_1.first}`."
+commands = Pathname.glob(top_level.join(".github/workflows/*.yml")).flat_map do |workflow|
+  YAML.load_file(workflow)["jobs"].flat_map do |_, job|
+    job["steps"].filter_map { |step| step["run"] }
   end
+    .prepend("", "# #{workflow.basename(".yml")}")
 end
 
-abort "No test command found." unless commands
+if commands.empty? && top_level.join("Rakefile").exist?
+  commands = ["bundle exec rake"]
+  $stderr.puts "Rakefile present, using `#{commands.first}`."
+end
 
-git_test.write(["#!/bin/sh", "", "set -ex", "", *commands].flat_map { [_1, "\n"] }.join)
+abort "No test command found." unless commands.any?
+
+git_test.write(["#!/bin/sh", "", "set -ex", *commands].flat_map { [_1, "\n"] }.join)
 git_test.chmod(git_test.stat.mode + 0o100) # u+x
 exec "$EDITOR #{git_test}"
