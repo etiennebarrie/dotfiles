@@ -85,9 +85,9 @@ setenv() {
 	export "${@?}"
 }
 
-HISTSIZE=10000
+HISTSIZE=100000
 HISTCONTROL='ignoreboth:erasedups'
-HISTIGNORE='git ci *:git co *:git pull:git s*:m *'
+HISTIGNORE='git ci *:git co *:git pf:git pull:git s*:m *'
 
 shopt -s histappend
 export LESS=FRXx4
