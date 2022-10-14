@@ -159,7 +159,8 @@ let g:syntastic_warning_symbol = "✘"
 " TextMate Enter
 imap <D-CR> <Esc><D-CR>
 imap <S-D-CR> <Esc>O
-map <D-CR> A<CR>
+nmap <D-CR> A<CR>
+nmap <S-D-CR> kA<CR>
 
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
