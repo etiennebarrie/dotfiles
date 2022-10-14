@@ -68,6 +68,7 @@
 	defaultBranch = main
 	templateDir = ~/.config/git/template
 [push]
+	autoSetupRemote = true
 	default = upstream
 	useForceIfIncludes = true
 [merge]
