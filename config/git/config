@@ -55,6 +55,8 @@
 [fetch]
 	parallel = 0
 	prune = true
+[format]
+	pretty = fuller
 [tag]
 	sort = version:refname
 [versionsort]
