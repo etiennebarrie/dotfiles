@@ -116,6 +116,9 @@ nmap <leader>G :e <C-R>=trim(system("git rev-parse --git-dir"))<CR>/index<CR>
 nmap <leader>g :G<Space>
 nmap <leader>l <Cmd>G blame<CR>
 
+" Markdown
+autocmd FileType markdown setlocal wrap linebreak
+
 " GitHub
 nmap <leader>b <Cmd>GBrowse<CR>
 vmap <leader>b :GBrowse!<CR>
