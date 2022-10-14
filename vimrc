@@ -180,6 +180,16 @@ let g:netrw_menu = 0
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+function s:gitVimrc()
+  let s:gitDir = FugitiveGitDir()
+  if !empty(s:gitDir) && filereadable(s:gitDir . '/vimrc')
+    execute "source" s:gitDir . '/vimrc'
+  endif
+endfunction
+augroup ProjectSpecific|autocmd!
+  autocmd! BufReadPost,BufNewFile * call <SID>gitVimrc()
+augroup end
+
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
   source ~/.vim/local.vimrc
