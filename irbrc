@@ -5,4 +5,32 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history"
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
+module HashInspectWithDefault
+  def inspect
+    if default
+      "#<Hash default=#{default.inspect} #{super}>"
+    elsif default_proc
+      "#<Hash default_proc=#{default_proc.inspect} #{super}>"
+    else
+      super
+    end
+  end
+
+  def pretty_print(pp)
+    return super unless default || default_proc
+    pp.object_group(self) do
+      pp.breakable
+      pp.text default ? "default" : "default_proc"
+      pp.text "="
+      pp.group(1) do
+        pp.breakable ""
+        pp.pp default ? default : default_proc
+      end
+      pp.breakable
+      super
+    end
+  end
+end
+Hash.prepend(HashInspectWithDefault)
+
 def o(&block) Object.new.tap {|o| o.instance_eval(&block) if block_given? } end
