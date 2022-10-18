@@ -147,14 +147,16 @@ nmap <leader>t <Cmd>TestNearest<CR>
 nmap <leader>T <Cmd>TestFile<CR>
 nmap <leader>r <Cmd>TestLast<CR>
 
-" Syntastic
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "✘"
+" ALE
+let g:ale_linters = {
+\ 'ruby': ['ruby'],
+\}
+let g:ale_fixers = {
+\ 'ruby': ['rubocop'],
+\}
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✘'
 
 " TextMate Enter
 imap <D-CR> <Esc><D-CR>
