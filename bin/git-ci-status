@@ -19,7 +19,7 @@ exit(false) unless Process.last_status.success?
 statuses = JSON.parse(statuses_json, symbolize_names: true).fetch(:statuses)
 statuses += JSON.parse(check_runs_json, symbolize_names: true).fetch(:check_runs)
   .map do |check_run|
-    check_run => status:, conclusion:, name:, html_url:
+    check_run => { status:, conclusion:, name:, html_url: }
     {
       state: status == "completed" ? conclusion : "pending",
       context: name,
@@ -35,12 +35,14 @@ def symbol_color(state)
   when "failure", "error", "action_required", "cancelled", "timed_out"
     symbol = "✖︎"
     color = 31
+    @exit_status = 1
   when "neutral"
     symbol = "◦"
     color = 30
   when "pending"
     symbol = "●"
     color = 33
+    @exit_status = 2
   end
   if @tty
     "\033[#{color}m#{symbol}\033[m"
@@ -50,6 +52,7 @@ def symbol_color(state)
 end
 
 @tty = $stdout.tty?
+@exit_status = 0
 
 if context
   status = statuses.detect { _1[:context] == context }
@@ -58,7 +61,7 @@ if context
 else
   context_length = statuses.map { _1[:context].size }.max
   statuses.each do |status|
-    status => state:, context:, target_url:
+    status => { state:, context:, target_url: }
     puts [
       symbol_color(state),
       context.then { @tty ? _1.ljust(context_length) : _1 },
@@ -66,3 +69,5 @@ else
     ].join("\t")
   end
 end
+
+exit(@exit_status)
