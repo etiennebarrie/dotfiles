@@ -79,7 +79,7 @@ while read -r _ local_sha remote_ref _; do
 		fi
 
 		if [ $return_status ]; then
-			>&2 echo -e "$red$0: $yellow$test ${red}failed with exit code $yellow$return_status$red$clear"
+			>&2 echo -e "$red$0: $yellow$test ${red}failed with exit code $yellow$return_status$red$clear\a"
 			exit $return_status
 		fi
 	fi
