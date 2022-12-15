@@ -22,6 +22,12 @@ else
 	fi
 fi
 
+if [ "$(uname -s)" = Darwin ] && ! grep --quiet -F pam_tid.so /etc/pam.d/sudo; then
+	sudo sed -i '' -e '1 { a\
+		auth       sufficient     pam_tid.so
+	}' /etc/pam.d/sudo
+fi
+
 if [ "$PWD" != ~/.dotfiles ]; then
 	echo "DOTFILES_DIRS=$PWD" >> rcrc
 fi
