@@ -109,6 +109,9 @@
 	ui = auto row dense
 [log]
 	date = iso
+[blame]
+	markIgnoredLines = true
+	markUnblamableLines = true
 [protocol]
 	version = 2
 [core]
