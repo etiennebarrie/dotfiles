@@ -25,13 +25,28 @@ mkdird() {
 }
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc'
 o() { open "${@:-.}"; }
+
 m() {
-	if [ $# -ne 0 ] && [ -d "$1" ]; then
-		mvim "${@:-.}" "+cd $1";
+	if [ $# -ne 0 ]; then
+		local dir IFS=:
+		for dir in $CDPATH; do
+			dir="$dir/$1"
+			if [ -d "$dir" ]; then
+				shift
+				mvim "$dir" "$@" "+cd %";
+				return
+			fi
+		done
+		if [ -d "$1" ]; then
+			set -- "$@" "+cd %"
+		fi
+		mvim "$@"
 	else
-		mvim "${@:-.}";
+		mvim .;
 	fi
 }
+complete -o bashdefault -o default -o nospace -F _cd m
+
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 alias vi=vim
 alias cat=bat
