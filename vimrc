@@ -1,7 +1,7 @@
 " Reload on save
 augroup Reload|autocmd!
   autocmd BufWritePost {,.,g,.g}vimrc
-        \ source $MYVIMRC | source $MYGVIMRC |
+        \ source $MYVIMRC | source $MYGVIMRC | nohlsearch |
         \ redraw | echo "vimrc reloaded"
 augroup end
 
@@ -31,7 +31,7 @@ let mapleader=" "
 " Search
 setglobal hlsearch
 setglobal incsearch
-nnoremap <silent> <Esc><Esc> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<Bar>:echo<CR>
 vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 let &runtimepath.="," . ($HOMEBREW_PREFIX ?? "/usr/local") . "/opt/fzf"
