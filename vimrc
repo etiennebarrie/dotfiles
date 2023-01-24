@@ -139,6 +139,9 @@ vmap <leader>f :<C-U>let @+=expand("%").":".line("v")<CR>:echo @+<CR>
 nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 "" turns :E into :e
 cabbrev E e
+"" don't clobber unnamed register content when pasting in visual mode, P to swap
+vnoremap p P
+vnoremap P p
 
 " vim-test
 let test#strategy = "terminal"
