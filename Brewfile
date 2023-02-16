@@ -1,8 +1,6 @@
 # vim: set ft=ruby
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 
 brew "bash"
@@ -33,7 +31,6 @@ brew "youtube-dl"
 
 cask "dash"
 cask "docker"
-cask "firefox"
 cask "font-sf-mono"
 cask "maccy"
 cask "macvim"
