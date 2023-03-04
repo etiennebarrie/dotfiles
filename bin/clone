@@ -16,7 +16,7 @@ end
 
 usage if ARGV.size != 1
 
-owner, name, *rest = ARGV.first.delete_prefix("https://github.com/").split("/", 3)
+owner, name, *rest = ARGV.first.chomp("/").delete_prefix("https://github.com/").split("/", 3)
 owner, name = default_owner, owner unless name
 
 usage unless rest.empty?
