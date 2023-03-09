@@ -97,8 +97,8 @@
 	mnemonicPrefix = true
 	renames = true
 [rebase]
-	autosquash = true
-	autostash = true
+	autoSquash = true
+	autoStash = true
 	updateRefs = true
 	rescheduleFailedExec = true
 [help]
