@@ -1,0 +1,1 @@
+_git_ci_status() { __git_complete_revlist; }
