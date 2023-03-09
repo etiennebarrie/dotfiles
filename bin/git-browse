@@ -10,6 +10,10 @@ remote_url = %x(git remote get-url "#{remote}").chomp
 url = "#{remote_url.delete_suffix(".git")}"
 
 if upstream != "main"
-  url += "/pull/#{upstream}"
+  if ARGV.first == "--new"
+    url += "/pull/new/#{upstream}"
+  else
+    url += "/pull/#{upstream}"
+  end
 end
 exec "open", url
