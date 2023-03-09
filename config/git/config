@@ -99,6 +99,7 @@
 [rebase]
 	autosquash = true
 	autostash = true
+	updateRefs = true
 	rescheduleFailedExec = true
 [help]
 	autoCorrect = prompt
