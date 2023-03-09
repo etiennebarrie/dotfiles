@@ -36,7 +36,7 @@
 	ra = rebase --abort
 	rc = -c core.editor=true rebase --continue
 	ri = "!git rebase --interactive `git base`"
-	rii = "!GIT_EDITOR=true git ri"
+	rii = -c sequence.editor=true ri
 	ro = rebase --onto
 	rom = rebase origin/HEAD
 	rr = "!f() { git rebase `git base` --exec \"$*\"; }; f"
