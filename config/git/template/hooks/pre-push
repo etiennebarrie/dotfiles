@@ -41,6 +41,15 @@ p() { >&2 echo "$PS4$*"; "$@"; }
 
 stashed=
 return_status=
+test="$(git rev-parse --git-dir)/test"
+x_test=
+run_test=
+if [ -x "$test" ]; then
+	x_test=t
+	if [ ! -h "$test" ] || [ "$(readlink "$test")" != /usr/bin/true ]; then
+		run_test=t
+	fi
+fi
 
 # while read -r local_ref local_sha remote_ref remote_sha; do
 while read -r _ local_sha remote_ref _; do
@@ -52,16 +61,17 @@ while read -r _ local_sha remote_ref _; do
 		>&2 echo -e "$red$0: cannot test SHA that is not checked out, run tests manually and use --no-verify"
 		exit 1
 	else
-		if  [ "$(git status --porcelain | wc -l)" -ne 0 ]; then
+		if  [ $run_test ] && [ "$(git status --porcelain | wc -l)" -ne 0 ]; then
 			stashed=t
 			p git stash --include-untracked --quiet
 		fi
 
-		test="$(git rev-parse --git-dir)/test"
-		if [ -x "$test" ]; then
+		if [ $x_test ]; then
 			>&2 "$test" || return_status=$?
 		else
-			>&2 echo -e "$yellow$0: No tests! Make $bold_yellow$test$yellow an executable command to run tests before pushing.$clear"
+			>&2 echo -e "$yellow$0: No tests!"\
+				"Make $bold_yellow$test$yellow an executable command to run tests before pushing."\
+				"Use \`${bold_yellow}git setup-ci$yellow\` or \`${bold_yellow}ln -s /usr/bin/true $test$yellow\`.$clear"
 		fi
 
 		if [ $stashed ]; then
