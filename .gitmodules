@@ -4,6 +4,9 @@
 [submodule "vim/pack/bundle/start/ag.vim"]
 	path = vim/pack/bundle/start/ag.vim
 	url = https://github.com/rking/ag.vim.git
+[submodule "vim/pack/bundle/start/ale"]
+	path = vim/pack/bundle/start/ale
+	url = https://github.com/dense-analysis/ale.git
 [submodule "vim/pack/bundle/start/auto-pairs"]
 	path = vim/pack/bundle/start/auto-pairs
 	url = https://github.com/eapache/auto-pairs.git
@@ -34,6 +37,9 @@
 [submodule "vim/pack/bundle/start/rake.vim"]
 	path = vim/pack/bundle/start/rake.vim
 	url = https://github.com/tpope/vim-rake.git
+[submodule "vim/pack/bundle/start/repeat.vim"]
+	path = vim/pack/bundle/start/repeat.vim
+	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/pack/bundle/start/rhubarb.vim"]
 	path = vim/pack/bundle/start/rhubarb.vim
 	url = https://github.com/tpope/vim-rhubarb.git
@@ -61,6 +67,9 @@
 [submodule "vim/pack/bundle/start/vim-coffee-script"]
 	path = vim/pack/bundle/start/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/pack/bundle/start/vim-easy-align"]
+	path = vim/pack/bundle/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "vim/pack/bundle/start/vim-fetch"]
 	path = vim/pack/bundle/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch.git
@@ -79,9 +88,3 @@
 [submodule "vim/pack/bundle/start/vinegar.vim"]
 	path = vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "vim/pack/bundle/start/vim-easy-align"]
-	path = vim/pack/bundle/start/vim-easy-align
-	url = https://github.com/junegunn/vim-easy-align.git
-[submodule "vim/pack/bundle/start/ale"]
-	path = vim/pack/bundle/start/ale
-	url = https://github.com/dense-analysis/ale.git
