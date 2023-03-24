@@ -21,4 +21,6 @@ else
 	export EDITOR=vim
 fi
 
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep
+
 source ~/.bashrc
