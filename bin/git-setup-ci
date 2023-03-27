@@ -12,7 +12,8 @@ abort unless Process.last_status.success?
 require "yaml"
 commands = Pathname.glob(top_level.join(".github/workflows/*.yml")).flat_map do |workflow|
   YAML.load_file(workflow)["jobs"].flat_map do |_, job|
-    job["steps"].filter_map { |step| step["run"] }
+    next unless steps = job["steps"]
+    steps.filter_map { |step| step["run"] }
   end
     .prepend("", "# #{workflow.basename(".yml")}")
 end
