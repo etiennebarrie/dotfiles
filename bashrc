@@ -28,22 +28,21 @@ o() { open "${@:-.}"; }
 
 m() {
 	if [ $# -ne 0 ]; then
-		local dir IFS=:
-		for dir in $CDPATH; do
-			dir="$dir/$1"
-			if [ -d "$dir" ]; then
-				shift
-				mvim "$dir" "$@" "+cd %";
-				return
+		local d dir="$1" IFS=: p
+		shift
+		if [[ "$dir" = /* ]]; then
+			 mvim "$dir" "+cd $dir" "$@"; return
+		fi
+		for p in $CDPATH; do
+			d="$p"/"$dir"
+			if [ -d "$d" ]; then
+				mvim "$d" "+cd $d" "$@"; return
 			fi
 		done
-		if [ -d "$1" ]; then
-			set -- "$@" "+cd %"
-		fi
-		mvim "$@"
-	else
-		mvim .;
+		set -- "$dir" "$@"
+		mvim "$@"; return
 	fi
+	mvim "${@:-.}"
 }
 complete -o bashdefault -o default -o nospace -F _cd m
 
