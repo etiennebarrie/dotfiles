@@ -1,3 +1,0 @@
-SYMLINK_DIRS=vim/pack/bundle
-EXCLUDES="Brewfile* setup"
-UNDOTTED=bin

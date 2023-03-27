@@ -1,6 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
-set -xeuo pipefail
+set -xeu
+
+GIT_DIR=$(git rev-parse --absolute-git-dir 2>/dev/null || echo ~/.dotfiles.git)
+export GIT_DIR
+
+if ! git config --local core.worktree >/dev/null; then
+	[ "${GIT_DIR:-}" != ~/.dotfiles.git ] && mv "$GIT_DIR" ~/.dotfiles.git
+	git --git-dir ~/.dotfiles.git --work-tree ~ checkout @ ~
+	PATH=~/bin:$PATH
+
+	dotfiles config core.worktree ~
+	dotfiles config status.showUntrackedFiles no
+	dotfiles config status.relativePaths false
+	dotfiles config alias.update '!git pull && ./setup'
+fi
+
+mkdir -p ~/.config/git/template/hooks
+ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
 if type brew >/dev/null 2>&1; then
 	brew bundle --no-lock
@@ -8,14 +25,6 @@ else
 	if [ "$(uname -s)" = Darwin ]; then
 		open https://brew.sh
 		exit 1
-	fi
-	if ! type rcup >/dev/null 2>&1; then
-		if [ "$(lsb_release --id --short)" = Debian ]; then
-			wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
-			echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
-			sudo apt-get update
-		fi
-		sudo apt-get install rcm --option DPkg::Lock::Timeout=60
 	fi
 	if [ ! -r /usr/share/bash-completion/bash_completion ]; then
 		sudo apt-get install bash-completion --option DPkg::Lock::Timeout=60
@@ -27,8 +36,3 @@ if [ "$(uname -s)" = Darwin ] && ! grep --quiet -F pam_tid.so /etc/pam.d/sudo; t
 		auth       sufficient     pam_tid.so
 	}' /etc/pam.d/sudo
 fi
-
-if [ "$PWD" != ~/.dotfiles ]; then
-	echo "DOTFILES_DIRS=$PWD" >> rcrc
-fi
-RCRC=./rcrc rcup -f -v
