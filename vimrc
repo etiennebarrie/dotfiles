@@ -171,12 +171,11 @@ nmap <leader>T <Cmd>TestFile<CR>
 nmap <leader>r <Cmd>TestLast<CR>
 
 " ALE
-let g:ale_linters = {
-\ 'ruby': ['ruby'],
-\}
-let g:ale_fixers = {
-\ 'ruby': ['rubocop'],
-\}
+let g:ale_linters = {}
+let g:ale_linters.ruby = ["ruby"]
+let g:ale_linters.eruby = ["erubi"]
+let g:ale_fixers = {}
+let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✘'
