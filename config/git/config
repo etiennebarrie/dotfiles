@@ -57,7 +57,7 @@
 [format]
 	pretty = fuller
 [pretty]
-	sha = format:%H
+	sha = %H
 [tag]
 	sort = version:refname
 [versionsort]
