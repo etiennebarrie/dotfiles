@@ -152,7 +152,9 @@ xnoremap . :normal.<CR>
 nmap _ <Cmd>Switch<CR>
 "" copy file path
 nmap <leader>f :let @+=@%<CR>:echo @+<CR>
+nmap <leader>F :let @+=expand("%:p")<CR>:echo @+<CR>
 vmap <leader>f :<C-U>let @+=expand("%").":".line("v")<CR>:echo @+<CR>
+vmap <leader>F :<C-U>let @+=expand("%:p").":".line("v")<CR>:echo @+<CR>
 "" cd in current file directory, allow to edit
 nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 "" turns :E into :e
