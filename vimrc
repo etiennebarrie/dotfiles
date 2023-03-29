@@ -83,6 +83,7 @@ inoremap <CR> <C-G>u<CR>
 " Tab & Windows nav
 setglobal splitright splitbelow
 nmap <Leader><Leader> <C-^>
+autocmd VimResized * wincmd =
 
 nmap <Leader>v <Cmd>vsplit<CR>
 nmap <Leader>s <Cmd>split<CR>
