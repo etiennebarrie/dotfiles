@@ -198,6 +198,13 @@ packadd cfilter
 " Prevent menus
 let g:solarized_menu=0
 let g:netrw_menu = 0
+let g:netrw_use_errorwindow    = 0
+
+" Netrw
+augroup Netrw|autocmd!
+  autocmd FileType netrw silent! nunmap <buffer> <c-l>
+  autocmd FileType netrw nmap <buffer> <D-F> :Grep<Space>
+augroup end
 
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
