@@ -17,7 +17,7 @@ else
 		fi
 		sudo apt-get install rcm --option DPkg::Lock::Timeout=60
 	fi
-	if [ ! -d /usr/share/bash-completion ]; then
+	if [ ! -r /usr/share/bash-completion/bash_completion ]; then
 		sudo apt-get install bash-completion --option DPkg::Lock::Timeout=60
 	fi
 fi
