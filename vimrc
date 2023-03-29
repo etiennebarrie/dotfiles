@@ -33,7 +33,25 @@ setglobal hlsearch
 setglobal incsearch
 nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<Bar>:echo<CR>
 vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
+setglobal grepprg=rg\ --vimgrep
+setglobal grepformat^=%f:%n:%c:%m
 
+function! Grep(...)
+  " return system(join([&grepprg] + a:000), ' '))
+  " let s:cli = join([&grepprg] + [expandcmd(join(a:000, ' '))], ' ')
+  let s:rg_args = join(a:000) " for display
+  return system(join([&grepprg] + [s:rg_args]))
+endfunction
+command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
+command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+augroup quickfix|autocmd!
+    autocmd QuickFixCmdPost cgetexpr cwindow |
+          \ call setqflist([], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+    autocmd QuickFixCmdPost lgetexpr lwindow |
+          \ call setloclist(0, [], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+augroup end
+
+" FZF
 let &runtimepath.="," . ($HOMEBREW_PREFIX ?? "/usr/local") . "/opt/fzf"
 function s:files()
   if empty(FugitiveGitDir())
@@ -125,8 +143,8 @@ vmap <leader>b :GBrowse!<CR>
 vmap <leader>B <Cmd>GBrowse<CR>
 
 " Mappings
-nmap <D-F> :Ag<Space>
-vmap <D-F> y:Ag -F '<C-R>"'<CR>
+nmap <D-F> :Grep<Space><C-R>=expand("<cword>")<CR>
+vmap <D-F> y:Grep -F<Space>'<C-R>"'<CR>
 cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
