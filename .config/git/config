@@ -1,4 +1,3 @@
-# vim: ft=gitconfig
 [commit]
 	template = ~/.config/git/commit-template
 	verbose = true

@@ -1,6 +1,6 @@
 " Reload on save
 augroup Reload|autocmd!
-  autocmd BufWritePost {,.,g,.g}vimrc
+  autocmd BufWritePost ~/.{,g}vimrc
         \ source $MYVIMRC | source $MYGVIMRC | nohlsearch |
         \ redraw | echo "vimrc reloaded"
 augroup end
