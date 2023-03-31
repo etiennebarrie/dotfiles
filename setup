@@ -20,7 +20,7 @@ mkdir -p ~/.config/git/template/hooks
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
 if type brew >/dev/null 2>&1; then
-	brew bundle --no-lock
+	brew bundle --global --no-lock
 else
 	if [ "$(uname -s)" = Darwin ]; then
 		open https://brew.sh
