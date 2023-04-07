@@ -102,6 +102,7 @@ setenv() {
 	PS1="${PS1}${*} "
 	export "${@?}"
 }
+complete -o default setenv
 
 HISTSIZE=100000
 HISTCONTROL='ignoreboth:erasedups'
