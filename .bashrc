@@ -57,17 +57,21 @@ c() {
 		bin/rails console "$@"
 	fi
 }
+
 demo() {
-	if [ "$OLD_PS1$OLD_PS2" ]; then
+	if [ -n "$OLD_PS1$OLD_PS2$OLD_PROMPT_COMMAND" ]; then
 		PS1="$OLD_PS1"
 		PS2="$OLD_PS2"
-		unset OLD_PS1 OLD_PS2
+		PROMPT_COMMAND="$OLD_PROMPT_COMMAND"
+		unset OLD_PS1 OLD_PS2 OLD_PROMPT_COMMAND
 	else
 		OLD_PS1="$PS1"
 		OLD_PS2="$PS2"
-		PS1="\$ " PS2=""
+		OLD_PROMPT_COMMAND="$PROMPT_COMMAND"
+		PS1="\$ " PS2="" PROMPT_COMMAND=""
 	fi
 }
+
 clone() {
 	local string
 	string=$(env clone "$@") || return $?
