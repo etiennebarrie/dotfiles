@@ -1,8 +1,10 @@
 #!/usr/bin/env -S ruby --disable-all
 
+class String def ~()= "#{ENV["HOME"]}/#{self.delete_prefix "/"}" end
+
 def default_owner
   %w[pathname yaml].each { require _1 }
-  config_home = Pathname ENV.fetch "XDG_CONFIG_HOME", ENV["HOME"] + "/.config"
+  config_home = Pathname ENV.fetch "XDG_CONFIG_HOME", ~"/.config"
   config = YAML.load_file config_home.join "gh/hosts.yml"
   config&.dig "github.com", "user"
 rescue SystemCallError
@@ -21,9 +23,11 @@ owner, name = default_owner, owner unless name
 
 usage unless rest.empty?
 repo = "https://github.com/#{owner}/#{name}.git"
-path = "#{ENV["HOME"]}/src/github.com/#{owner}/#{name}"
+path = ~"/src/github.com/#{owner}/#{name}"
 
-system "git", "clone", repo, path or exit $?.exitstatus unless File.exist?(path)
-# make sure origin/HEAD is main locally
-system "git", "-C", path, "branch", "--move", "main" or exit $?.exitstatus
-puts "cd '#{path}'"
+unless File.exist?(path)
+  system "git", "clone", repo, path or exit $?.exitstatus
+  # make sure origin/HEAD is main locally
+  system "git", "-C", path, "branch", "--move", "main" or exit $?.exitstatus
+end
+puts "cd:#{path}"

@@ -73,10 +73,13 @@ demo() {
 }
 
 clone() {
-	local string
-	string=$(env clone "$@") || return $?
-	eval "$string"
+	local command
+	command=$(env clone "$@") || return $?
+	case $command in
+		(cd:*) cd "${command#cd:}" || return $?;;
+	esac
 }
+
 commit() {
 	git add .
 	# shellcheck disable=SC2016
