@@ -13,6 +13,7 @@ if ! git config --local core.worktree >/dev/null; then
 	dotfiles config core.worktree ~
 	dotfiles config status.showUntrackedFiles no
 	dotfiles config status.relativePaths false
+	dotfiles config alias.edit '!$'"{EDITOR%% *} +0G"
 	dotfiles config alias.update '!git pull && ./setup'
 fi
 
