@@ -35,6 +35,7 @@ nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<Bar>:echo<CR>
 vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 setglobal grepprg=rg\ --vimgrep
 setglobal grepformat^=%f:%n:%c:%m
+setglobal shortmess-=S shortmess+=s
 
 function! Grep(...)
   " return system(join([&grepprg] + a:000), ' '))
