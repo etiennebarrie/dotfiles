@@ -112,7 +112,7 @@ HISTCONTROL='ignoreboth:erasedups'
 HISTIGNORE='git ci *:git co *:git pf:git pull:git s*:m *'
 
 shopt -s histappend
-export LESS=FRXx4
+export LESS=FRXx4i
 tabs -4
 
 if ! type -t chruby >/dev/null && [ -d "${HOMEBREW_PREFIX:-/usr/local}/share/chruby" ]; then
