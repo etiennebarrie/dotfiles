@@ -7,9 +7,6 @@
 [submodule "vim/pack/bundle/start/ale"]
 	path = .vim/pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule "vim/pack/bundle/start/auto-pairs"]
-	path = .vim/pack/bundle/start/auto-pairs
-	url = https://github.com/eapache/auto-pairs.git
 [submodule "vim/pack/bundle/start/bundler.vim"]
 	path = .vim/pack/bundle/start/bundler.vim
 	url = https://github.com/tpope/vim-bundler.git
@@ -88,3 +85,6 @@
 [submodule "vim/pack/bundle/start/vinegar.vim"]
 	path = .vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule ".vim/pack/bundle/start/pear-tree"]
+	path = .vim/pack/bundle/start/pear-tree
+	url = https://github.com/tmsvg/pear-tree.git
