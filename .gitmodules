@@ -30,7 +30,7 @@
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/pack/bundle/start/projectionist.vim"]
 	path = .vim/pack/bundle/start/projectionist.vim
-	url = https://tpope.io/vim/projectionist.git
+	url = https://github.com/tpope/vim-projectionist.git/
 [submodule "vim/pack/bundle/start/rails.vim"]
 	path = .vim/pack/bundle/start/rails.vim
 	url = https://github.com/tpope/vim-rails.git
