@@ -8,12 +8,13 @@ if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
 end
 
 commit = ARGV.shift || "@{u}"
+abort "usage: git ci-status [--context=context] [<revision>]"unless ARGV.empty?
 commit = %x(git rev-parse --verify --end-of-options "#{commit}").chomp
 exit(false) unless Process.last_status.success?
 
-statuses_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/status)
+statuses_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/status --paginate)
 exit(false) unless Process.last_status.success?
-check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/check-runs)
+check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/check-runs --paginate)
 exit(false) unless Process.last_status.success?
 
 statuses = JSON.parse(statuses_json, symbolize_names: true).fetch(:statuses)
