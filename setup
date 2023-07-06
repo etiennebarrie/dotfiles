@@ -17,7 +17,6 @@ if ! git config --local core.worktree >/dev/null; then
 	dotfiles config alias.update '!git pull && ./setup'
 fi
 
-mkdir -p ~/.config/git/template/hooks
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
 chflags -v hidden bin src setup 2>/dev/null ||:
