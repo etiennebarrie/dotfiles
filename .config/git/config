@@ -85,6 +85,7 @@
 	recurse = true
 [branch]
 	autosetupmerge = true
+	sort = -committerdate
 [advice]
 	commitBeforeMerge = false
 	detachedHead = false
