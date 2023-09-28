@@ -33,8 +33,8 @@ else
 	fi
 fi
 
-if [ "$(uname -s)" = Darwin ] && ! grep --quiet -F pam_tid.so /etc/pam.d/sudo; then
-	sudo sed -i '' -e "$(printf '1 { a\\\n%s\n}' 'auth       sufficient     pam_tid.so')" /etc/pam.d/sudo
+if [ "$(uname -s)" = Darwin ] && ! test -f /etc/pam.d/sudo_local; then
+	sudo sh -c "echo 'auth       sufficient     pam_tid.so' >/etc/pam.d/sudo_local"
 	sudo -k
 	tccutil reset All com.apple.Terminal
 fi
