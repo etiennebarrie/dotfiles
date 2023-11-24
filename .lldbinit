@@ -1,0 +1,1 @@
+command script import ~/src/github.com/peternguyen93/lldbinit/lldbinit.py
