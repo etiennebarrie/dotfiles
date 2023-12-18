@@ -7,14 +7,11 @@ export GIT_DIR
 
 if ! git config --local core.worktree >/dev/null; then
 	[ "${GIT_DIR:-}" != ~/.dotfiles.git ] && mv "$GIT_DIR" ~/.dotfiles.git
+	git --git-dir ~/.dotfiles.git config include.path .gitconfig
 	git --git-dir ~/.dotfiles.git --work-tree ~ checkout @ ~
 	PATH=~/bin:$PATH
 
 	dotfiles config core.worktree ~
-	dotfiles config status.showUntrackedFiles no
-	dotfiles config status.relativePaths false
-	dotfiles config alias.edit '!$'"{EDITOR%% *} +0G"
-	dotfiles config alias.update '!git pull && ./setup'
 fi
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks

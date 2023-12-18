@@ -1,0 +1,6 @@
+[status]
+	showUntrackedFiles = no
+	relativePaths = false
+[alias]
+	edit = !${EDITOR%% *} +0G
+	update = !git pull && ./setup
