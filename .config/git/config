@@ -13,7 +13,7 @@
 	cip = commit --patch
 	cl = clean --force -d
 	clbr = "!f() { git fetch --prune && git branch --merged origin/HEAD | grep -v ^* | egrep -v '^  master|main$' | xargs git branch -d && for branch in `git branch -vv | grep -v ^* | awk '/: gone]/ {print $1}'`; do git branch -D $branch; done }; f"
-	co = "!f() { : checkout ; case \"$1\" in *:*) gh pr checkout \"$@\" ;; *) git checkout \"$@\" ;; esac }; f"
+	co = "!f() { : checkout ; case \"$1\" in *:*) gh pr checkout \"$@\";; *) git checkout \"$@\";; esac }; f"
 	com = checkout origin/HEAD -B main
 	cp = cherry-pick
 	cpa = cherry-pick --abort
@@ -30,7 +30,7 @@
 	pf = push --force-with-lease
 	pff = push --force-with-lease --no-verify
 	pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref; do branch=${ref#refs/heads/}; git branch -D $branch; done"
 	pushu = "!f() { : git push ; git push --set-upstream ${1:-origin} HEAD; }; f"
 	r = rebase
 	ra = rebase --abort
