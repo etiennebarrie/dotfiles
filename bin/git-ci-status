@@ -1,14 +1,19 @@
 #!/usr/bin/env -S ruby --disable-all
 require "json"
 
+def usage = abort "usage: git ci-status [--context=context] [<revision>]"
+
 if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
   context_option = ARGV.delete_at(context_index)
   _, context = context_option.split("=", 2)
-  context ||= ARGV.delete_at(context_index)
+  unless context
+    usage if context_index >= ARGV.size
+    context = ARGV.delete_at(context_index)
+  end
 end
 
 commit = ARGV.shift || "@{u}"
-abort "usage: git ci-status [--context=context] [<revision>]"unless ARGV.empty?
+usage unless ARGV.empty?
 commit = %x(git rev-parse --verify --end-of-options "#{commit}").chomp
 exit(false) unless Process.last_status.success?
 
