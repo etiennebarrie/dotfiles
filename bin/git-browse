@@ -1,9 +1,7 @@
 #!/usr/bin/env -S ruby --disable-all
 
-branch = ARGV.fetch(0) do
-  %x(git branch --show-current).chomp
-  exit(false) unless Process.last_status.success?
-end
+branch = ARGV[0] || %x(git branch --show-current).chomp
+exit(false) unless Process.last_status.success?
 
 upstream = %x(git rev-parse --abbrev-ref=strict --symbolic-full-name "#{branch}@{push}").chomp
 remote, upstream = upstream.split("/", 2)
