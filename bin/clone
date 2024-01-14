@@ -1,19 +1,18 @@
 #!/usr/bin/env -S ruby --disable-all
 
-class String def ~()= "#{ENV["HOME"]}/#{self.delete_prefix "/"}" end
+class String def ~ = "#{ENV.fetch("HOME")}/#{delete_prefix "/"}" end
 
 def default_owner
   %w[pathname yaml].each { require _1 }
-  config_home = Pathname ENV.fetch "XDG_CONFIG_HOME", ~"/.config"
-  config = YAML.load_file config_home.join "gh/hosts.yml"
+  config_home = Pathname ENV.fetch("XDG_CONFIG_HOME") { ~"/.config" }
+  config = YAML.load_file config_home/"gh/hosts.yml"
   config&.dig "github.com", "user"
-rescue SystemCallError
+rescue KeyError, SystemCallError
 end
 
 def usage
   owner_usage = default_owner ? "[owner=#{default_owner}/]" : "owner/"
-  warn "usage: #{File.basename $0} [https://github.com/]#{owner_usage}repo"
-  exit false
+  abort "usage: #{File.basename $0} [https://github.com/]#{owner_usage}repo"
 end
 
 usage if ARGV.size != 1
@@ -22,6 +21,7 @@ owner, name, *rest = ARGV.first.chomp("/").delete_prefix("https://github.com/").
 owner, name = default_owner, owner unless name
 
 usage unless rest.empty?
+
 repo = "https://github.com/#{owner}/#{name}.git"
 path = ~"/src/github.com/#{owner}/#{name}"
 
