@@ -1,9 +1,6 @@
 [submodule "vim/pack/bundle/start/abolish.vim"]
 	path = .vim/pack/bundle/start/abolish.vim
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "vim/pack/bundle/start/ag.vim"]
-	path = .vim/pack/bundle/start/ag.vim
-	url = https://github.com/rking/ag.vim.git
 [submodule "vim/pack/bundle/start/ale"]
 	path = .vim/pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
