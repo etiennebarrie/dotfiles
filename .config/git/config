@@ -47,7 +47,7 @@
 	sha = "!f() { local sha=$(git rev-parse --default HEAD $*); printf "%s" $sha | pbcopy; echo $sha; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
 	sp = stash pop --index --quiet
-	ss = stash show --patch --include-untracked
+	ss = stash show
 	st = status
 	su = submodule update --init --recursive
 	suu = "!f() { git submodule update --init --remote && git submodule summary; }; f"
@@ -65,6 +65,9 @@
 	suffix = .alpha
 	suffix = .beta
 	suffix = .rc
+[stash]
+	showIncludeUntracked = true
+	showPatch = true
 [status]
 	short = true
 	branch = true

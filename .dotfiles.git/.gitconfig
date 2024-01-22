@@ -4,3 +4,6 @@
 [alias]
 	edit = !${EDITOR%% *} +0G
 	update = !git pull && ./setup
+	# remove danger of --include-untracked
+	s = stash
+	sk = stash push --keep-index --quiet
