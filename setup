@@ -8,7 +8,13 @@ export GIT_DIR
 if ! git config --local core.worktree >/dev/null; then
 	[ "${GIT_DIR:-}" != ~/.dotfiles.git ] && mv "$GIT_DIR" ~/.dotfiles.git
 	git --git-dir ~/.dotfiles.git config include.path .gitconfig
-	git --git-dir ~/.dotfiles.git --work-tree ~ checkout @ ~
+	if [ -t 2 ]; then
+		git --git-dir ~/.dotfiles.git/ --work-tree ~ diff --diff-filter=D --name-only -z |
+			git -C ~ --git-dir ~/.dotfiles.git/ checkout --pathspec-from-file=- --pathspec-file-nul
+	else
+		: "Clobbering all dotfiles"
+		git --git-dir ~/.dotfiles.git --work-tree ~ checkout @ ~
+	fi
 	PATH=~/bin:$PATH
 
 	dotfiles config core.worktree ~
