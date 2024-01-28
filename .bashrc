@@ -19,8 +19,8 @@ PS1_short_path() {
 	echo "${pwd//~/\~}"
 }
 PS1="$PS1"'$(PS1_short_path)$(__git_ps1 " (%s)") \$ '
-if [[ -n "$SSH_CONNECTION" && $- = *i* ]]; then
-	PS1='\[\e]1;\w — \u@\H\e\\\]\u@\H '"$PS1"
+if [[ -n "$SSH_CONNECTION" || $OSTYPE != darwin* ]]; then
+	PS1='\[\e]1;\w — \u@\H\e\\\]\[\033[01;32m\]\u@\H\[\033[00m\] '"$PS1"
 fi
 PROMPT_COMMAND='printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
 
