@@ -55,7 +55,9 @@ complete -o bashdefault -o default -o nospace -F _cd m
 
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 alias vi=vim
-alias cat=bat
+if type bat &>/dev/null; then
+	alias cat=bat
+fi
 alias s='bin/rails server'
 c() {
 	if [ -x bin/console ]; then
