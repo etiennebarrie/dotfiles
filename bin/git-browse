@@ -1,12 +1,13 @@
 #!/usr/bin/env -S ruby --disable-all
 
-branch = ARGV[0] || %x(git branch --show-current).chomp
-exit(false) unless Process.last_status.success?
+def self.`(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
 
-upstream = %x(git rev-parse --abbrev-ref=strict --symbolic-full-name "#{branch}@{push}").chomp
+branch = ARGV[0] || %x(git branch --show-current)
+
+upstream = %x(git rev-parse --abbrev-ref=strict --symbolic-full-name "#{branch}@{push}")
 remote, upstream = upstream.split("/", 2)
 
-remote_url = %x(git remote get-url "#{remote}").chomp
+remote_url = %x(git remote get-url "#{remote}")
 url = "#{remote_url.delete_suffix(".git")}"
 
 if branch != "main"
