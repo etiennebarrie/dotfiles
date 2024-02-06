@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+	base=$(git base)
+	set -- "$base"
+fi
+
+mvim -q <(
+git diff --no-prefix --relative "$@" |
+	perl -ne '
+		if (m{^\+\+\+ (.*)}) { if ($1 ne "/dev/null") { $file = $1 }; next }
+		defined($file) or next;
+		if (m/^@@ .*?\+(\d+)/) { $line = $1; next }
+		defined($line) or next;
+		if (/^ /) { $line++; next }
+		if (/^[-+]\s*(.*)/) {
+			print "$file:$line: $1\n";
+			$line = undef;
+		}
+	'
+)
