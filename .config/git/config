@@ -26,7 +26,7 @@
 	fork = "!gh repo fork --remote --default-branch-only"
 	l = log --graph --decorate --all
 	ma = merge --abort
-	new = "!f() { git checkout --orphan ${1:?pass a branch name} --force; git rm -rf --quiet --ignore-unmatch \"$(git rev-parse --show-toplevel)\"; git clean -ffdx --quiet; }; f"
+	new = "!f() { git checkout --orphan ${1:?pass a branch name} --force && git rm -rf --quiet --ignore-unmatch \"$(git rev-parse --show-toplevel)\" && git clean -ffdx --quiet; }; f"
 	ol = log --pretty=oneline
 	pf = push --force-with-lease
 	pff = push --force-with-lease --no-verify
