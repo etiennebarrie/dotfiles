@@ -20,7 +20,12 @@ if [ $# = 0 ]; then
 	exec rm -f "$hook"
 fi
 
-author=$(git log --author="$1" -1 --format='%aN <%aE>')
+case "$1" in
+	*\ \<*@*\>)
+		author=$1 ;;
+	*)
+		author=$(git log --author="$1" -1 --format='%aN <%aE>') ;;
+esac
 
 if [ -z "$author" ]; then
 	>&2 echo "${red}No author found for $yellow$1$red.$clear"
