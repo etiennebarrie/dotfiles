@@ -123,6 +123,7 @@ autocmd FileType ruby  nmap <buffer> <S-A-Up> ^[[w
 autocmd FileType ruby  nmap <buffer> <S-A-Down> ]]w
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
+command -range IRB terminal ++close irb
 
 " Rust
 autocmd FileType rust compiler cargo
