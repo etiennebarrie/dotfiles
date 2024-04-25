@@ -40,7 +40,7 @@
 	ri = "!git rebase --interactive `git base`"
 	rii = -c sequence.editor=true ri
 	ro = rebase --onto
-	rom = rebase origin/HEAD
+	rom = "!git rebase $((git remote |grep ^upstream$ ) || echo origin)/HEAD"
 	rr = "!f() { git rebase `git base` --exec \"${*:-git test}\"; }; f"
 	rs = rebase --skip
 	s = "!f() { : stash ; if [ $# -eq 0 ]; then git stash --include-untracked --quiet; else git stash \"$@\"; fi; }; f"
