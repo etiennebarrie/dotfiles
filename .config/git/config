@@ -26,6 +26,7 @@
 	fork = "!gh repo fork --remote --default-branch-only"
 	l = log --graph --decorate --all
 	ma = merge --abort
+	main = "!f() { git remote set-head origin --auto && git checkout origin/HEAD -B main; }; f"
 	new = "!f() { git checkout --orphan ${1:?pass a branch name} --force && git rm -rf --quiet --ignore-unmatch \"$(git rev-parse --show-toplevel)\" && git clean -ffdx --quiet; }; f"
 	ol = log --pretty=oneline
 	pf = push --force-with-lease
