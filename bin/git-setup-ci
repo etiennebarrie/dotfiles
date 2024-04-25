@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby -S --disable-all
-
 require "pathname"
+
+def self.`(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
+
 git_dir = `git rev-parse --git-dir`
-abort unless Process.last_status.success?
 git_test = Pathname(git_dir.chomp).join("test")
 abort ".git/test already configured" if git_test.exist?
 
 top_level = Pathname(`git rev-parse --show-toplevel`.chomp)
-abort unless Process.last_status.success?
 
 require "yaml"
-commands = Pathname.glob(top_level.join(".github/workflows/*.yml")).flat_map do |workflow|
+commands = Pathname.glob(top_level.join(".github/workflows/*.y{a,}ml")).flat_map do |workflow|
   YAML.load_file(workflow)["jobs"].flat_map do |_, job|
     next unless steps = job["steps"]
     steps.filter_map { |step| step["run"] }
