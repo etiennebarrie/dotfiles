@@ -136,6 +136,7 @@ autocmd FileType git nmap <buffer> <Leader>f <Cmd>let @*=expand("%:t")<CR>:echo 
 nmap <leader>G <Cmd>tab G<CR>
 nmap <leader>g :G<Space>
 nmap <leader>l <Cmd>G blame<CR>
+let g:fugitive_legacy_commands = 0
 
 " Markdown
 autocmd FileType markdown setlocal wrap linebreak
