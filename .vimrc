@@ -67,7 +67,7 @@ nmap <C-U> <Cmd>Buffers<CR>
 " Command line and status line
 setglobal ruler showcmd
 setglobal laststatus=2
-setglobal wildmenu wildmode=longest:full,full
+setglobal wildmenu wildmode=longest:full,full wildoptions=pum
 
 " Folds
 set foldlevelstart=99 foldmethod=syntax
