@@ -2,7 +2,7 @@
 	template = ~/.config/git/commit-template
 	verbose = true
 [alias]
-	an = add --intent-to-add
+	an = "!f() { : add --intent-to-add ; git add --intent-to-add \"${1:-.}\"; }; f"
 	ap = add --patch
 	au = add --update
 	base = merge-base @ origin/HEAD
