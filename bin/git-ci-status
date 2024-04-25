@@ -1,6 +1,7 @@
 #!/usr/bin/env -S ruby --disable-all
 require "json"
 
+def self.`(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
 def usage = abort "usage: git ci-status [--context=context] [<revision>]"
 
 if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
@@ -14,13 +15,10 @@ end
 
 commit = ARGV.shift || "@{u}"
 usage unless ARGV.empty?
-commit = %x(git rev-parse --verify --end-of-options "#{commit}").chomp
-exit(false) unless Process.last_status.success?
+commit = %x(git rev-parse --verify --end-of-options "#{commit}")
 
 statuses_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/status --paginate)
-exit(false) unless Process.last_status.success?
 check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/check-runs --paginate)
-exit(false) unless Process.last_status.success?
 
 statuses = JSON.parse(statuses_json, symbolize_names: true).fetch(:statuses)
 statuses += JSON.parse(check_runs_json, symbolize_names: true).fetch(:check_runs)
@@ -63,6 +61,8 @@ end
 if context
   status = statuses.detect { _1[:context] == context }
   abort "no status with context or check run with name: #{context.inspect}" unless status
+  status => { state:, target_url: }
+  symbol_color(state)
   puts status.fetch(:target_url)
 else
   context_length = statuses.map { _1[:context].size }.max
