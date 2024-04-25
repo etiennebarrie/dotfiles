@@ -2,6 +2,9 @@ if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
 
+alias ..='cd ..'
+alias ...='cd ../..'
+
 if [ -r "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion" ]; then
 	source "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion"
 fi
