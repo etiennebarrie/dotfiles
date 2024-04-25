@@ -196,9 +196,9 @@ nmap <D-CR> A<CR>
 nmap <S-D-CR> kA<CR>
 
 " Move lines up&down
-nmap <M-Up>   :move -2<CR>==
-nmap <M-Down> :move +1<CR>==
-vmap <M-Up>   :move -2<CR>gv=gv
+nmap <M-Up>   :move -2<CR>=j
+nmap <M-Down> :move +1<CR>=kj
+vmap <M-Up>   :move '<-2<CR>gv=gv
 vmap <M-Down> :move '>+1<CR>gv=gv
 
 " sort
