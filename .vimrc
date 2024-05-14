@@ -19,6 +19,7 @@ augroup cursorline|autocmd!
   autocmd BufEnter,WinEnter * setlocal cursorline
   autocmd WinLeave *          setlocal nocursorline
 augroup end
+set timeoutlen=400
 
 " Files
 setglobal autoread
