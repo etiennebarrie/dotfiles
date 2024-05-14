@@ -95,6 +95,7 @@
 [advice]
 	commitBeforeMerge = false
 	detachedHead = false
+	forceDeleteBranch = false
 	pushNonFastForward = false
 	resolveConflict = false
 	skippedCherryPicks = false
