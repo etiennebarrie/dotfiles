@@ -142,7 +142,7 @@ nmap <leader>L <Cmd>GcLog %<CR>
 let g:fugitive_legacy_commands = 0
 
 " Markdown
-autocmd FileType markdown setlocal wrap linebreak
+autocmd FileType markdown setlocal wrap linebreak nojoinspaces
 
 " GitHub
 nmap <leader>b <Cmd>GBrowse<CR>
