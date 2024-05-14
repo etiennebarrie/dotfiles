@@ -119,10 +119,10 @@ autocmd FileType eruby nmap <buffer> <Leader>e o<% end %><Esc>
 autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
 autocmd FileType ruby  nmap <buffer> <Leader>i i.inspect<Esc>
 autocmd FileType ruby  vmap <buffer> <Leader>i S)ip<Esc>
-autocmd FileType ruby  nmap <buffer> <A-Up> ^[mw
-autocmd FileType ruby  nmap <buffer> <A-Down> ]mw
-autocmd FileType ruby  nmap <buffer> <S-A-Up> ^[[w
-autocmd FileType ruby  nmap <buffer> <S-A-Down> ]]w
+autocmd FileType ruby  nmap <buffer> <D-Up> ^[mw
+autocmd FileType ruby  nmap <buffer> <D-Down> ]mw
+autocmd FileType ruby  nmap <buffer> <S-D-Up> ^[[w
+autocmd FileType ruby  nmap <buffer> <S-D-Down> ]]w
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
 command -range IRB terminal ++close irb
