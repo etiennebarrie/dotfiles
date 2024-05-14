@@ -1,1 +1,1 @@
-rules "~MD014" # shell commands often have no output
+style "#{ENV["HOME"]}/.mdlstyle.rb"
