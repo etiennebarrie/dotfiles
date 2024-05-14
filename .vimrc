@@ -206,6 +206,14 @@ nmap <M-Down> :move +1<CR>=kj
 vmap <M-Up>   :move '<-2<CR>gv=gv
 vmap <M-Down> :move '>+1<CR>gv=gv
 
+let macvim_skip_cmd_opt_movement = 1
+
+" ⌘ and ⌃ movements for Command-line mode
+no! <D-Left>  <Home>
+no! <D-Right> <End>
+no! <M-Left>  <C-Left>
+no! <M-Right> <C-Right>
+
 " sort
 command Sort normal vii:sort<CR>
 
