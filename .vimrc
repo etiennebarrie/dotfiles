@@ -195,9 +195,9 @@ nmap <Leader>ae <Cmd>ALEEnable<CR>
 nmap <Leader>af <Cmd>ALEFix<CR>
 
 " TextMate Enter
-imap <D-CR> <Esc><D-CR>
+imap <D-CR>   <Esc><D-CR>
 imap <S-D-CR> <Esc>O
-nmap <D-CR> A<CR>
+nmap <D-CR>   A<CR>
 nmap <S-D-CR> kA<CR>
 
 " Move lines up&down
@@ -214,9 +214,9 @@ nmap <Leader>j :copen 20<CR><C-w>J
 packadd cfilter
 
 " Prevent menus
-let g:solarized_menu=0
+let g:solarized_menu = 0
 let g:netrw_menu = 0
-let g:netrw_use_errorwindow    = 0
+let g:netrw_use_errorwindow = 0
 
 " Netrw
 augroup Netrw|autocmd!
