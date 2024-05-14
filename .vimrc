@@ -166,6 +166,8 @@ vmap <leader>F :<C-U>let @+=expand("%:p").":".line("v")<CR>:echo @+<CR>
 nmap <leader>c :cd <C-R>=expand("%:p:h")<CR>/
 "" turns :E into :e
 cabbrev E e
+nmap { <Cmd>keepjumps normal! {<CR>
+nmap } <Cmd>keepjumps normal! }<CR>
 "" don't clobber unnamed register content when pasting in visual mode, P to swap
 vnoremap p P
 vnoremap P p
