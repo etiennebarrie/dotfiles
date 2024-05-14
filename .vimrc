@@ -63,6 +63,7 @@ function s:files()
 endfunction
 nmap <C-P> <Cmd>call <SID>files()<CR>
 nmap <C-U> <Cmd>Buffers<CR>
+nmap <C-G> <Cmd>Tags<CR>
 
 " Command line and status line
 setglobal ruler showcmd
