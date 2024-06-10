@@ -60,6 +60,8 @@ alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tm
 alias vi=vim
 if type bat &>/dev/null; then
 	alias cat=bat
+elif type batcat &>/dev/null; then
+	alias cat=batcat
 fi
 alias s='bin/rails server'
 c() {
