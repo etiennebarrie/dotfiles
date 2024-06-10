@@ -1,6 +1,7 @@
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
+[[ $- = *i* ]] || return
 
 alias ..='cd ..'
 alias ...='cd ../..'
