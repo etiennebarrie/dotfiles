@@ -1,3 +1,2 @@
 gem: --no-document
-open: -e mvim
 uninstall: --executables
