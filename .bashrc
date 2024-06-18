@@ -14,7 +14,7 @@ _git_lb() { _git_log; }
 # shellcheck disable=SC2034
 GIT_PS1_SHOWSTASHSTATE=1
 # shellcheck disable=SC2154
-PS1='$(r=$?;(( ${r} )) && echo "\[\e[1;31m\]✘$r\[\e[m\] ")'
+PS1='$(r=$?;(( $r )) && echo "\[\e[1;31m\]✘$r\[\e[m\] ")'
 PS1_short_path() {
 	local pwd=$PWD IFS=:
 	for p in $CDPATH; do
@@ -23,7 +23,7 @@ PS1_short_path() {
 	echo "${pwd//~/\~}"
 }
 PS1="$PS1"'$(PS1_short_path)$(__git_ps1 " (%s)") \$ '
-if [[ -n "$SSH_CONNECTION" || $OSTYPE != darwin* ]]; then
+if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\[\033[01;32m\]\u@\H\[\033[00m\] '"$PS1"
 fi
 PROMPT_COMMAND='printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
