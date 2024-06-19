@@ -28,6 +28,7 @@ brew "shellcheck"
 brew "siege"
 brew "the_silver_searcher"
 brew "tree"
+brew "universal-ctags"
 brew "yt-dlp"
 
 cask "dash"
