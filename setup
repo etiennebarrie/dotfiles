@@ -22,7 +22,7 @@ fi
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
-chflags -v hidden bin src setup 2>/dev/null ||:
+chflags -v hidden bin pkg src setup 2>/dev/null ||:
 
 if type brew >/dev/null 2>&1; then
 	brew bundle --global --no-lock
