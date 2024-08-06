@@ -1,6 +1,8 @@
 [status]
 	showUntrackedFiles = no
 	relativePaths = false
+[submodule]
+	recurse = false
 [alias]
 	edit = !${EDITOR%% *} +0G
 	update = !git pull && ./setup
