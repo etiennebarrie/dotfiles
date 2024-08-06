@@ -57,6 +57,8 @@
 	parallel = 0
 	prune = true
 	writeCommitGraph = true
+[submodule]
+	recurse = true
 [format]
 	pretty = fuller
 [pretty]
