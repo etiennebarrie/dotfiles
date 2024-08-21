@@ -177,8 +177,8 @@ let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✘'
-nmap [a <Cmd>ALEPrevious<CR>
-nmap ]a <Cmd>ALENext<CR>
+nmap [a <Cmd>ALEPreviousWrap<CR>
+nmap ]a <Cmd>ALENextWrap<CR>
 nmap <Leader>ad <Cmd>ALEDisable<CR>
 nmap <Leader>ae <Cmd>ALEEnable<CR>
 nmap <Leader>af <Cmd>ALEFix<CR>
