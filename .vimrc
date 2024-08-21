@@ -213,6 +213,8 @@ no! <D-Left>  <Home>
 no! <D-Right> <End>
 no! <M-Left>  <C-Left>
 no! <M-Right> <C-Right>
+ino <M-BS>    <C-w>
+ino <D-BS>    <C-u>
 
 " sort
 command Sort normal vii:sort<CR>
