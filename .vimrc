@@ -93,18 +93,11 @@ nmap <Leader>s <Cmd>split<CR>
 
 nmap H <Cmd>tabprevious<CR>
 nmap L <Cmd>tabnext<CR>
-nmap <S-D-Left> <Cmd>tabprevious<CR>
-nmap <S-D-Right> <Cmd>tabnext<CR>
 
 nmap <C-H> <C-W>h
-nmap <C-L> <C-W>l
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
-
-nmap <D-Left> <C-W>h
-nmap <D-Right> <C-W>l
-nmap <D-Down> <C-W>j
-nmap <D-Up> <C-W>k
+nmap <C-L> <C-W>l
 
 " Indent with two spaces
 autocmd FileType json,vim setlocal expandtab shiftwidth=2
@@ -119,10 +112,6 @@ autocmd FileType eruby nmap <buffer> <Leader>e o<% end %><Esc>
 autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
 autocmd FileType ruby  nmap <buffer> <Leader>i i.inspect<Esc>
 autocmd FileType ruby  vmap <buffer> <Leader>i S)ip<Esc>
-autocmd FileType ruby  nmap <buffer> <D-Up> ^[mw
-autocmd FileType ruby  nmap <buffer> <D-Down> ]mw
-autocmd FileType ruby  nmap <buffer> <S-D-Up> ^[[w
-autocmd FileType ruby  nmap <buffer> <S-D-Down> ]]w
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
 command -range IRB terminal ++close irb
@@ -194,12 +183,6 @@ nmap <Leader>ad <Cmd>ALEDisable<CR>
 nmap <Leader>ae <Cmd>ALEEnable<CR>
 nmap <Leader>af <Cmd>ALEFix<CR>
 
-" TextMate Enter
-imap <D-CR>   <Esc><D-CR>
-imap <S-D-CR> <Esc>O
-nmap <D-CR>   A<CR>
-nmap <S-D-CR> kA<CR>
-
 " Move lines up&down
 nmap <M-Up>   :move -2<CR>=j
 nmap <M-Down> :move +1<CR>=kj
@@ -207,14 +190,6 @@ vmap <M-Up>   :move '<-2<CR>gv=gv
 vmap <M-Down> :move '>+1<CR>gv=gv
 
 let macvim_skip_cmd_opt_movement = 1
-
-" ⌘ and ⌃ movements for Command-line mode
-no! <D-Left>  <Home>
-no! <D-Right> <End>
-no! <M-Left>  <C-Left>
-no! <M-Right> <C-Right>
-ino <M-BS>    <C-w>
-ino <D-BS>    <C-u>
 
 " sort
 command Sort normal vii:sort<CR>
