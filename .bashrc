@@ -89,7 +89,7 @@ demo() {
 
 clone() {
 	local command
-	command=$(env clone "$@") || return $?
+	command=$(command clone "$@") || return $?
 	case $command in
 		(cd:*) cd "${command#cd:}" || return $?;;
 	esac
