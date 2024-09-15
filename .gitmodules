@@ -1,90 +1,90 @@
 [submodule "vim/pack/bundle/start/abolish.vim"]
-	path = .vim/pack/bundle/start/abolish.vim
+	path = .config/vim/pack/bundle/start/abolish.vim
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim/pack/bundle/start/ale"]
-	path = .vim/pack/bundle/start/ale
+	path = .config/vim/pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
 [submodule "vim/pack/bundle/start/bundler.vim"]
-	path = .vim/pack/bundle/start/bundler.vim
+	path = .config/vim/pack/bundle/start/bundler.vim
 	url = https://github.com/tpope/vim-bundler.git
 [submodule "vim/pack/bundle/start/commentary.vim"]
-	path = .vim/pack/bundle/start/commentary.vim
+	path = .config/vim/pack/bundle/start/commentary.vim
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "vim/pack/bundle/start/endwise.vim"]
-	path = .vim/pack/bundle/start/endwise.vim
+	path = .config/vim/pack/bundle/start/endwise.vim
 	url = https://github.com/tpope/vim-endwise.git
 [submodule "vim/pack/bundle/start/eunuch.vim"]
-	path = .vim/pack/bundle/start/eunuch.vim
+	path = .config/vim/pack/bundle/start/eunuch.vim
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "vim/pack/bundle/start/fugitive.vim"]
-	path = .vim/pack/bundle/start/fugitive.vim
+	path = .config/vim/pack/bundle/start/fugitive.vim
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/pack/bundle/start/fzf.vim"]
-	path = .vim/pack/bundle/start/fzf.vim
+	path = .config/vim/pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/pack/bundle/start/projectionist.vim"]
-	path = .vim/pack/bundle/start/projectionist.vim
+	path = .config/vim/pack/bundle/start/projectionist.vim
 	url = https://github.com/tpope/vim-projectionist.git/
 [submodule "vim/pack/bundle/start/rails.vim"]
-	path = .vim/pack/bundle/start/rails.vim
+	path = .config/vim/pack/bundle/start/rails.vim
 	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/pack/bundle/start/rake.vim"]
-	path = .vim/pack/bundle/start/rake.vim
+	path = .config/vim/pack/bundle/start/rake.vim
 	url = https://github.com/tpope/vim-rake.git
 [submodule "vim/pack/bundle/start/repeat.vim"]
-	path = .vim/pack/bundle/start/repeat.vim
+	path = .config/vim/pack/bundle/start/repeat.vim
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/pack/bundle/start/rhubarb.vim"]
-	path = .vim/pack/bundle/start/rhubarb.vim
+	path = .config/vim/pack/bundle/start/rhubarb.vim
 	url = https://github.com/tpope/vim-rhubarb.git
 [submodule "vim/pack/bundle/start/rust.vim"]
-	path = .vim/pack/bundle/start/rust.vim
+	path = .config/vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "vim/pack/bundle/start/sleuth.vim"]
-	path = .vim/pack/bundle/start/sleuth.vim
+	path = .config/vim/pack/bundle/start/sleuth.vim
 	url = https://github.com/tpope/vim-sleuth.git
 [submodule "vim/pack/bundle/start/solarized.vim"]
-	path = .vim/pack/bundle/start/solarized.vim
+	path = .config/vim/pack/bundle/start/solarized.vim
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/pack/bundle/start/splitjoin.vim"]
-	path = .vim/pack/bundle/start/splitjoin.vim
+	path = .config/vim/pack/bundle/start/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "vim/pack/bundle/start/surround.vim"]
-	path = .vim/pack/bundle/start/surround.vim
+	path = .config/vim/pack/bundle/start/surround.vim
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/pack/bundle/start/switch.vim"]
-	path = .vim/pack/bundle/start/switch.vim
+	path = .config/vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
 [submodule "vim/pack/bundle/start/test.vim"]
-	path = .vim/pack/bundle/start/test.vim
+	path = .config/vim/pack/bundle/start/test.vim
 	url = https://github.com/janko-m/vim-test.git
 [submodule "vim/pack/bundle/start/vim-coffee-script"]
-	path = .vim/pack/bundle/start/vim-coffee-script
+	path = .config/vim/pack/bundle/start/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/pack/bundle/start/vim-easy-align"]
-	path = .vim/pack/bundle/start/vim-easy-align
+	path = .config/vim/pack/bundle/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "vim/pack/bundle/start/vim-fetch"]
-	path = .vim/pack/bundle/start/vim-fetch
+	path = .config/vim/pack/bundle/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch.git
 [submodule "vim/pack/bundle/start/vim-go"]
-	path = .vim/pack/bundle/start/vim-go
+	path = .config/vim/pack/bundle/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "vim/pack/bundle/start/vim-indent-object"]
-	path = .vim/pack/bundle/start/vim-indent-object
+	path = .config/vim/pack/bundle/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
 [submodule "vim/pack/bundle/start/vim-multiple-cursors"]
-	path = .vim/pack/bundle/start/vim-multiple-cursors
+	path = .config/vim/pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "vim/pack/bundle/start/vim-ruby"]
-	path = .vim/pack/bundle/start/vim-ruby
+	path = .config/vim/pack/bundle/start/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/pack/bundle/start/vinegar.vim"]
-	path = .vim/pack/bundle/start/vinegar.vim
+	path = .config/vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
 [submodule ".vim/pack/bundle/start/pear-tree"]
-	path = .vim/pack/bundle/start/pear-tree
+	path = .config/vim/pack/bundle/start/pear-tree
 	url = https://github.com/tmsvg/pear-tree.git
 [submodule ".vim/pack/bundle/start/targets.vim"]
-	path = .vim/pack/bundle/start/targets.vim
+	path = .config/vim/pack/bundle/start/targets.vim
 	url = https://github.com/wellle/targets.vim
