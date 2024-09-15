@@ -15,7 +15,7 @@ set number relativenumber signcolumn=number
 setglobal ignorecase smartcase
 setglobal shiftround autoindent smartindent
 set colorcolumn=121
-augroup cursorline|autocmd!
+augroup Cursorline|autocmd!
   autocmd BufEnter,WinEnter * setlocal cursorline
   autocmd WinLeave *          setlocal nocursorline
 augroup end
@@ -44,13 +44,13 @@ function! Grep(...)
   let s:rg_args = join(a:000) " for display
   return system(join([&grepprg] + [s:rg_args]))
 endfunction
-command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
-command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+command -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
+command -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
 augroup quickfix|autocmd!
-    autocmd QuickFixCmdPost cgetexpr cwindow |
-          \ call setqflist([], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
-    autocmd QuickFixCmdPost lgetexpr lwindow |
-          \ call setloclist(0, [], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+  autocmd QuickFixCmdPost cgetexpr cwindow |
+        \ call setqflist([], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+  autocmd QuickFixCmdPost lgetexpr lwindow |
+        \ call setloclist(0, [], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
 augroup end
 
 " FZF
@@ -86,7 +86,9 @@ inoremap <CR> <C-G>u<CR>
 " Tab & Windows nav
 setglobal splitright splitbelow
 nmap <Leader><Leader> <C-^>
-autocmd VimResized * wincmd =
+augroup Resize|autocmd!
+  autocmd VimResized * normal <C-W>=
+augroup end
 
 nmap <Leader>v <Cmd>vsplit<CR>
 nmap <Leader>s <Cmd>split<CR>
