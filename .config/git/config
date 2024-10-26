@@ -20,7 +20,7 @@
 	dc = diff --color-words --cached
 	df = diff --color-words
 	empty = commit --allow-empty
-	fe = fetch --all --tags
+	fe = "!f() { : git fetch; git fetch ${@:---all --tags}; }; f"
 	feco = "!f() { git fetch origin -f $1:$1 && git checkout $1; }; f"
 	fixup = commit --fixup
 	l = log --graph --decorate --all
