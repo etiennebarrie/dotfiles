@@ -142,7 +142,7 @@ vmap <leader>B <Cmd>GBrowse<CR>
 
 " Mappings
 nmap <D-F> :Grep<Space><C-R>=expand("<cword>")<CR>
-vmap <D-F> y:Grep -F<Space>'<C-R>"'<CR>
+vmap <D-F> "sy:Grep -F<Space>'<C-R>=substitute(escape(@s,'"'),"'","'\\\\''","g")<CR>'<CR>
 cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 "" Select last pasted text, with proper visual mode
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
