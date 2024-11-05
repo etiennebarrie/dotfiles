@@ -3,15 +3,22 @@
 def self.`(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
 
 new = ARGV.delete "--new"
-branch = ARGV.first || %x(git branch --show-current)
+object = ARGV.first || %x(git branch --show-current)
 
-upstream = %x(git rev-parse --abbrev-ref=strict --symbolic-full-name "#{branch}@{push}" 2>/dev/null || :)
-upstream = branch if upstream.empty?
-remote, _, upstream = upstream.partition("/")
-remote_url = %x(git remote get-url "#{remote}")
-url = remote_url.delete_suffix(".git")
+if object.match?(/\A\h{6,}\z/) && %x(git cat-file -t #{object} || :) == "commit"
+  commit = object
+  remote = "origin"
+else
+  upstream = %x(git rev-parse --abbrev-ref=strict --symbolic-full-name "#{object}@{push}" 2>/dev/null || :)
+  upstream = object if upstream.empty?
+  remote, _, upstream = upstream.partition("/")
+end
 
-if !upstream.empty? && branch != "main"
+url = %x(git remote get-url "#{remote}").delete_suffix(".git")
+
+if commit
+  url += "/commit/#{commit}"
+elsif !upstream.empty? && object != "main"
   if new
     url += "/pull/new/#{upstream}"
   else
