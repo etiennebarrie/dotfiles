@@ -19,6 +19,8 @@ nmap <D-Down>    <C-W>j
 nmap <D-Up>      <C-W>k
 nmap <D-Right>   <C-W>l
 
+nmap <Leader>v <Cmd>let &columns=&colorcolumn * 2<CR>:vsplit<CR>
+
 " TextMate Enter
 imap <D-CR>   <Esc><D-CR>
 imap <S-D-CR> <Esc>O
