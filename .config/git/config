@@ -134,6 +134,6 @@
 [gc]
 	writeCommitGraph = true
 [absorb]
-    autoStageIfNothingStaged = true
+	autoStageIfNothingStaged = true
 [include]
 	path = local
