@@ -87,7 +87,7 @@ inoremap <CR> <C-G>u<CR>
 setglobal splitright splitbelow
 nmap <Leader><Leader> <C-^>
 augroup Resize|autocmd!
-  autocmd VimResized * normal <C-W>=
+  autocmd VimResized * wincmd =
 augroup end
 
 nmap <Leader>v <Cmd>vsplit<CR>
