@@ -1,2 +1,2 @@
 gem: --no-document
-uninstall: --executables
+uninstall: --executables --ignore-dependencies
