@@ -2,7 +2,9 @@
 require "json"
 
 def self.`(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
-def usage = abort "usage: git ci-status [--context=context] [<revision>]"
+def usage = abort "usage: git ci-status [--context=context] [--wait=10] [--fail-early] [<revision>]"
+
+@fail_early = ARGV.delete("--fail-early")
 
 if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
   context_option = ARGV.delete_at(context_index)
@@ -13,23 +15,39 @@ if context_index = ARGV.index { |arg| arg.start_with?(/--context=?/) }
   end
 end
 
+if wait_index = ARGV.index { |arg| arg.start_with?(/--wait=?/) || arg == "-w" }
+  wait_option = ARGV.delete_at(wait_index)
+  _, wait = wait_option.split("=", 2)
+  if wait
+    wait = Integer(wait)
+  elsif wait_index <= ARGV.size # try to parse next arg
+    wait = Integer(ARGV[wait_index], exception: false)
+    ARGV.delete_at(wait_index) if wait
+  end
+  wait ||= 10
+end
+
 commit = ARGV.shift || "@{u}"
 usage unless ARGV.empty?
-commit = %x(git rev-parse --verify --end-of-options "#{commit}")
 
-statuses_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/status --paginate --slurp)
-check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#{commit}/check-runs --paginate --slurp)
+@commit = %x(git rev-parse --verify --end-of-options "#{commit}")
 
-statuses = JSON.parse(statuses_json, symbolize_names: true).flat_map { _1.fetch(:statuses) }
-statuses += JSON.parse(check_runs_json, symbolize_names: true).flat_map { _1.fetch(:check_runs) }
-  .map do |check_run|
-    check_run => { status:, conclusion:, name:, html_url: }
-    {
-      state: status == "completed" ? conclusion : "pending",
-      context: name,
-      target_url: html_url,
-    }
-  end
+def statuses
+  statuses_json = %x(gh api repos/{owner}/{repo}/commits/#@commit/status --paginate --slurp)
+  check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#@commit/check-runs --paginate --slurp)
+
+  statuses = JSON.parse(statuses_json, symbolize_names: true).flat_map { _1.fetch(:statuses) }
+  statuses + JSON.parse(check_runs_json, symbolize_names: true).flat_map { _1.fetch(:check_runs) }
+    .filter_map do |check_run|
+      check_run => { status:, conclusion:, name:, html_url: }
+      next if conclusion == "skipped"
+      {
+        state: status == "completed" ? conclusion : "pending",
+        context: name,
+        target_url: html_url,
+      }
+    end
+end
 
 def symbol_color(state)
   case state
@@ -39,14 +57,14 @@ def symbol_color(state)
   when "failure", "error", "action_required", "cancelled", "timed_out"
     symbol = "✖︎"
     color = 31
-    @exit_status = 1
+    failure
   when "neutral"
     symbol = "◦"
     color = 30
   when "pending"
     symbol = "●"
     color = 33
-    @exit_status = 2
+    pending
   end
   if @tty
     "\033[#{color}m#{symbol}\033[m"
@@ -55,25 +73,50 @@ def symbol_color(state)
   end
 end
 
-@tty = $stdout.tty?
-@exit_status = 0
+if @fail_early
+  def failure
+    @exit_status = 1
+  end
 
-if context
-  status = statuses.detect { _1[:context] == context }
-  abort "no status with context or check run with name: #{context.inspect}" unless status
-  status => { state:, target_url: }
-  symbol_color(state)
-  puts status.fetch(:target_url)
+  def pending
+    @exit_status = 2 if @exit_status == 0
+  end
 else
-  context_length = statuses.map { _1[:context].size }.max
-  statuses.each do |status|
-    status => { state:, context:, target_url: }
-    puts [
-      symbol_color(state),
-      context.then { @tty ? _1.ljust(context_length) : _1 },
-      target_url,
-    ].join("\t")
+  def failure
+    @exit_status = [@exit_status, 1].max
+  end
+
+  def pending
+    @exit_status = [@exit_status, 2].max
   end
 end
 
+@tty = $stdout.tty?
+
+loop do
+  @exit_status = 0
+  if context
+    status = statuses.detect { _1[:context] == context }
+    abort "no status with context or check run with name: #{context.inspect}" unless status
+    status => { state:, target_url: }
+    symbol_color(state)
+    puts status.fetch(:target_url)
+  else
+    context_length = statuses.map { _1[:context].size }.max
+    statuses = statuses()
+    print @reset if @reset
+    statuses.each do |status|
+      status => { state:, context: status_context, target_url: }
+      puts [
+        symbol_color(state),
+        status_context.then { @tty ? _1.ljust(context_length) : _1 },
+        target_url,
+      ].join("\t")
+    end
+    @reset = "\033M\033[J" * statuses.size # up one line, clear line
+  end
+  break unless wait && @exit_status == 2 && sleep(wait)
+end
+
+print "\a" if wait
 exit(@exit_status)
