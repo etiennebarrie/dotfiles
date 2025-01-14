@@ -1,8 +1,10 @@
 #!/bin/sh
 set -e
 
+cd "$(git rev-parse --show-toplevel)"
+
 trap 'rm -f "tags.$$"' EXIT
 
 git ls-files | \
-  ctags -L - -f "tags.$$" --languages=-javascript,css,markdown
+  ctags -L - -f "tags.$$" --languages=-css,javascript,markdown,xml
 mv "tags.$$" "tags"
