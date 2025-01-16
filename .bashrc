@@ -30,7 +30,7 @@ PROMPT_COMMAND='printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
 
 mkdird() {
 	local d
-	d=~/$(date +%F)
+	d=~/tmp/$(date +%F)
 	mkdir "$d"
 	cd "$d" || return 1
 }
