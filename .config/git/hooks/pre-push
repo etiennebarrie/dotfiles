@@ -50,6 +50,7 @@ if [ -x "$test" ]; then
 		run_test=t
 	fi
 fi
+hook=${0#"$PWD/"}
 
 # while read -r local_ref local_sha remote_ref remote_sha; do
 while read -r _ local_sha remote_ref _; do
@@ -58,7 +59,7 @@ while read -r _ local_sha remote_ref _; do
 	elif [[ "$remote_ref" == refs/tags/* ]]; then
 		: # pushing a tag
 	elif [ "$local_sha" != "$(git rev-parse @)" ]; then
-		>&2 echo -e "$red$0: cannot test SHA that is not checked out, run tests manually and use --no-verify"
+		>&2 echo -e "$red$hook: cannot test SHA that is not checked out, run tests manually and use --no-verify$clear"
 		exit 1
 	else
 		if  [ $run_test ] && [ "$(git status --porcelain | wc -l)" -ne 0 ]; then
@@ -69,7 +70,7 @@ while read -r _ local_sha remote_ref _; do
 		if [ $x_test ]; then
 			>&2 "$test" || return_status=$?
 		else
-			>&2 echo -e "$yellow$0: No tests!"\
+			>&2 echo -e "$yellow$hook: No tests!"\
 				"Make $bold_yellow$test$yellow an executable command to run tests before pushing."\
 				"Use \`${bold_yellow}git setup-ci$yellow\` or \`${bold_yellow}ln -s /usr/bin/true $test$yellow\`.$clear"
 		fi
@@ -82,14 +83,14 @@ while read -r _ local_sha remote_ref _; do
 		if [ -e "$protected_branches" ]; then
 			while read -r protected_branch; do
 				if [ "$remote_ref" = refs/heads/"$protected_branch" ]; then
-					>&2 echo -e "$red$0: $yellow$protected_branch$red is a protected branch"
+					>&2 echo -e "$red$hook: $yellow$protected_branch$red is a protected branch$clear"
 					exit 1
 				fi
 			done < "$protected_branches"
 		fi
 
 		if [ $return_status ]; then
-			>&2 echo -e "$red$0: $yellow$test ${red}failed with exit code $yellow$return_status$clear\a"
+			>&2 echo -e "$red$hook: $yellow$test ${red}failed with exit code $yellow$return_status$clear\a"
 			exit $return_status
 		fi
 	fi
