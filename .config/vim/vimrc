@@ -166,6 +166,11 @@ nmap } <Cmd>keepjumps normal! }<CR>
 vnoremap p P
 vnoremap P p
 
+"" copy to clipboard
+map  <leader>y "+y
+vmap <leader>y "+y
+nmap <leader>Y "+Y
+
 " vim-test
 let test#strategy = "terminal"
 let g:test#preserve_screen = 1
