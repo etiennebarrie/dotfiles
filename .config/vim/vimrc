@@ -25,7 +25,7 @@ set timeoutlen=400
 " Files
 setglobal autoread
 set noswapfile
-set undofile undodir=~/.vim/undo
+set undofile undodir=~/.local/state/vim/undo
 set nowritebackup
 
 let mapleader=" "
