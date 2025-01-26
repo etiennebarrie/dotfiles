@@ -1,0 +1,41 @@
+---
+packages:
+- bash
+- bash-completion:
+    Homebrew: bash-completion@2
+- bat
+- chruby:
+    APT:
+- curlie:
+    APT:
+- entr
+- fzf
+- gh
+- git
+- git-absorb
+- gnupg
+- grip:
+    APT:
+- gum:
+    APT:
+- htop
+- httpie:
+    APT:
+- jless:
+    APT:
+- jq
+- lima:
+    APT:
+- ncat:
+    Homebrew:
+    APT: netcat-openbsd
+- nginx
+- pkg-config
+- ripgrep
+- ruby-install:
+    APT:
+- shellcheck
+- siege
+- tree
+- universal-ctags
+- yt-dlp
