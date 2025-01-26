@@ -15,6 +15,7 @@ set number relativenumber signcolumn=number
 setglobal ignorecase smartcase
 setglobal shiftround autoindent smartindent
 set colorcolumn=121
+setglobal scrolloff=5 sidescroll=1 sidescrolloff=1
 augroup Cursorline|autocmd!
   autocmd BufEnter,WinEnter * setlocal cursorline
   autocmd WinLeave *          setlocal nocursorline
