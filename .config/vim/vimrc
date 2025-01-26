@@ -66,6 +66,8 @@ endfunction
 nmap <C-P> <Cmd>call <SID>files()<CR>
 nmap <C-U> <Cmd>Buffers<CR>
 nmap <C-G> <Cmd>Tags<CR>
+let g:fzf_vim = {}
+let g:fzf_vim.buffers_jump = 1
 
 " Command line and status line
 setglobal ruler showcmd
