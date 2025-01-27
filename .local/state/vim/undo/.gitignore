@@ -1,0 +1,1 @@
+-ruby-auto.bash -ruby-completion.bash -ruby.bash README.md env.after env.before test
