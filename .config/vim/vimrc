@@ -5,6 +5,11 @@ augroup Reload|autocmd!
         \ redraw | echo "vimrc reloaded"
 augroup end
 
+" Ghostty config
+if isdirectory($GHOSTTY_RESOURCES_DIR . "/../vim/vimfiles")
+  set runtimepath^=$GHOSTTY_RESOURCES_DIR/../vim/vimfiles
+endif
+
 setglobal nocompatible
 filetype plugin indent on
 syntax on

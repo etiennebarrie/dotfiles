@@ -12,6 +12,7 @@ YAML.load_file("#{__dir__}/packages.yaml")
 cask "dash"
 cask "docker"
 cask "font-sf-mono"
+cask "ghostty"
 cask "keycastr"
 cask "maccy"
 cask "macvim"
