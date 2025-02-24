@@ -131,10 +131,5 @@ shopt -s histappend
 export LESS=FRXx4i
 tabs -4
 
-if ! type -t chruby >/dev/null && [ -d "${HOMEBREW_PREFIX:-/usr/local}/share/chruby" ]; then
-	source "${HOMEBREW_PREFIX:-/usr/local}/share/chruby/chruby.sh"
-	source "${HOMEBREW_PREFIX:-/usr/local}/share/chruby/auto.sh"
-fi
-
 # https://twitter.com/tpope/status/165631968996900865
 PATH=.git/safe/../../bin:$PATH

@@ -4,8 +4,6 @@ packages:
 - bash-completion:
     Homebrew: bash-completion@2
 - bat
-- chruby:
-    APT:
 - curlie:
     APT:
 - entr
