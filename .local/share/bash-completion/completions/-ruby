@@ -1,0 +1,9 @@
+_comp_-ruby() {
+	local cur prev words cword comp_args
+	_comp_initialize -- "$@" || return
+
+	_comp_compgen -C ~/.ruby -- -d
+	_comp_compgen -a -C ~/.rubies -- -d
+	_comp_compgen -a -- -W "system unset"
+}
+complete -F _comp_-ruby -- -ruby

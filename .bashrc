@@ -22,7 +22,9 @@ PS1_short_path() {
 	done
 	echo "${pwd//~/\~}"
 }
-PS1="$PS1"'$(PS1_short_path)$(__git_ps1 " (%s)") \$ '
+PS1="$PS1"'$(PS1_short_path)$(__git_ps1 " (%s)")'
+PS1="$PS1"'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}") \$ '
+
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\[\033[01;32m\]\u@\H\[\033[00m\] '"$PS1"
 fi
@@ -130,6 +132,40 @@ HISTIGNORE='git ci *:git co *:git pf:git pull:git s*:m *'
 shopt -s histappend
 export LESS=FRXx4i
 tabs -4
+
+-ruby() {
+	local candidate shell='' version=${1-}
+	[[ -v init ]] && shell=no
+	# no version asked and using system or shell ruby: keep it
+	[[ ! $version && ( ! -v ruby_path || -v shell_ruby ) ]] && return
+	case $version in
+		system)
+			[[ ${ruby_path-} ]] && PATH=${PATH//$ruby_path:/}
+			unset ruby_path
+			return ;;
+		unset)
+			[[ $ruby_path ]] && PATH=${PATH//$ruby_path:/}
+			ruby_path=
+			unset shell_ruby
+			return ;;
+		'') [[ -r .ruby-version ]] && <.ruby-version read -r version || return 1 ;;
+		*) : "${shell:=yes}" ;;
+	esac
+	for candidate in \
+		~/.{ruby,rubies}/{"${version#ruby-}",ruby-"${version#ruby-}"}/bin
+	do
+		if [[ -x $candidate/ruby ]]; then
+			[[ ${ruby_path-} ]] && PATH=${PATH//$ruby_path:/}
+			PATH=$candidate:$PATH
+			ruby_path=$candidate
+			[[ $shell = yes ]] && shell_ruby=${version}
+			return 0
+		fi
+	done
+	return 1
+}
+PROMPT_COMMAND+=("-ruby")
+init=on "-ruby" "$(<~/.ruby-version)" || >&2 echo "Ruby wasn't found"
 
 # https://twitter.com/tpope/status/165631968996900865
 PATH=.git/safe/../../bin:$PATH
