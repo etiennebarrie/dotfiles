@@ -18,6 +18,7 @@ if ! git config --local core.worktree >/dev/null; then
 	PATH=~/bin:$PATH
 
 	dotfiles config core.worktree ~
+	dotfiles config include.path ~/.config/dotfiles/.gitconfig
 fi
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
