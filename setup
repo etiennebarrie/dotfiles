@@ -26,7 +26,7 @@ ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 chflags -v hidden bin pkg src setup tmp 2>/dev/null ||:
 
 if type brew >/dev/null 2>&1; then
-	brew bundle --no-lock --file ~/.config/dotfiles/Brewfile
+	brew bundle --file ~/.config/dotfiles/Brewfile
 elif [ "$(uname -s)" = Darwin ]; then
 	open https://brew.sh
 	exit 1
