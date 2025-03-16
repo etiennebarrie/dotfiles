@@ -28,7 +28,8 @@ PS1="$PS1"'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\[\033[01;32m\]\u@\H\[\033[00m\] '"$PS1"
 fi
-PROMPT_COMMAND='printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"'";$PROMPT_COMMAND"
+# shellcheck disable=SC2016
+PROMPT_COMMAND+=('printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"')
 
 mkdird() {
 	local d
@@ -79,13 +80,13 @@ demo() {
 	if [ -n "$OLD_PS1$OLD_PS2$OLD_PROMPT_COMMAND" ]; then
 		PS1="$OLD_PS1"
 		PS2="$OLD_PS2"
-		PROMPT_COMMAND="$OLD_PROMPT_COMMAND"
+		PROMPT_COMMAND=("${OLD_PROMPT_COMMAND[@]]}")
 		unset OLD_PS1 OLD_PS2 OLD_PROMPT_COMMAND
 	else
 		OLD_PS1="$PS1"
 		OLD_PS2="$PS2"
-		OLD_PROMPT_COMMAND="$PROMPT_COMMAND"
-		PS1="\$ " PS2="" PROMPT_COMMAND=""
+		OLD_PROMPT_COMMAND=("${PROMPT_COMMAND[@]]}")
+		PS1="\$ " PS2="" PROMPT_COMMAND=()
 	fi
 }
 
