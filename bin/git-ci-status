@@ -102,8 +102,8 @@ loop do
     symbol_color(state)
     puts status.fetch(:target_url)
   else
-    context_length = statuses.map { _1[:context].size }.max
     statuses = statuses()
+    context_length = statuses.map { _1[:context].size }.max
     print @reset if @reset
     statuses.each do |status|
       status => { state:, context: status_context, target_url: }
