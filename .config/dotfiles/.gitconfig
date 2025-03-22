@@ -6,6 +6,7 @@
 [alias]
 	edit = !${EDITOR%% *} +0G
 	update = !git pull && ./setup
-	# remove danger of --include-untracked
+# remove danger of --include-untracked
+	cl = !"f() { >&2 echo \"dotfiles clean disabled\"; return 1;}; f"
 	s = stash
 	sk = stash push --keep-index --quiet
