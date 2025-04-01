@@ -88,3 +88,6 @@
 [submodule ".vim/pack/bundle/start/targets.vim"]
 	path = .config/vim/pack/bundle/start/targets.vim
 	url = https://github.com/wellle/targets.vim
+[submodule ".config/vim/pack/bundle/start/context.vim"]
+	path = .config/vim/pack/bundle/start/context.vim
+	url = https://github.com/wellle/context.vim

@@ -239,6 +239,9 @@ augroup end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" context.vim
+let g:context_add_mappings = 0
+
 function s:gitVimrc()
   let s:gitDir = FugitiveGitDir()
   if !empty(s:gitDir) && filereadable(s:gitDir . '/vimrc')
