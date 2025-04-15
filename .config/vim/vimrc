@@ -19,6 +19,7 @@ set tabstop=4
 set number relativenumber signcolumn=number
 setglobal ignorecase smartcase
 setglobal shiftround autoindent smartindent
+setglobal virtualedit=onemore
 set colorcolumn=121
 setglobal scrolloff=5 sidescroll=1 sidescrolloff=1
 augroup Cursorline|autocmd!
