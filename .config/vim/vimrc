@@ -127,6 +127,9 @@ let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
 command -range IRB terminal ++close irb
 
+" C
+let g:c_syntax_for_h = 1
+
 " Rust
 autocmd FileType rust compiler cargo
 autocmd FileType rust set makeprg=cargo\ test
