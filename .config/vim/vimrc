@@ -199,9 +199,11 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✘'
 nmap [a <Cmd>ALEPreviousWrap<CR>
 nmap ]a <Cmd>ALENextWrap<CR>
+nmap <Leader>a<CR> <Cmd>ALEDetail<CR>
 nmap <Leader>ad <Cmd>ALEDisable<CR>
 nmap <Leader>ae <Cmd>ALEEnable<CR>
 nmap <Leader>af <Cmd>ALEFix<CR>
+nmap <Leader>ai <Cmd>ALEInfo<CR>
 
 " Move lines up&down
 nmap <M-Up>   :move -2<CR>=j
