@@ -189,6 +189,7 @@ nmap <leader>r <Cmd>TestLast<CR>
 
 " ALE
 let g:ale_linters = {}
+let g:ale_linters.c = ["cc"]
 let g:ale_linters.ruby = ["ruby"]
 let g:ale_linters.eruby = ["erubi"]
 let g:ale_fixers = {}
