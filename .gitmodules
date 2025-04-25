@@ -10,6 +10,9 @@
 [submodule "vim/commentary.vim"]
 	path = .config/vim/pack/bundle/start/commentary.vim
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/context.vim"]
+	path = .config/vim/pack/bundle/start/context.vim
+	url = https://github.com/wellle/context.vim
 [submodule "vim/endwise.vim"]
 	path = .config/vim/pack/bundle/start/endwise.vim
 	url = https://github.com/tpope/vim-endwise.git
@@ -22,6 +25,9 @@
 [submodule "vim/fzf.vim"]
 	path = .config/vim/pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/pear-tree"]
+	path = .config/vim/pack/bundle/start/pear-tree
+	url = https://github.com/tmsvg/pear-tree.git
 [submodule "vim/projectionist.vim"]
 	path = .config/vim/pack/bundle/start/projectionist.vim
 	url = https://github.com/tpope/vim-projectionist.git/
@@ -55,6 +61,9 @@
 [submodule "vim/switch.vim"]
 	path = .config/vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "vim/targets.vim"]
+	path = .config/vim/pack/bundle/start/targets.vim
+	url = https://github.com/wellle/targets.vim
 [submodule "vim/test.vim"]
 	path = .config/vim/pack/bundle/start/test.vim
 	url = https://github.com/janko-m/vim-test.git
@@ -82,12 +91,3 @@
 [submodule "vim/vinegar.vim"]
 	path = .config/vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "vim/pear-tree"]
-	path = .config/vim/pack/bundle/start/pear-tree
-	url = https://github.com/tmsvg/pear-tree.git
-[submodule "vim/targets.vim"]
-	path = .config/vim/pack/bundle/start/targets.vim
-	url = https://github.com/wellle/targets.vim
-[submodule "vim/context.vim"]
-	path = .config/vim/pack/bundle/start/context.vim
-	url = https://github.com/wellle/context.vim
