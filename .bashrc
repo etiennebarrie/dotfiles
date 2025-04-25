@@ -22,8 +22,9 @@ PS1_short_path() {
 	done
 	echo "${pwd//~/\~}"
 }
-PS1="$PS1"'$(PS1_short_path)$(__git_ps1 " (%s)")'
-PS1="$PS1"'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}") \$ '
+PS1=$PS1'$(PS1_short_path)$(__git_ps1 " (%s)")'
+PS1=$PS1'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}")'
+PS1=$PS1' \$ '
 
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
 	PS1='\[\e]1;\w — \u@\H\e\\\]\[\033[01;32m\]\u@\H\[\033[00m\] '"$PS1"
