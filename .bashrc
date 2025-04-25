@@ -24,6 +24,7 @@ PS1_short_path() {
 }
 PS1=$PS1'$(PS1_short_path)$(__git_ps1 " (%s)")'
 PS1=$PS1'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}")'
+PS1=$PS1'${make_target:+ [}${make_target#target/}${make_target:+]}'
 PS1=$PS1' \$ '
 
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
@@ -126,6 +127,28 @@ setenv() {
 	export "${@?}"
 }
 complete -o default setenv
+
+target() {
+	[[ $# = 0 ]] && { unset make_target; return 0; }
+	if [[ $# -gt 1 || ! -d target/"$1" ]]; then
+		local targets=()
+		while read -r target; do
+			targets+=("${target#target/}")
+		done < <(find target -d -depth 1)
+		printf -v targets "%s|" "${targets[@]}"
+		>&2 echo "usage: target ${targets%?}"
+		return 1
+	fi
+	make_target=target/$1
+}
+_comp_target() { _comp_compgen -C target -- -d; }
+complete -F _comp_target target
+
+make() {
+	[[ -v make_target ]] &&
+		set -- -C "$make_target" "$@" -j "$(nproc)"
+	command make "$@"
+}
 
 HISTSIZE=100000
 HISTCONTROL='ignoreboth:erasedups'
