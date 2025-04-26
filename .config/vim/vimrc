@@ -179,6 +179,9 @@ vnoremap P p
 map  <leader>y "+y
 vmap <leader>y "+y
 nmap <leader>Y "+Y
+"" copy a line and comment it
+nmap gyy yygccp
+omap gy ygvgcp
 
 " vim-test
 let test#strategy = "terminal"
