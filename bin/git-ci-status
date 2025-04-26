@@ -36,8 +36,8 @@ def statuses
   statuses_json = %x(gh api repos/{owner}/{repo}/commits/#@commit/status --paginate --slurp)
   check_runs_json = %x(gh api repos/{owner}/{repo}/commits/#@commit/check-runs --paginate --slurp)
 
-  statuses = JSON.parse(statuses_json, symbolize_names: true).flat_map { _1.fetch(:statuses) }
-  statuses + JSON.parse(check_runs_json, symbolize_names: true).flat_map { _1.fetch(:check_runs) }
+  statuses = JSON.parse(statuses_json, symbolize_names: true).flat_map { it.fetch(:statuses) }
+  statuses + JSON.parse(check_runs_json, symbolize_names: true).flat_map { it.fetch(:check_runs) }
     .filter_map do |check_run|
       check_run => { status:, conclusion:, name:, html_url: }
       next if conclusion == "skipped"
@@ -96,20 +96,20 @@ end
 loop do
   @exit_status = 0
   if context
-    status = statuses.detect { _1[:context] == context }
+    status = statuses.detect { it[:context] == context }
     abort "no status with context or check run with name: #{context.inspect}" unless status
     status => { state:, target_url: }
     symbol_color(state)
     puts status.fetch(:target_url)
   else
     statuses = statuses()
-    context_length = statuses.map { _1[:context].size }.max
+    context_length = statuses.map { it[:context].size }.max
     print @reset if @reset
     statuses.each do |status|
       status => { state:, context: status_context, target_url: }
       puts [
         symbol_color(state),
-        status_context.then { @tty ? _1.ljust(context_length) : _1 },
+        status_context.then { @tty ? it.ljust(context_length) : it },
         target_url,
       ].join("\t")
     end
