@@ -174,7 +174,9 @@ nmap } <Cmd>keepjumps normal! }<CR>
 "" don't clobber unnamed register content when pasting in visual mode, P to swap
 vnoremap p P
 vnoremap P p
-
+"" wraps
+nmap <leader>` ysiW`
+nmap <leader>" ysiW"
 "" copy to clipboard
 map  <leader>y "+y
 vmap <leader>y "+y
