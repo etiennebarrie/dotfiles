@@ -174,6 +174,9 @@ nmap } <Cmd>keepjumps normal! }<CR>
 "" don't clobber unnamed register content when pasting in visual mode, P to swap
 vnoremap p P
 vnoremap P p
+"" insert mode emacs navigation
+imap <C-E> <C-O>A
+imap <C-A> <C-O>I
 "" wraps
 nmap <leader>` ysiW`
 nmap <leader>" ysiW"
