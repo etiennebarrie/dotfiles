@@ -1,0 +1,53 @@
+#!/bin/bash
+
+set -euo pipefail
+
+abort() { >&2 echo error: "$@"; exit 1; }
+
+: "${repo:=$HOME/src/github.com/ruby/ruby}"
+[[ -x $repo/autogen.sh ]] || abort "Ruby not cloned"
+
+tmpdir=$(mktemp -d -t ruby-make.XXX)
+
+if [ $# -gt 0 ]; then
+	version=$1
+	[[ ! -e "${prefix:=$HOME/.ruby/$version}" ]] || abort "$prefix already exists"
+	tag=v${version//[.-]/_}
+	ref=refs/tags/$tag
+else
+	prefix=$HOME/.ruby/head
+	ref=FETCH_HEAD
+fi
+
+[[ ! -e $prefix ]] || abort "${prefix/~/~} already exists"
+
+set -x
+
+git -C "$repo" fetch --quiet https://github.com/ruby/ruby.git --tags
+git -C "$repo" worktree add "$tmpdir" "$ref" &>/dev/null || abort "couldn't find version $version"
+trap 'git -C "$repo" worktree remove "$tmpdir"' EXIT
+
+configure_args=()
+if type brew >&/dev/null; then
+	brew install --quiet autoconf openssl@3 libyaml
+	configure_args+=(
+		--with-libyaml-dir="$(brew --prefix libyaml)"
+	)
+	nproc=$(sysctl -n hw.ncpu)
+elif type apt-get >&/dev/null; then
+	sudo apt-get install --yes --no-install-recommends \
+		autoconf openssl libyaml-dev zlib1g-dev
+	nproc=$(nproc)
+fi
+
+cd "$tmpdir"
+./autogen.sh
+./configure \
+	--prefix="$prefix" \
+	--disable-install-doc \
+	"${configure_args[@]}" \
+	--with-ext=openssl,psych,json,+ \
+	CFLAGS=-march=native
+
+make -j "$nproc"
+make install
