@@ -42,6 +42,13 @@ mkdird() {
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc'
 o() { open "${@:-.}"; }
 
+rb() {
+	if [[ $1 != -* ]]; then
+		set -- -e "puts(($*))"
+	fi
+	ruby --disable=gems -I ~/.local/lib/ruby -rb "$@"
+}
+
 m() {
 	if [ $# -ne 0 ]; then
 		local d dir="$1" IFS=: p
