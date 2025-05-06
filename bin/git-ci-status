@@ -27,10 +27,13 @@ if wait_index = ARGV.index { |arg| arg.start_with?(/--wait=?/) || arg == "-w" }
   wait ||= 10
 end
 
-commit = ARGV.shift || "@{u}"
-usage unless ARGV.empty?
-
-@commit = %x(git rev-parse --verify --end-of-options "#{commit}")
+if ARGV.empty?
+  @commit = %x(git rev-parse --verify --end-of-options @{u} 2>/dev/null || git rev-parse --verify --end-of-options @)
+else
+  commit = ARGV.shift
+  usage unless ARGV.empty?
+  @commit = %x(git rev-parse --verify --end-of-options "#{commit}")
+end
 
 def statuses
   statuses_json = %x(gh api repos/{owner}/{repo}/commits/#@commit/status --paginate --slurp)
