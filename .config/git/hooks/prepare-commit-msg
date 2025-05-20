@@ -1,0 +1,31 @@
+#!/bin/sh
+set -eu
+
+branch=$(git branch --show-current)
+remote=$(git config branch."$branch".remote || :)
+[ -z "$remote" ] && exit
+
+sed -i '' \
+	's/# On branch .*$/# Branch will be created from commit message above./' \
+	"$(git rev-parse --git-dir)/COMMIT_EDITMSG"
+
+yellow=
+bold_yellow=
+clear=
+if [ -t 2 ]; then
+	yellow="\033[0;33m"
+	bold_yellow="\033[1;33m"
+	clear="\033[m"
+fi
+
+refs=refs/remotes/"$remote"
+remote_head=$(git symbolic-ref "$refs"/HEAD)
+upstream_branch=$(git config branch."$branch".merge)
+upstream_branch=${upstream_branch#refs/heads/}
+if [ "$refs/$upstream_branch" = "$remote_head" ]; then
+	>&2 echo "${yellow}Committing to $bold_yellow$branch$yellow"\
+		"(tracking the default remote branch $bold_yellow$remote/$upstream_branch$yellow):"\
+		"a new branch will be created.$clear"
+	git checkout --detach --quiet
+	touch "$(git rev-parse --git-dir)/rename-branch-after-commit"
+fi

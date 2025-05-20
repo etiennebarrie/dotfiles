@@ -1,2 +1,10 @@
-#!/bin/sh
-"$(git rev-parse --git-common-dir)"/hooks/ctags &
+#!/bin/bash
+
+set -euo pipefail
+
+flag=$(git rev-parse --git-dir)/rename-branch-after-commit
+if [[ -f $flag && -z $(git branch --show-current) ]]; then
+	branch=$(git show --format=format:%s --no-patch | tr '[:upper:]' '[:lower:]' | tr -sc '[:alnum:]' -)
+	git checkout -b "$branch"
+	rm -f -- "$flag"
+fi
