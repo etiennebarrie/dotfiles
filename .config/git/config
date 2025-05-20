@@ -21,7 +21,7 @@
 	dc = diff --color-words --cached
 	df = diff --color-words
 	empty = commit --allow-empty
-	fe = "!f() { : git fetch; git fetch ${@:---all --tags}; }; f"
+	fe = fetch
 	feco = "!f() { git fetch origin -f $1:$1 && git checkout $1; }; f"
 	fixup = commit --fixup
 	l = log --graph --decorate --all
@@ -57,6 +57,7 @@
 	where-merged = "!f() { git log HEAD ^$@ --ancestry-path --merges --reverse --pretty=%H | head -1; }; f"
 	wipp = wip --no-verify
 [fetch]
+	all = true
 	parallel = 0
 	prune = true
 	writeCommitGraph = true
@@ -76,8 +77,8 @@
 	showIncludeUntracked = true
 	showPatch = true
 [status]
-	short = true
 	branch = true
+	short = true
 [init]
 	defaultBranch = main
 	templateDir = ~/.config/git/template
@@ -86,17 +87,17 @@
 	default = upstream
 	useForceIfIncludes = true
 [merge]
-	ff = false
-	tool = vimdiff
-	guitool = gvimdiff
 	conflictStyle = zdiff3
+	ff = false
+	guitool = gvimdiff
+	tool = vimdiff
 [mergetool]
 	keepBackup = false
 [pull]
 	rebase = true
 	recurse = true
 [branch]
-	autosetupmerge = true
+	autoSetupMerge = true
 	sort = -committerdate
 [advice]
 	commitBeforeMerge = false
@@ -117,15 +118,15 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
-	updateRefs = true
 	rescheduleFailedExec = true
+	updateRefs = true
 [help]
 	autoCorrect = prompt
 [interactive]
-	singlekey = true
+	singleKey = true
 [user]
 	name = Étienne Barrié
-	useconfigonly = true
+	useConfigOnly = true
 [column]
 	ui = auto row dense
 [log]
