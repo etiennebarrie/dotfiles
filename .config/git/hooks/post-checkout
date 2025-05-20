@@ -1,2 +1,3 @@
 #!/bin/sh
+[ -d "$(git rev-parse --git-dir)"/rebase-merge ] && exit 0 # rebase in progress
 "$(git rev-parse --git-common-dir)"/hooks/ctags &
