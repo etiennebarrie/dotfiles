@@ -10,6 +10,7 @@
 	ci = commit
 	cia = commit --amend --no-edit
 	ciaa = commit --amend --no-edit --reset-author
+	cii = commit --no-verify
 	cip = commit --patch
 	cl = clean --force -d
 	clbr = "!f() { git fetch --prune && git branch --merged origin/HEAD | grep -v ^* | egrep -v '^  master|main$' | xargs git branch -d && for branch in `git branch -vv | grep -v ^* | awk '/: gone]/ {print $1}'`; do git branch -D $branch; done }; f"
@@ -30,6 +31,7 @@
 	ol = log --pretty=oneline
 	pf = push --force-with-lease
 	pff = push --force-with-lease --no-verify
+	pfff = push --force-with-lease --no-force-if-includes --no-verify
 	pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref; do branch=${ref#refs/heads/}; git branch -D $branch; done"
 	pushu = "!f() { : git push ; git push --set-upstream ${1:-origin} HEAD; }; f"
@@ -53,6 +55,7 @@
 	su = submodule update --init --recursive
 	suu = "!f() { git submodule update --init --remote && git submodule summary; }; f"
 	where-merged = "!f() { git log HEAD ^$@ --ancestry-path --merges --reverse --pretty=%H | head -1; }; f"
+	wipp = wip --no-verify
 [fetch]
 	parallel = 0
 	prune = true
