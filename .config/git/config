@@ -107,6 +107,7 @@
 	skippedCherryPicks = false
 	statusHints = false
 [rerere]
+	autoUpdate = true
 	enabled = true
 [diff]
 	algorithm = histogram
