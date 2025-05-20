@@ -1,2 +1,2 @@
 #!/bin/sh
-"${GIT_DIR:-.git}"/hooks/ctags &
+"$(git rev-parse --git-common-dir)"/hooks/ctags &
