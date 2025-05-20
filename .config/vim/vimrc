@@ -213,6 +213,7 @@ nmap <Leader>ad <Cmd>ALEDisable<CR>
 nmap <Leader>ae <Cmd>ALEEnable<CR>
 nmap <Leader>af <Cmd>ALEFix<CR>
 nmap <Leader>ai <Cmd>ALEInfo<CR>
+nmap <Leader>al <Cmd>ALELint<CR>
 
 " Move lines up&down
 nmap <M-Up>   :move -2<CR>=j
