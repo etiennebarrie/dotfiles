@@ -148,7 +148,12 @@ target() {
 	fi
 	make_target=target/$1
 }
-_comp_target() { _comp_compgen -C target -- -d; }
+_comp_target() {
+	# shellcheck disable=SC2034
+	local cur prev words cword comp_args
+	_comp_initialize -- "$@" || return
+	_comp_compgen -C target -- -d
+}
 complete -F _comp_target target
 
 make() {
