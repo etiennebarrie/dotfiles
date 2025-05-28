@@ -5,10 +5,6 @@ branch=$(git branch --show-current)
 remote=$(git config branch."$branch".remote || :)
 [ -z "$remote" ] && exit
 
-sed -i '' \
-	's/# On branch .*$/# Branch will be created from commit message above./' \
-	"$(git rev-parse --git-dir)/COMMIT_EDITMSG"
-
 yellow=
 bold_yellow=
 clear=
@@ -28,4 +24,8 @@ if [ "$refs/$upstream_branch" = "$remote_head" ]; then
 		"a new branch will be created.$clear"
 	git checkout --detach --quiet
 	touch "$(git rev-parse --git-dir)/rename-branch-after-commit"
+
+	commit_editmsg=$(git rev-parse --git-dir)/COMMIT_EDITMSG
+	sed -i.bak 's/# On branch .*$/# Branch will be created from commit message above./' "$commit_editmsg"
+	rm "$commit_editmsg.bak"
 fi
