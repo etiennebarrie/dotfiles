@@ -165,8 +165,8 @@ make() {
 HISTSIZE=100000
 HISTCONTROL='ignoreboth:erasedups'
 HISTIGNORE='git ci *:git co *:git pf:git pull:git s*:m *'
+shopt -s histappend lithist
 
-shopt -s histappend
 export LESS=FRXx4i
 tabs -4
 
