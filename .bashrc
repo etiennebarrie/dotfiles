@@ -167,6 +167,10 @@ HISTCONTROL='ignoreboth:erasedups'
 HISTIGNORE='git ci *:git co *:git pf:git pull:git s*:m *'
 shopt -s histappend lithist
 
+alias j=jobs
+alias kk='kill %%'
+shopt -s checkjobs huponexit
+
 export LESS=FRXx4i
 tabs -4
 
