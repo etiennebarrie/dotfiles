@@ -79,16 +79,6 @@ while read -r _ local_sha remote_ref _; do
 			p git stash pop --index --quiet
 		fi
 		
-		protected_branches="$(git rev-parse --git-dir)/protected-branches"
-		if [ -e "$protected_branches" ]; then
-			while read -r protected_branch; do
-				if [ "$remote_ref" = refs/heads/"$protected_branch" ]; then
-					>&2 echo -e "$red$hook: $yellow$protected_branch$red is a protected branch$clear"
-					exit 1
-				fi
-			done < "$protected_branches"
-		fi
-
 		if [ $return_status ]; then
 			>&2 echo -e "$red$hook: $yellow$test ${red}failed with exit code $yellow$return_status$clear\a"
 			exit $return_status
