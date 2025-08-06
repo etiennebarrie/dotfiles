@@ -1,20 +1,16 @@
 # vim: set ft=ruby
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 
 require "yaml"
 YAML.load_file("#{__dir__}/packages.yaml")
   .fetch("packages")
-  .filter_map { k, v = *Array(_1).first; v ? v.fetch("Homebrew", k) : k }
-  .each { brew _1 }
+  .filter_map { k, v = *Array(it).first; v ? v.fetch("Homebrew", k) : k }
+  .each { brew it }
 
 cask "dash"
-cask "docker"
 cask "font-sf-mono"
 cask "ghostty"
 cask "keycastr"
 cask "maccy"
-cask "macvim"
-cask "spotify"
-cask "spotmenu"
+cask "macvim-app"
