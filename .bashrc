@@ -207,6 +207,3 @@ tabs -4
 }
 PROMPT_COMMAND+=("-ruby")
 init=on "-ruby" "$(<~/.ruby-version)" || >&2 echo "Ruby wasn't found"
-
-# https://twitter.com/tpope/status/165631968996900865
-PATH=.git/safe/../../bin:$PATH
