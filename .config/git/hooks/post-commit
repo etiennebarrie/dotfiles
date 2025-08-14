@@ -4,7 +4,14 @@ set -euo pipefail
 
 flag=$(git rev-parse --git-dir)/rename-branch-after-commit
 if [[ -f $flag && -z $(git branch --show-current) ]]; then
+	trap 'rm -f -- "$flag"' EXIT
 	branch=$(git show --format=format:%s --no-patch | tr '[:upper:]' '[:lower:]' | tr -sc '[:alnum:]' -)
-	git checkout -b "$branch"
-	rm -f -- "$flag"
+	branch=${branch#-}
+	branch=${branch%-}
+	git checkout -b "$branch" || {
+		yellow=; bold_yellow=; clear=; [ -t 2 ] && { yellow="\033[0;33m"; bold_yellow="\033[1;33m"; clear="\033[m"; }
+		>&2 echo -e "${yellow}Run ${bold_yellow}git checkout -B $branch${yellow} to force.${clear}"
+		exit 0
+	}
+	git reflog delete 'HEAD@{0}' # 😬
 fi

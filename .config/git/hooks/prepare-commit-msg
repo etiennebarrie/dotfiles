@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+[ "${2:-}" = merge ] && exit 0 # checking out another branch doesn't work during a merge
+
+[ "$(git config --bool --default true my.defaultBranchProtection)" = false ] && exit 0
+
 branch=$(git branch --show-current)
 remote=$(git config branch."$branch".remote || :)
 [ -z "$remote" ] && exit
@@ -18,14 +22,16 @@ refs=refs/remotes/"$remote"
 remote_head=$(git symbolic-ref "$refs"/HEAD)
 upstream_branch=$(git config branch."$branch".merge)
 upstream_branch=${upstream_branch#refs/heads/}
-if [ "$refs/$upstream_branch" = "$remote_head" ]; then
-	>&2 echo "${yellow}Committing to $bold_yellow$branch$yellow"\
-		"(tracking the default remote branch $bold_yellow$remote/$upstream_branch$yellow):"\
-		"a new branch will be created.$clear"
-	git checkout --detach --quiet
-	touch "$(git rev-parse --git-dir)/rename-branch-after-commit"
+[ "$refs/$upstream_branch" = "$remote_head" ] || exit 0 # no need to change branches
 
-	commit_editmsg=$(git rev-parse --git-dir)/COMMIT_EDITMSG
-	sed -i.bak 's/# On branch .*$/# Branch will be created from commit message above./' "$commit_editmsg"
-	rm "$commit_editmsg.bak"
-fi
+>&2 echo "${yellow}Committing to $bold_yellow$branch$yellow"\
+	"(tracking the default remote branch $bold_yellow$remote/$upstream_branch$yellow):"\
+	"a new branch will be created.$clear"
+git checkout --detach --quiet
+touch "$(git rev-parse --git-dir)/rename-branch-after-commit"
+
+[ "${2:-}" = message ] && exit 0 # no need to edit the commit message
+
+commit_editmsg=$1
+sed -i.bak 's/# On branch .*$/# Branch will be created from commit message above./' "$commit_editmsg"
+rm "$commit_editmsg.bak"
