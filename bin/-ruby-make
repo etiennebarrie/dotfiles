@@ -4,6 +4,10 @@ set -euo pipefail
 
 abort() { >&2 echo error: "$@"; exit 1; }
 
+if ! type ruby >/dev/null; then
+	abort "Missing base Ruby"
+fi
+
 : "${repo:=$HOME/src/github.com/ruby/ruby}"
 [[ -x $repo/autogen.sh ]] || abort "Ruby not cloned"
 
@@ -33,11 +37,9 @@ if type brew >&/dev/null; then
 	configure_args+=(
 		--with-libyaml-dir="$(brew --prefix libyaml)"
 	)
-	nproc=$(sysctl -n hw.ncpu)
 elif type apt-get >&/dev/null; then
 	sudo apt-get install --yes --no-install-recommends \
 		autoconf openssl libyaml-dev zlib1g-dev
-	nproc=$(nproc)
 fi
 
 cd "$tmpdir"
@@ -49,5 +51,8 @@ cd "$tmpdir"
 	--with-ext=openssl,psych,json,+ \
 	CFLAGS=-march=native
 
-make -j "$nproc"
+make -j "$(getconf _NPROCESSORS_ONLN)"
 make install
+
+mapfile -t gems <~/.config/gem/default
+"$prefix"/bin/gem install "${gems[@]}"
