@@ -158,7 +158,7 @@ complete -F _comp_target target
 
 make() {
 	[[ -v make_target ]] &&
-		set -- -C "$make_target" "$@" -j "$(nproc)"
+		set -- -C "$make_target" -j "$(getconf _NPROCESSORS_ONLN)" "$@"
 	command make "$@"
 }
 
