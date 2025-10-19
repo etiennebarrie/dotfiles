@@ -31,7 +31,7 @@ git -C "$repo" fetch --quiet https://github.com/ruby/ruby.git --tags
 git -C "$repo" worktree add "$tmpdir" "$ref" &>/dev/null || abort "couldn't find version $version"
 trap 'git -C "$repo" worktree remove "$tmpdir"' EXIT
 
-configure_args=()
+configure_args=(--enable-yjit)
 if type brew >&/dev/null; then
 	brew install --quiet autoconf openssl@3 libyaml
 	configure_args+=(
@@ -39,6 +39,7 @@ if type brew >&/dev/null; then
 	)
 elif type apt-get >&/dev/null; then
 	packages=(autoconf libssl-dev libyaml-dev zlib1g-dev)
+	type rustc >&/dev/null || packages+=(rustc)
 	sudo apt-get install --yes --no-install-recommends "${packages[@]}"
 fi
 
