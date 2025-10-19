@@ -38,8 +38,8 @@ if type brew >&/dev/null; then
 		--with-libyaml-dir="$(brew --prefix libyaml)"
 	)
 elif type apt-get >&/dev/null; then
-	sudo apt-get install --yes --no-install-recommends \
-		autoconf openssl libyaml-dev zlib1g-dev
+	packages=(autoconf libssl-dev libyaml-dev zlib1g-dev)
+	sudo apt-get install --yes --no-install-recommends "${packages[@]}"
 fi
 
 cd "$tmpdir"
