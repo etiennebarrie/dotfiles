@@ -27,6 +27,8 @@ augroup Cursorline|autocmd!
   autocmd WinLeave *          setlocal nocursorline
 augroup end
 set timeoutlen=400
+set formatoptions-=o " don't continue comments with o
+set formatoptions+=r " continue comments with <D-CR>
 
 " Files
 setglobal autoread
@@ -114,7 +116,7 @@ nmap <C-L> <C-W>l
 autocmd FileType json,vim setlocal expandtab shiftwidth=2
 
 " Ruby
-autocmd FileType ruby  setlocal iskeyword+=?,! formatoptions-=o makeprg=ruby\ %
+autocmd FileType ruby  setlocal iskeyword+=?,! makeprg=ruby\ %
 autocmd FileType ruby  nmap <buffer> <Leader>e oend<Esc>
 autocmd FileType ruby  vmap <buffer> <Leader>e >`>oend<Esc>
 autocmd FileType ruby  nmap <buffer> <Leader>d odebugger<Esc>
