@@ -191,6 +191,7 @@ nmap <leader>Y "+Y
 "" copy a line and comment it
 nmap gyy yygccp
 omap gy ygvgcp
+vmap gy ygvgc'>p
 
 " vim-test
 let test#strategy = "terminal"
