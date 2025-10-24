@@ -184,6 +184,7 @@ imap <C-A> <C-O>I
 nmap <leader>` ysiW`
 nmap <leader>" ysiW"
 "" copy to clipboard
+nmap <leader>yp <Cmd>let @+=@"<CR>
 map  <leader>y "+y
 vmap <leader>y "+y
 nmap <leader>Y "+Y
