@@ -131,6 +131,7 @@ command -range IRB terminal ++close irb
 
 " C
 let g:c_syntax_for_h = 1
+autocmd FileType c nmap <buffer> <Leader>d ofprintf(stderr, "\n");<Esc>F\i
 
 " Rust
 autocmd FileType rust compiler cargo
