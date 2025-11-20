@@ -1,6 +1,17 @@
 #!/bin/sh
+set -eu
 
-git ls-files --cached --others --exclude-standard | entr -ccd "$@"
+git_dir=$(git rev-parse --git-dir 2>/dev/null)
+
+w="$git_dir"/entr.watched
+if [ -f "$w" ]; then
+	>&2 echo "Watching $(grep "" -c "$w") files from $w"
+	echo "$w"
+	cat "$w"
+else
+	git ls-files --cached --others --exclude-standard
+fi | entr -ccd "$@"
+
 exit_status=$?
 if [ $exit_status -eq 2 ]; then
 	exec "$0" "$@"
