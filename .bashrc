@@ -6,9 +6,8 @@ fi
 alias ..='cd ..'
 alias ...='cd ../..'
 
-if [ -r "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion" ]; then
-	source "${HOMEBREW_PREFIX:-/usr/}/share/bash-completion/bash_completion"
-fi
+[[ -n $HOMEBREW_PREFIX && -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] &&
+	source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 _git_lb() { _git_log; }
 
 # shellcheck disable=SC2034
