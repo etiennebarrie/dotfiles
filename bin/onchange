@@ -10,7 +10,7 @@ if [ -f "$w" ]; then
 	cat "$w"
 else
 	git ls-files --cached --others --exclude-standard
-fi | entr -ccd "$@"
+fi | entr -d "$@"
 
 exit_status=$?
 if [ $exit_status -eq 2 ]; then
