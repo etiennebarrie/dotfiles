@@ -112,6 +112,11 @@ commit() {
 	git commit --all --message "$ $(history 2 | head -1 | ruby --disable-all -ne 'puts $_.split(" ", 2).last')"
 	git show --format=medium --no-patch --stat
 }
+
+dif() {
+	git diff --no-index "$@"
+}
+
 io() {
 	"$@" 2> >(sed 's/^/err: /') > >(sed 's/^/out: /')
 }
