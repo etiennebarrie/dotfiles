@@ -18,7 +18,7 @@ if [ $# -gt 0 ]; then
 	version=$1
 	[[ ! -e "${prefix:=$HOME/.ruby/$version}" ]] || abort "$prefix already exists"
 	[[ $version = *-* ]] && configure_args+=("cppflags=-DRUBY_PATCHLEVEL_NAME=${version#*-}")
-	tag=v${version//[.-]/_}
+	(( ${version%%.*} < 4 )) && tag=v${version//[.-]/_}
 	ref=refs/tags/$tag
 else
 	prefix=$HOME/.ruby/head
