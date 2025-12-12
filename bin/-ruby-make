@@ -12,10 +12,12 @@ fi
 [[ -x $repo/autogen.sh ]] || abort "Ruby not cloned"
 
 tmpdir=$(mktemp -d -t ruby-make.XXX)
+configure_args=()
 
 if [ $# -gt 0 ]; then
 	version=$1
 	[[ ! -e "${prefix:=$HOME/.ruby/$version}" ]] || abort "$prefix already exists"
+	[[ $version = *-* ]] && configure_args+=("cppflags=-DRUBY_PATCHLEVEL_NAME=${version#*-}")
 	tag=v${version//[.-]/_}
 	ref=refs/tags/$tag
 else
@@ -31,7 +33,7 @@ git -C "$repo" fetch --quiet https://github.com/ruby/ruby.git --tags
 git -C "$repo" worktree add "$tmpdir" "$ref" &>/dev/null || abort "couldn't find version $version"
 trap 'git -C "$repo" worktree remove "$tmpdir"' EXIT
 
-configure_args=(--enable-yjit)
+configure_args+=(--enable-yjit)
 if type brew >&/dev/null; then
 	brew install --quiet autoconf openssl@3 libyaml
 	configure_args+=(
