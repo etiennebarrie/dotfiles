@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -55,5 +55,5 @@ cd "$tmpdir"
 make -j "$(getconf _NPROCESSORS_ONLN)"
 make install
 
-mapfile -t gems <~/.config/gem/default
+readarray -t gems <~/.config/gem/default
 "$prefix"/bin/gem install "${gems[@]}"
