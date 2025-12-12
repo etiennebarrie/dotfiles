@@ -119,6 +119,7 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+	rebaseMerges = true
 	rescheduleFailedExec = true
 	updateRefs = true
 [help]
