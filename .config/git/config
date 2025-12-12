@@ -51,6 +51,7 @@
 	sha = "!f() { local sha=$(git rev-parse --default HEAD $*); printf "%s" $sha | pbcopy; echo $sha; }; f"
 	sk = stash push --keep-index --include-untracked --quiet
 	sp = stash pop --index --quiet
+	squash = merge --ff --squash
 	ss = stash show
 	st = status
 	su = submodule update --init --recursive
