@@ -16,7 +16,6 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 if type mvim &>/dev/null; then
 	export EDITOR="mvim -f"
-	export BUNDLER_EDITOR="mvim"
 else
 	export EDITOR=vim
 fi

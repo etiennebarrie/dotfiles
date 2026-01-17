@@ -71,13 +71,18 @@ m() {
 complete -o bashdefault -o default -o nospace -F _cd m
 
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
-alias vi=vim
 if type bat &>/dev/null; then
 	alias cat=bat
 elif type batcat &>/dev/null; then
 	alias cat=batcat
 fi
 alias s='bin/rails server'
+
+if type mvim &>/dev/null; then
+	alias vi=vim
+	alias bundle='BUNDLER_EDITOR=mvim bundle'
+fi
+
 c() {
 	if [ -x bin/console ]; then
 		bin/console "$@"
