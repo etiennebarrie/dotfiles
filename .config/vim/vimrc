@@ -43,7 +43,7 @@ setglobal hlsearch
 setglobal incsearch
 nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<Bar>:echo<CR>
 vnoremap / "sy/\V<C-R>=escape(@s,'/\')<CR><CR>
-setglobal grepprg=rg\ --vimgrep
+setglobal grepprg=RIPGREP_CONFIG_PATH=~/.config/ripgrep\ rg\ --vimgrep
 setglobal grepformat^=%f:%n:%c:%m
 setglobal shortmess-=S shortmess+=s
 

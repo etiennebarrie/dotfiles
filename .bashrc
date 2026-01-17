@@ -48,6 +48,8 @@ rb() {
 	ruby --disable=gems -I ~/.local/lib/ruby -rb "$@"
 }
 
+alias rg='RIPGREP_CONFIG_PATH=~/.config/ripgrep rg'
+
 m() {
 	if [ $# -ne 0 ]; then
 		local d dir="$1" IFS=: p
