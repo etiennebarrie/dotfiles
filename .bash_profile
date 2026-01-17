@@ -12,7 +12,6 @@ for HOMEBREW_PREFIX in /opt/homebrew /usr/local ; do
 		break
 	fi
 done
-export HOMEBREW_NO_ENV_HINTS=1
 
 if type mvim &>/dev/null; then
 	export EDITOR="mvim -f"

@@ -83,6 +83,8 @@ if type mvim &>/dev/null; then
 	alias bundle='BUNDLER_EDITOR=mvim bundle'
 fi
 
+alias brew='HOMEBREW_NO_ENV_HINTS=1 brew'
+
 c() {
 	if [ -x bin/console ]; then
 		bin/console "$@"
