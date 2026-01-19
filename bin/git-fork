@@ -7,7 +7,7 @@ set -e
 gh repo set-default "${PWD#"$github/"}"
 gh repo fork --remote --default-branch-only
 
-git config get --all --show-names --value '^[^!].* origin/' --regexp 'alias\.' |
+git config get --all --show-names --value '^[^!].* origin/' --regexp '^alias\.' |
 	sed -e 's/origin/upstream/g' |
 	while read -r name value; do
 		git config set "$name" "$value"
