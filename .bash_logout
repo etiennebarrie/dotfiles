@@ -4,4 +4,4 @@
 	/usr/bin/clear_console -q
 
 # clear tab title on SSH connections
- echo -ne "\033]0;\033\\"
+echo -ne "\033]0;\033\\"
