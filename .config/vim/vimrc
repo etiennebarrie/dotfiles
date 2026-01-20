@@ -29,6 +29,7 @@ augroup end
 set timeoutlen=400
 set formatoptions-=o " don't continue comments with o
 set formatoptions+=r " continue comments with <D-CR>
+set nostartofline
 
 " Files
 setglobal autoread
