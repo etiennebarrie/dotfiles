@@ -1,7 +1,9 @@
 #!/bin/sh
 set -eu
 
-[ "${2:-}" = merge ] && exit 0 # checking out another branch doesn't work during a merge
+# checking out another branch doesn't work during a merge
+# but works during reverts (with --no-commit)
+[ "${2:-}" = merge ] && ! git rev-parse REVERT_HEAD -- >/dev/null 2>&1 && exit 0
 
 [ "$(git config --bool --default true my.defaultBranchProtection)" = false ] && exit 0
 
@@ -19,7 +21,7 @@ if [ -t 2 ]; then
 fi
 
 refs=refs/remotes/"$remote"
-remote_head=$(git symbolic-ref "$refs"/HEAD)
+remote_head=$(git symbolic-ref "$refs"/HEAD 2>/dev/null || :)
 upstream_branch=$(git config branch."$branch".merge)
 upstream_branch=${upstream_branch#refs/heads/}
 [ "$refs/$upstream_branch" = "$remote_head" ] || exit 0 # no need to change branches
