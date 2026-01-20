@@ -113,6 +113,8 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
+nmap <Leader>1 <Cmd>silent tabonly<Bar>silent only<CR>
+
 " Indent with two spaces
 autocmd FileType json,vim setlocal expandtab shiftwidth=2
 
