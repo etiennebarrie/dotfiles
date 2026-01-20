@@ -198,6 +198,8 @@ omap gy ygvgcp
 vmap gy ygvgc'>p
 "" paste line word-wise
 nmap <leader>p pDdd<C-O>"-p
+"" replay last macro
+nmap <C-@> @@
 
 " vim-test
 let test#strategy = "terminal"
