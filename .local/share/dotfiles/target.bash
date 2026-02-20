@@ -10,5 +10,5 @@ target() {
 		return 1
 	fi
 	# shellcheck disable=SC2034
-	make_target=target/$1
+	make_target=$PWD/target/$1
 }

@@ -22,7 +22,7 @@ PS1_short_path() {
 }
 PS1=$PS1'$(PS1_short_path)$(__git_ps1 " (%s)")'
 PS1=$PS1'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}")'
-PS1=$PS1'${make_target:+ [}${make_target#target/}${make_target:+]}'
+PS1=$PS1'${make_target:+ [}${make_target#*\/target/}${make_target:+]}'
 PS1=$PS1' \$ '
 
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
