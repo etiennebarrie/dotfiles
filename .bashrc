@@ -31,6 +31,10 @@ fi
 # shellcheck disable=SC2016
 PROMPT_COMMAND+=('printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"')
 
+source ~/.local/share/dotfiles/autoload.bash
+
+unset autoload
+
 mkdird() {
 	local d
 	d=~/tmp/$(date +%F)
