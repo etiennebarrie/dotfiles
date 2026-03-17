@@ -34,6 +34,7 @@ PROMPT_COMMAND+=('printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"')
 source ~/.local/share/dotfiles/autoload.bash
 
 autoload c
+autoload commit
 autoload demo
 autoload mkdird
 
@@ -92,13 +93,6 @@ clone() {
 	case $command in
 		(cd:*) cd "${command#cd:}" || return $?;;
 	esac
-}
-
-commit() {
-	git add .
-	# shellcheck disable=SC2016
-	git commit --all --message "$ $(history 2 | head -1 | ruby --disable-all -ne 'puts $_.split(" ", 2).last')"
-	git show --format=medium --no-patch --stat
 }
 
 dif() {
