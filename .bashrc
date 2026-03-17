@@ -33,14 +33,10 @@ PROMPT_COMMAND+=('printf "\e[7m⏎\e[0m%$((COLUMNS-1))s\\r"')
 
 source ~/.local/share/dotfiles/autoload.bash
 
+autoload mkdird
+
 unset autoload
 
-mkdird() {
-	local d
-	d=~/tmp/$(date +%F)
-	mkdir "$d"
-	cd "$d" || return 1
-}
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc'
 o() { open "${@:-.}"; }
 
