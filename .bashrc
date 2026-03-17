@@ -130,17 +130,16 @@ io() {
 }
 
 setenv() {
-	if [ -z "$NO_ENV_PS1" ]; then
-		NO_ENV_PS1="$PS1"
-	fi
+	[[ -z $NO_ENV_PS1 ]] && NO_ENV_PS1=$PS1
 	if [ $# -eq 0 ]; then
-		PS1="$NO_ENV_PS1"
+		PS1=$NO_ENV_PS1
 		unset NO_ENV_PS1
-		eval "$UNSETENV"
+		eval "$setenv_UNSETENV"
+		unset setenv_UNSETENV
 		return
 	fi
 	for var do
-		UNSETENV="unset ${var%%=*}; $UNSETENV"
+		setenv_UNSETENV="unset ${var%%=*}; $setenv_UNSETENV"
 	done
 	PS1="${PS1}${*} "
 	export "${@?}"
