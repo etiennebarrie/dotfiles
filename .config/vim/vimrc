@@ -58,9 +58,9 @@ command -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
 command -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
 augroup quickfix|autocmd!
   autocmd QuickFixCmdPost cgetexpr cwindow |
-        \ call setqflist([], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+        \ if exists("s:rg_args") | call setqflist([], 'a', {'title': '$ rg ' . s:rg_args}) | endif
   autocmd QuickFixCmdPost lgetexpr lwindow |
-        \ call setloclist(0, [], 'a', {'title': (exists("s:rg_args") && '$ rg ' . s:rg_args)})
+        \ if exists("s:rg_args") | call setloclist(0, [], 'a', {'title': '$ rg ' . s:rg_args}) | endif
 augroup end
 
 " FZF
@@ -82,6 +82,7 @@ let g:fzf_vim.buffers_jump = 1
 setglobal ruler showcmd
 setglobal laststatus=2
 setglobal wildmenu wildmode=longest:full,full wildoptions=pum
+let g:qf_disable_statusline = 1
 
 " Folds
 set foldlevelstart=99 foldmethod=syntax
