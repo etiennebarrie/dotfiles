@@ -36,6 +36,7 @@ source ~/.local/share/dotfiles/autoload.bash
 autoload c
 autoload commit
 autoload demo
+autoload make
 autoload mkdird
 autoload setenv
 autoload target
@@ -103,12 +104,6 @@ dif() {
 
 io() {
 	"$@" 2> >(sed 's/^/err: /') > >(sed 's/^/out: /')
-}
-
-make() {
-	[[ -v make_target && $1 != "-C" ]] &&
-		set -- -C "$make_target" -j "$(getconf _NPROCESSORS_ONLN)" "$@"
-	command make "$@"
 }
 
 HISTSIZE=100000
