@@ -38,6 +38,7 @@ autoload commit
 autoload demo
 autoload mkdird
 autoload setenv
+autoload target
 
 unset autoload
 
@@ -103,27 +104,6 @@ dif() {
 io() {
 	"$@" 2> >(sed 's/^/err: /') > >(sed 's/^/out: /')
 }
-
-target() {
-	[[ $# = 0 ]] && { unset make_target; return 0; }
-	if [[ $# -gt 1 || ! -d target/"$1" ]]; then
-		local targets=()
-		while read -r target; do
-			targets+=("${target#target/}")
-		done < <(find target -d -depth 1)
-		printf -v targets "%s|" "${targets[@]}"
-		>&2 echo "usage: target ${targets%?}"
-		return 1
-	fi
-	make_target=target/$1
-}
-_comp_target() {
-	# shellcheck disable=SC2034
-	local cur prev words cword comp_args
-	_comp_initialize -- "$@" || return
-	_comp_compgen -C target -- -d
-}
-complete -F _comp_target target
 
 make() {
 	[[ -v make_target && $1 != "-C" ]] &&
