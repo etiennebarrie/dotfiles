@@ -8,7 +8,6 @@ alias ...='cd ../..'
 
 [[ -n $HOMEBREW_PREFIX && -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] &&
 	source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
-_git_lb() { _git_log; }
 
 # shellcheck disable=SC2034
 GIT_PS1_SHOWSTASHSTATE=1
