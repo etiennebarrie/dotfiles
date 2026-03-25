@@ -125,11 +125,11 @@ tabs -4
 	[[ ! $version && ( ! -v ruby_path || -v shell_ruby ) ]] && return
 	case $version in
 		system)
-			[[ ${ruby_path-} ]] && PATH=${PATH//$ruby_path:/}
+			[[ ${ruby_path-} ]] && PATH=${PATH//"$ruby_path":/}
 			unset ruby_path
 			return ;;
 		unset)
-			[[ $ruby_path ]] && PATH=${PATH//$ruby_path:/}
+			[[ $ruby_path ]] && PATH=${PATH//"$ruby_path":/}
 			ruby_path=
 			unset shell_ruby
 			return ;;
@@ -140,7 +140,7 @@ tabs -4
 		~/.{ruby,rubies}/{"${version#ruby-}",ruby-"${version#ruby-}"}/bin
 	do
 		if [[ -x $candidate/ruby ]]; then
-			[[ ${ruby_path-} ]] && PATH=${PATH//$ruby_path:/}
+			[[ ${ruby_path-} ]] && PATH=${PATH//"$ruby_path":/}
 			PATH=$candidate:$PATH
 			ruby_path=$candidate
 			[[ $shell = yes ]] && shell_ruby=${version}
