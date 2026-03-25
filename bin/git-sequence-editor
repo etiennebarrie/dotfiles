@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sed -E -i "" 's/^pick ([0-9a-f]+)( #)? \$ (.*)/exec { \3; } \&\& git add -A \&\& git commit -C \1/' "$@"
+$(git var GIT_EDITOR) "$@"
