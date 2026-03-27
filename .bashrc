@@ -53,6 +53,12 @@ rb() {
 	fi
 	ruby --disable=gems --enable=frozen-string-literal -I ~/.local/lib/ruby -rb "$@"
 }
+if ! type -f rb >&/dev/null; then
+	echo '#!/bin/bash' >| ~/bin/rb &&
+	type rb | tail +2  >> ~/bin/rb &&
+	echo 'rb "$@"'     >> ~/bin/rb &&
+	chmod +x              ~/bin/rb
+fi
 
 alias rg='RIPGREP_CONFIG_PATH=~/.config/ripgrep rg'
 
