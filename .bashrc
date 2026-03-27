@@ -14,7 +14,8 @@ GIT_PS1_SHOWSTASHSTATE=1
 # shellcheck disable=SC2154
 PS1='$(r=$?;(( $r )) && echo "\[\e[1;31m\]✘$r\[\e[m\] ")'
 PS1_short_path() {
-	local pwd=$PWD IFS=:
+	local pwd IFS p
+	pwd=$PWD IFS=:
 	for p in $CDPATH; do
 		pwd=${pwd#"$p/"}
 	done
