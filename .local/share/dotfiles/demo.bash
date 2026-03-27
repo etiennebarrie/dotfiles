@@ -1,13 +1,9 @@
 demo() {
-	if [ -n "$OLD_PS1$OLD_PS2$OLD_PROMPT_COMMAND" ]; then
-		PS1="$OLD_PS1"
-		PS2="$OLD_PS2"
-		PROMPT_COMMAND=("${OLD_PROMPT_COMMAND[@]}")
-		unset OLD_PS1 OLD_PS2 OLD_PROMPT_COMMAND
-	else
-		OLD_PS1="$PS1"
-		OLD_PS2="$PS2"
-		OLD_PROMPT_COMMAND=("${PROMPT_COMMAND[@]}")
+	if [[ ! -v demo_save ]]; then
+		demo_save=$(declare -p PS1 PS2 PROMPT_COMMAND | sed -e 's/^declare -. //')
 		PS1="\$ " PS2="" PROMPT_COMMAND=()
+	else
+		eval -- "$demo_save"
+		unset demo_save
 	fi
 }
