@@ -51,7 +51,7 @@ rb() {
 	if [[ $1 != -* ]]; then
 		set -- -e "puts(($*))"
 	fi
-	ruby --disable=gems -I ~/.local/lib/ruby -rb "$@"
+	ruby --disable=gems --enable=frozen-string-literal -I ~/.local/lib/ruby -rb "$@"
 }
 
 alias rg='RIPGREP_CONFIG_PATH=~/.config/ripgrep rg'
