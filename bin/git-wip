@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if git diff-index --cached HEAD --quiet; then
+if git diff-index --cached @ --quiet; then
 	git commit --message wip "$(git rev-parse --show-toplevel)" "$@"
 else
 	git commit --message wip "$@"
