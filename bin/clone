@@ -3,7 +3,7 @@
 class String def ~ = "#{ENV.fetch("HOME")}/#{delete_prefix "/"}" end
 
 def default_owner
-  %w[pathname yaml].each { require _1 }
+  %w[pathname yaml].each { require it }
   config_home = Pathname ENV.fetch("XDG_CONFIG_HOME") { ~"/.config" }
   config = YAML.load_file config_home/"gh/hosts.yml"
   config&.dig "github.com", "user"
