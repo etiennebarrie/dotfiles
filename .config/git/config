@@ -39,7 +39,7 @@
 	pushu = "!f() { : git push ; git push --set-upstream ${1:-origin} HEAD; }; f"
 	r = rebase
 	ra = rebase --abort
-	rc = -c core.editor=true rebase --continue
+	rc = -c core.editor=: rebase --continue
 	ri = rebase --keep-base origin/HEAD --interactive
 	rii = rebase --keep-base origin/HEAD --autosquash
 	ro = rebase --onto
