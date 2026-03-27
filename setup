@@ -23,7 +23,7 @@ fi
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
-chflags -v hidden bin pkg src setup tmp 2>/dev/null ||:
+chflags -v hidden pkg src setup tmp 2>/dev/null ||:
 
 if type brew >/dev/null 2>&1; then
 	HOMEBREW_NO_ENV_HINTS=1 brew bundle --file ~/.config/dotfiles/Brewfile
