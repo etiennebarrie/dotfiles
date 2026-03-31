@@ -30,13 +30,15 @@ if type brew >/dev/null 2>&1; then
 elif [ "$(uname -s)" = Darwin ]; then
 	open https://brew.sh
 	exit 1
-elif command -v apt-get >/dev/null && command -v ruby >/dev/null; then
+fi
+
+if ! command -v ruby >/dev/null; then
+	exit 1
+fi
+
+if command -v apt-get >/dev/null; then
 	sudo apt-get update --option DPkg::Lock::Timeout=60
-	ruby -ryaml <<-EOF |
-		puts YAML
-		  .load_file("#{ENV.fetch("HOME")}/.config/dotfiles/packages.yaml").fetch("packages")
-		  .filter_map { k, v = *Array(_1).first; v ? v.fetch("APT", k) : k }
-		EOF
+	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.APT' |
 		xargs sudo apt-get install --option DPkg::Lock::Timeout=60 --yes
 fi
 

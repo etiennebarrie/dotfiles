@@ -2,11 +2,8 @@
 tap "homebrew/bundle"
 tap "homebrew/services"
 
-require "yaml"
-YAML.load_file("#{__dir__}/packages.yaml")
-  .fetch("packages")
-  .filter_map { k, v = *Array(it).first; v ? v.fetch("Homebrew", k) : k }
-  .each { brew it }
+require "#{ENV["HOME"]}/.local/share/dotfiles/package"
+Package.Homebrew.each { brew it }
 
 cask "dash"
 cask "font-sf-mono"

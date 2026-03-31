@@ -4,6 +4,7 @@
 [submodule]
 	recurse = false
 [alias]
+	console = !irb -r ~/.local/share/dotfiles/package
 	edit = !${EDITOR%% *} +0G
 	update = !git pull && ./setup
 # remove danger of --include-untracked
