@@ -1,4 +1,4 @@
 _comp_dotfiles() {
-	GIT_DIR=~/.dotfiles.git GIT_WORK_TREE=~ _xfunc git __git_wrap__git_main
+	GIT_DIR=~/.local/share/dotfiles/git _xfunc git __git_wrap__git_main
 }
 complete -o bashdefault -o default -o nospace -F _comp_dotfiles dotfiles

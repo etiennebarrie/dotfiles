@@ -2,13 +2,17 @@
 
 set -xeu
 
-GIT_DIR=$(git rev-parse --absolute-git-dir 2>/dev/null || echo ~/.dotfiles.git)
+git_dir=~/.local/share/dotfiles/git
+GIT_DIR=$(git rev-parse --absolute-git-dir 2>/dev/null || echo $git_dir)
 export GIT_DIR
 
 if ! git config --local core.worktree >/dev/null; then
-	[ "${GIT_DIR:-}" != ~/.dotfiles.git ] && mv "$GIT_DIR" ~/.dotfiles.git
+	if [ "${GIT_DIR:-}" != $git_dir ]; then
+		mkdir -p "$(dirname $git_dir)"
+		mv "$GIT_DIR" $git_dir
+		GIT_DIR=$git_dir
+	fi
 
-	GIT_DIR=~/.dotfiles.git
 	git config core.worktree ~
 	git config include.path ~/.config/dotfiles/.gitconfig
 

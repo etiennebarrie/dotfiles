@@ -11,6 +11,6 @@ for arg do
 	fi
 done
 
-GIT_DIR=~/.dotfiles.git \
+GIT_DIR=~/.local/share/dotfiles/git \
 GIT_WORK_TREE=~ \
 exec git "$@"
