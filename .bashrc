@@ -6,8 +6,11 @@ fi
 alias ..='cd ..'
 alias ...='cd ../..'
 
-[[ -n $HOMEBREW_PREFIX && -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] &&
+if [[ -n $HOMEBREW_PREFIX && -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
 	source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+elif [[ -r /usr/lib/git-core/git-sh-prompt ]]; then
+	source /usr/lib/git-core/git-sh-prompt
+fi
 
 # shellcheck disable=SC2034
 GIT_PS1_SHOWSTASHSTATE=1
