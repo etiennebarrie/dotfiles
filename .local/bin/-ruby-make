@@ -43,6 +43,10 @@ elif type apt-get >&/dev/null; then
 	packages=(autoconf libssl-dev libyaml-dev zlib1g-dev)
 	type rustc >&/dev/null || packages+=(rustc)
 	sudo apt-get install --yes --no-install-recommends "${packages[@]}"
+elif type pacman >&/dev/null; then
+	packages=(autoconf libyaml zlib)
+	type rustc >&/dev/null || packages+=(rust)
+	sudo pacman -Sy --noconfirm --needed "${packages[@]}"
 fi
 
 cd "$tmpdir"
