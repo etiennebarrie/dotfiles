@@ -10,6 +10,8 @@ if [[ -n $HOMEBREW_PREFIX && -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.s
 	source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 elif [[ -r /usr/lib/git-core/git-sh-prompt ]]; then
 	source /usr/lib/git-core/git-sh-prompt
+elif [[ -r /usr/share/git/git-prompt.sh ]]; then
+	source /usr/share/git/git-prompt.sh
 fi
 
 # shellcheck disable=SC2034
