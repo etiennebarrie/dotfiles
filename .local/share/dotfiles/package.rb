@@ -9,7 +9,7 @@ class Package
   singleton_class.include Enumerable
   def self.each(...) = load.each(...)
 
-  %i[APT Homebrew].each do |package_manager|
+  %i[APT Arch Homebrew].each do |package_manager|
     define_singleton_method(package_manager) { filter_map(&package_manager) }
     define_method(package_manager)           { @overrides[package_manager] }
   end

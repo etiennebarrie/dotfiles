@@ -8,12 +8,14 @@ packages:
     APT:
 - entr
 - fzf
-- gh
+- gh:
+    Arch: github-cli
 - git
 - git-absorb
 - gnupg
 - grip:
     APT:
+    Arch:
 - gum:
     APT:
 - htop
@@ -24,14 +26,17 @@ packages:
 - jq
 - lima:
     APT:
+    Arch:
 - ncat:
     Homebrew:
     APT: netcat-openbsd
+    Arch: openbsd-netcat
 - nginx
 - pkg-config
 - ripgrep
 - ruby-install:
     APT:
+    Arch:
 - shellcheck
 - siege
 - tree
