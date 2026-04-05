@@ -3,6 +3,7 @@ if [ -f ~/.bashrc.local ]; then
 fi
 [[ ! $- = *i* ]] && return
 
+CDPATH=.:~/src/github.com:~/src/gnu.org
 alias ..='cd ..'
 alias ...='cd ../..'
 
