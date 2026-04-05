@@ -63,7 +63,11 @@ augroup quickfix|autocmd!
 augroup end
 
 " FZF
-let &runtimepath.="," . ($HOMEBREW_PREFIX ?? "/usr/local") . "/opt/fzf"
+if !empty($HOMEBREW_PREFIX)
+  set runtimepath+=$HOMEBREW_PREFIX/opt/fzf
+elseif isdirectory('/usr/share/doc/fzf/examples') " Debian 13
+  set runtimepath+=/usr/share/doc/fzf/examples
+endif
 function s:files()
   if empty(FugitiveGitDir())
     :Files
