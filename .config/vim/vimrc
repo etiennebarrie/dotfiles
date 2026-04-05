@@ -1,8 +1,7 @@
 " Reload on save
 augroup Reload|autocmd!
-  autocmd BufWritePost ~/.config/vim/{,g}vimrc
-        \ source $MYVIMRC | source $MYGVIMRC | nohlsearch |
-        \ redraw | echo "vimrc reloaded"
+  autocmd BufWritePost ~/.config/vim/vimrc  source  $MYVIMRC | nohlsearch | redraw | echo "vimrc reloaded"
+  autocmd BufWritePost ~/.config/vim/gvimrc source $MYGVIMRC | nohlsearch | redraw | echo "gvimrc reloaded"
 augroup end
 
 " Ghostty config
