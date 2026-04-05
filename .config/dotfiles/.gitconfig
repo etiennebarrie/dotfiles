@@ -3,6 +3,8 @@
 	relativePaths = false
 [submodule]
 	recurse = false
+[my]
+	defaultBranchProtection = false
 [alias]
 	console = !irb -r ~/.local/share/dotfiles/package
 	edit = !${EDITOR%% *} +0G
