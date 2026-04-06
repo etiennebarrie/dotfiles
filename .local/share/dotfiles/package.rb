@@ -19,8 +19,8 @@ class Package
     YAML
       .load_file(path)
       .fetch("packages")
-      .filter_map do
-        call it
+      .filter_map do |pkg|
+        call pkg
       rescue ArgumentError => error
         $stderr.puts error
       end
