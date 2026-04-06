@@ -1,93 +1,124 @@
 [submodule "vim/abolish.vim"]
 	path = .config/vim/pack/bundle/start/abolish.vim
 	url = https://github.com/tpope/vim-abolish.git
+	shallow = true
 [submodule "vim/ale"]
 	path = .config/vim/pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
+	shallow = true
 [submodule "vim/bundler.vim"]
 	path = .config/vim/pack/bundle/start/bundler.vim
 	url = https://github.com/tpope/vim-bundler.git
+	shallow = true
 [submodule "vim/commentary.vim"]
 	path = .config/vim/pack/bundle/start/commentary.vim
 	url = https://github.com/tpope/vim-commentary.git
+	shallow = true
 [submodule "vim/context.vim"]
 	path = .config/vim/pack/bundle/start/context.vim
 	url = https://github.com/wellle/context.vim
+	shallow = true
 [submodule "vim/endwise.vim"]
 	path = .config/vim/pack/bundle/start/endwise.vim
 	url = https://github.com/tpope/vim-endwise.git
+	shallow = true
 [submodule "vim/eunuch.vim"]
 	path = .config/vim/pack/bundle/start/eunuch.vim
 	url = https://github.com/tpope/vim-eunuch.git
+	shallow = true
 [submodule "vim/fugitive.vim"]
 	path = .config/vim/pack/bundle/start/fugitive.vim
 	url = https://github.com/tpope/vim-fugitive.git
+	shallow = true
 [submodule "vim/fzf.vim"]
 	path = .config/vim/pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+	shallow = true
 [submodule "vim/pear-tree"]
 	path = .config/vim/pack/bundle/start/pear-tree
 	url = https://github.com/tmsvg/pear-tree.git
+	shallow = true
 [submodule "vim/projectionist.vim"]
 	path = .config/vim/pack/bundle/start/projectionist.vim
 	url = https://github.com/tpope/vim-projectionist.git/
+	shallow = true
 [submodule "vim/rails.vim"]
 	path = .config/vim/pack/bundle/start/rails.vim
 	url = https://github.com/tpope/vim-rails.git
+	shallow = true
 [submodule "vim/rake.vim"]
 	path = .config/vim/pack/bundle/start/rake.vim
 	url = https://github.com/tpope/vim-rake.git
+	shallow = true
 [submodule "vim/repeat.vim"]
 	path = .config/vim/pack/bundle/start/repeat.vim
 	url = https://github.com/tpope/vim-repeat.git
+	shallow = true
 [submodule "vim/rhubarb.vim"]
 	path = .config/vim/pack/bundle/start/rhubarb.vim
 	url = https://github.com/tpope/vim-rhubarb.git
+	shallow = true
 [submodule "vim/rust.vim"]
 	path = .config/vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+	shallow = true
 [submodule "vim/sleuth.vim"]
 	path = .config/vim/pack/bundle/start/sleuth.vim
 	url = https://github.com/tpope/vim-sleuth.git
+	shallow = true
 [submodule "vim/solarized.vim"]
 	path = .config/vim/pack/bundle/start/solarized.vim
 	url = https://github.com/altercation/vim-colors-solarized.git
+	shallow = true
 [submodule "vim/splitjoin.vim"]
 	path = .config/vim/pack/bundle/start/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
+	shallow = true
 [submodule "vim/surround.vim"]
 	path = .config/vim/pack/bundle/start/surround.vim
 	url = https://github.com/tpope/vim-surround.git
+	shallow = true
 [submodule "vim/switch.vim"]
 	path = .config/vim/pack/bundle/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+	shallow = true
 [submodule "vim/targets.vim"]
 	path = .config/vim/pack/bundle/start/targets.vim
 	url = https://github.com/wellle/targets.vim
+	shallow = true
 [submodule "vim/test.vim"]
 	path = .config/vim/pack/bundle/start/test.vim
 	url = https://github.com/janko-m/vim-test.git
+	shallow = true
 [submodule "vim/vim-coffee-script"]
 	path = .config/vim/pack/bundle/start/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+	shallow = true
 [submodule "vim/vim-easy-align"]
 	path = .config/vim/pack/bundle/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+	shallow = true
 [submodule "vim/vim-fetch"]
 	path = .config/vim/pack/bundle/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch.git
+	shallow = true
 [submodule "vim/vim-go"]
 	path = .config/vim/pack/bundle/start/vim-go
 	url = https://github.com/fatih/vim-go.git
+	shallow = true
 [submodule "vim/vim-indent-object"]
 	path = .config/vim/pack/bundle/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+	shallow = true
 [submodule "vim/vim-multiple-cursors"]
 	path = .config/vim/pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+	shallow = true
 [submodule "vim/vim-ruby"]
 	path = .config/vim/pack/bundle/start/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+	shallow = true
 [submodule "vim/vinegar.vim"]
 	path = .config/vim/pack/bundle/start/vinegar.vim
 	url = https://github.com/tpope/vim-vinegar.git
+	shallow = true
