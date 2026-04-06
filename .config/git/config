@@ -14,7 +14,7 @@
 	cip = commit --patch
 	cl = clean --force -d
 	clbr = "!f() { git fetch --prune && git branch --merged origin/HEAD | grep -v '^*\\|^+' | grep -Ev '^  master|main$' | xargs git branch -d && for branch in `git branch -vv | grep -v ^* | awk '/: gone]/ {print $1}'`; do git branch -D $branch; done }; f"
-	co = "!f() { : checkout ; case \"$1\" in *:*) gh pr checkout \"$@\";; *) git checkout \"$@\";; esac }; f"
+	co = "!f() { : checkout ; if [[ $1 =~ : ]]; then gh pr checkout \"$@\"; else git checkout \"$@\"; fi; }; f"
 	co- = checkout -
 	com = checkout origin/HEAD -B main
 	cp = cherry-pick
