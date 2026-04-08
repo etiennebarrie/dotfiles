@@ -36,8 +36,17 @@ elif [ "$(uname -s)" = Darwin ]; then
 	exit 1
 fi
 
-if ! command -v ruby >/dev/null; then
-	exit 1
+if ! command -v ruby >/dev/null || ! ruby -rerb -e0 2>/dev/null; then
+	if command -v pacman >/dev/null; then
+		sudo pacman -Sy --noconfirm ruby-erb
+	else
+		exit 1
+	fi
+fi
+
+if command -v pacman >/dev/null; then
+	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.Arch' |
+		xargs sudo pacman -Sy --noconfirm --needed
 fi
 
 if command -v apt-get >/dev/null; then
