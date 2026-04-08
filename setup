@@ -27,7 +27,12 @@ unset GIT_DIR
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
-chflags -v hidden pkg src setup tmp 2>/dev/null ||:
+set -- pkg src setup tmp
+if type chflags >/dev/null 2>&1; then
+	chflags -v hidden "$@" 2>/dev/null ||:
+else
+	for f do grep -qE "^$f$" .hidden || echo "$f" >> .hidden; done
+fi
 
 if type brew >/dev/null 2>&1; then
 	HOMEBREW_NO_ENV_HINTS=1 brew bundle --file ~/.config/dotfiles/Brewfile
