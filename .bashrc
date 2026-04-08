@@ -43,6 +43,7 @@ source ~/.local/share/dotfiles/autoload.bash
 autoload c
 autoload commit
 autoload demo
+autoload m
 autoload make
 autoload mkdird
 autoload setenv
@@ -67,26 +68,6 @@ if ! type -f rb >&/dev/null; then
 fi
 
 alias rg='RIPGREP_CONFIG_PATH=~/.config/ripgrep rg'
-
-m() {
-	if [ $# -ne 0 ]; then
-		local d dir="$1" IFS=: p
-		shift
-		if [[ "$dir" = /* ]]; then
-			 mvim "$dir" "+cd $dir" "$@"; return
-		fi
-		for p in $CDPATH; do
-			d="$p"/"$dir"
-			if [ -d "$d" ]; then
-				mvim "$d" "+cd $d" "$@"; return
-			fi
-		done
-		set -- "$dir" "$@"
-		mvim "$@"; return
-	fi
-	mvim "${@:-.}"
-}
-complete -o bashdefault -o default -o nospace -F _cd m
 
 alias r='if ! touch tmp/restart.txt >/dev/null 2>&1; then mkdir -v tmp; touch tmp/restart.txt; fi'
 if type bat &>/dev/null; then
