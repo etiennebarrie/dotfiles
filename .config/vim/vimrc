@@ -123,20 +123,6 @@ nmap <Leader>1 <Cmd>silent tabonly<Bar>silent only<CR>
 autocmd FileType json,vim setlocal expandtab shiftwidth=2
 
 " Ruby
-autocmd FileType ruby  setlocal iskeyword+=?,! makeprg=ruby\ %
-autocmd FileType ruby  nmap <buffer> <Leader>e oend<Esc>
-autocmd FileType ruby  vmap <buffer> <Leader>e >`>oend<Esc>
-autocmd FileType ruby  nmap <buffer> <Leader>d odebugger<Esc>
-autocmd FileType ruby  nmap <buffer> <Leader>D Odebugger<Esc>
-autocmd FileType eruby nmap <buffer> <Leader>e o<% end %><Esc>
-autocmd FileType eruby vmap <buffer> <Leader>e >`>o<% end %><Esc>
-autocmd FileType ruby  nmap <buffer> <Leader>i i.inspect<Esc>
-autocmd FileType ruby  vmap <buffer> <Leader>i S)ip<Esc>
-"" copy and accumulate in @a joined with :: (i.e. copy nested module names)
-autocmd FileType ruby nmap <Leader>A "ay
-autocmd FileType ruby nmap <Leader>a :let @a.='::'<CR>"Ay
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_indent_hanging_elements = 0
 command -range IRB terminal ++close irb
 
 " C
