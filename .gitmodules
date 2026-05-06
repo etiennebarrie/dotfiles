@@ -88,7 +88,7 @@
 	shallow = true
 [submodule "vim/test.vim"]
 	path = .config/vim/pack/bundle/start/test.vim
-	url = https://github.com/janko-m/vim-test.git
+	url = https://github.com/vim-test/vim-test.git
 	shallow = true
 [submodule "vim/vim-coffee-script"]
 	path = .config/vim/pack/bundle/start/vim-coffee-script
