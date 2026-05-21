@@ -11,7 +11,7 @@ top_level = Pathname(`git rev-parse --show-toplevel`.chomp)
 
 require "yaml"
 commands = Pathname.glob(top_level.join(".github/workflows/*.y{a,}ml")).flat_map do |workflow|
-  YAML.load_file(workflow)["jobs"].flat_map do |_, job|
+  YAML.load_file(workflow, aliases: true)["jobs"].flat_map do |_, job|
     next unless steps = job["steps"]
     steps.filter_map { |step| step["run"] }
   end
