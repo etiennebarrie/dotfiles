@@ -1,7 +1,14 @@
 " Appearance
 colorscheme solarized
 set background=dark
-set guifont=SF\ Mono\ Regular:h14
+
+if has("gui_macvim")
+  set guifont=SF\ Mono\ Regular:h14
+else
+  set guifont=Fira\ Code\ 14
+  set guioptions-=T guioptions-=m guioptions+=d " no toolbar, no menu, dark mode
+endif
+
 highlight NonText guifg=Gray
 highlight SpecialKey guifg=#555555 guibg=bg
 highlight link SyntasticErrorSign ErrorMsg
