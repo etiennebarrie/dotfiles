@@ -14,8 +14,8 @@ set -eu
 # Example: typical Ruby setup
 #     $ cat <<EOF >.git/test
 #     > #!/bin/sh
-#     > echo + bundle exec rake
-#     > exec bundle exec rake
+#     > set -ex
+#     > bundle exec rake
 #     > EOF
 #     $ chmod u+x .git/test
 
