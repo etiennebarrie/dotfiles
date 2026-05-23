@@ -135,6 +135,7 @@
 	ui = auto row dense
 [log]
 	date = iso
+	follow = true
 [blame]
 	markIgnoredLines = true
 	markUnblamableLines = true
