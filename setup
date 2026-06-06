@@ -27,7 +27,9 @@ unset GIT_DIR
 
 ln -fs ~/.config/git/hooks/* ~/.config/git/template/hooks
 
-if type chflags >/dev/null 2>&1; then
+has() { command -v "$1" >/dev/null; }
+
+if has chflags; then
 	hide() { chflags -v hidden "$@" 2>/dev/null ||:; }
 else
 	hide() { for f do grep -sqxF "$f" .hidden || echo "$f" >> .hidden; done; }
@@ -35,27 +37,27 @@ fi
 
 cd && hide pkg src setup tmp
 
-if type brew >/dev/null 2>&1; then
+if has brew; then
 	HOMEBREW_NO_ENV_HINTS=1 brew bundle --file ~/.config/dotfiles/Brewfile
 elif [ "$(uname -s)" = Darwin ]; then
 	open https://brew.sh
 	exit 1
 fi
 
-if ! command -v ruby >/dev/null || ! ruby -rerb -e0 2>/dev/null; then
-	if command -v pacman >/dev/null; then
+if ! has ruby || ! ruby -rerb -e0 2>/dev/null; then
+	if has pacman; then
 		sudo pacman -Sy --noconfirm ruby-erb
 	else
 		exit 1
 	fi
 fi
 
-if command -v pacman >/dev/null; then
+if has pacman; then
 	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.Arch' |
 		xargs sudo pacman -Sy --noconfirm --needed
 fi
 
-if command -v apt-get >/dev/null; then
+if has apt-get; then
 	sudo apt-get update --option DPkg::Lock::Timeout=60
 	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.APT' |
 		xargs sudo apt-get install --option DPkg::Lock::Timeout=60 --yes
