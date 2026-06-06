@@ -39,31 +39,44 @@ cd && hide pkg src setup tmp
 
 os=$(uname -s)
 os() { [ "$os" = "$1" ]; }
+manager() { [ "$manager" = "$1" ]; }
+use_manager() {
+	manager=$1
+	shift
+	eval "install() {
+		xargs sudo ${*-true}
+	}"
+}
 
-if has brew; then
-	HOMEBREW_NO_ENV_HINTS=1 brew bundle --file ~/.config/dotfiles/Brewfile
-elif os Darwin; then
-	open https://brew.sh
-	exit 1
-fi
-
-if ! has ruby || ! ruby -rerb -e0 2>/dev/null; then
-	if has pacman; then
-		sudo pacman -Sy --noconfirm ruby-erb
+if os Darwin; then
+	if has brew; then
+		HOMEBREW_NO_ENV_HINTS=1 brew bundle --file ~/.config/dotfiles/Brewfile
 	else
+		open https://brew.sh
 		exit 1
 	fi
-fi
 
-if has pacman; then
-	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.Arch' |
-		xargs sudo pacman -Sy --noconfirm --needed
-fi
+elif has pacman; then
+	use_manager Arch pacman -Sy --noconfirm --needed
 
-if has apt-get; then
+elif has apt-get; then
 	sudo apt-get update --option DPkg::Lock::Timeout=60
-	ruby -r ~/.local/share/dotfiles/package -e 'puts Package.APT' |
-		xargs sudo apt-get install --option DPkg::Lock::Timeout=60 --yes
+	use_manager APT apt-get install --option DPkg::Lock::Timeout=60 --yes
+
+elif has brew; then
+	use_manager Homebrew
+
+fi
+
+if ! os Darwin; then
+	if ! has ruby; then
+		if manager Arch; then
+			echo ruby-stdlib
+		else
+			echo ruby
+		fi | install
+	fi
+	ruby -r ~/.local/share/dotfiles/package -e "puts Package.$manager" | install
 fi
 
 if os Darwin && ! test -f /etc/pam.d/sudo_local; then
