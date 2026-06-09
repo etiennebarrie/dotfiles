@@ -62,6 +62,10 @@
 	path = .config/vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 	shallow = true
+[submodule "vim/scriptease"]
+	path = .config/vim/pack/bundle/start/scriptease
+	url = https://github.com/tpope/vim-scriptease.git
+	shallow = true
 [submodule "vim/sleuth.vim"]
 	path = .config/vim/pack/bundle/start/sleuth.vim
 	url = https://github.com/tpope/vim-sleuth.git
