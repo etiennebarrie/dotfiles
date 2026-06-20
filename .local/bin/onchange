@@ -9,7 +9,7 @@ if [ -f "$w" ]; then
 	echo "$w"
 	cat "$w"
 else
-	git ls-files --cached --others --exclude-standard
+	git -c core.quotePath=false ls-files --cached --others --exclude-standard
 fi | entr -d "$@"
 
 exit_status=$?
