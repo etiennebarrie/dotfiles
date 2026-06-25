@@ -7,8 +7,9 @@ nmap <buffer> <Leader>d odebugger<Esc>
 nmap <buffer> <Leader>D Odebugger<Esc>
 nmap <buffer> <Leader>i i.inspect<Esc>
 vmap <buffer> <Leader>i S)ip<Esc>
-"" copy and accumulate in @a joined with :: (i.e. copy nested module names)
-nmap <Leader>A "ay
-nmap <Leader>a :let @a.='::'<CR>"Ay
+"" copy and accumulate in @m joined with :: (i.e. copy nested module names)
+nmap <buffer> <Leader>m "myiW<Cmd>echo @m<CR>
+nmap <buffer> <Leader>m <Cmd>silent let @m.='::'<CR>"MyiW<Cmd>echo @m<CR>
+vmap <buffer> <Leader>m <Cmd>let @m.='::'<CR>"My<Cmd>echo @m<CR>
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
