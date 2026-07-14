@@ -28,8 +28,7 @@ PS1_short_path() {
 	echo "${pwd//~/\~}"
 }
 PS1=$PS1'$(PS1_short_path)$(__git_ps1 " (%s)")'
-PS1=$PS1'$(echo "${shell_ruby:+ \[\e[2;31m\]ruby:\[\e[1;91m\]}${shell_ruby-}${shell_ruby:+\[\e[m\]}")'
-PS1=$PS1'${make_target:+ [}${make_target#*\/target/}${make_target:+]}'
+PS1=$PS1'$(for p in "${!ps1_@}"; do echo -n " ${!p}"; done)'
 PS1=$PS1' \$ '
 
 if [[ -n $SSH_CONNECTION || $OSTYPE != darwin* ]]; then
@@ -116,16 +115,16 @@ tabs -4
 	local candidate shell='' version=${1-}
 	[[ -v init ]] && shell=no
 	# no version asked and using system or shell ruby: keep it
-	[[ ! $version && ( ! -v ruby_path || -v shell_ruby ) ]] && return
+	[[ ! $version && ( ! -v ruby_path || -v ps1_ruby ) ]] && return
 	case $version in
 		system)
 			[[ ${ruby_path-} ]] && PATH=${PATH//"$ruby_path":/}
-			unset ruby_path
+			unset ruby_path ps1_ruby
 			return ;;
 		unset)
 			[[ $ruby_path ]] && PATH=${PATH//"$ruby_path":/}
 			ruby_path=
-			unset shell_ruby
+			unset ps1_ruby
 			return ;;
 		'') [[ -r .ruby-version ]] && <.ruby-version read -r version || return 1 ;;
 		*) : "${shell:=yes}" ;;
@@ -137,7 +136,7 @@ tabs -4
 			[[ ${ruby_path-} ]] && PATH=${PATH//"$ruby_path":/}
 			PATH=$candidate:$PATH
 			ruby_path=$candidate
-			[[ $shell = yes ]] && shell_ruby=${version}
+			[[ $shell = yes ]] && ps1_ruby=$'\e[2;31mruby:\e[1;91m'$version$'\e[m'
 			return 0
 		fi
 	done

@@ -9,4 +9,6 @@ target() {
 	fi
 	# shellcheck disable=SC2034
 	make_target=$PWD/target/$1
+	# shellcheck disable=SC2034
+	ps1_make="[$1]"
 }
