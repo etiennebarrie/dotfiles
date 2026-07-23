@@ -63,7 +63,8 @@ while read -r _ local_sha remote_ref _; do
 		fi
 
 		if [ $x_test ]; then
-			>&2 "$test" || return_status=$?
+			readarray -t git_env_vars < <(git rev-parse --local-env-vars)
+			>&2 env "${git_env_vars[@]/#/-u}" "$test" || return_status=$?
 		else
 			>&2 echo -e "$yellow$hook: No tests!"\
 				"Make $bold_yellow$test$yellow an executable command to run tests before pushing."\
