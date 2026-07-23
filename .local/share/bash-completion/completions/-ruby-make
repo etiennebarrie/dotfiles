@@ -1,0 +1,20 @@
+_comp_-ruby-make() {
+	# shellcheck disable=SC2034
+	local cur prev words cword comp_args
+	_comp_initialize -- "$@" || return
+	_comp_compgen -- -W "$(\
+			git -C ~/src/github.com/ruby/ruby tag --sort=version:refname -l 'v*' |
+			ruby --disable=gems -ne 'print gsub("_", ".")[1..] if
+				/^v(\d+)[_.](\d+)[_.]\d+/ && (['\$'1.to_i, '\$'2.to_i] <=> [3,2]) >= 0')"
+	_comp_compgen -a -- -W "--update"
+}
+complete -F _comp_-ruby-make -- -ruby-make
+
+# FIXME: Avoid bug with bash and bash-completion
+#
+# bash-completion sets up completion for the full command (with path), but it uses `complete -p` to generate it.
+# bash doesn't output -- before the name, leading to "-ruby-make" being interpreted as options:
+#     $ complete -p -- -ruby-make
+#     complete -F _comp_-ruby-make -ruby-make
+# Defining the completion ourselves works around the issue.
+complete -F _comp_-ruby-make -- "$(type -p -- -ruby-make)"

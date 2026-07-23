@@ -11,10 +11,11 @@ fi
 : "${repo:=$HOME/src/github.com/ruby/ruby}"
 [[ -x $repo/autogen.sh ]] || abort "Ruby not cloned"
 
-tmpdir=$(mktemp -d -t ruby-make.XXX)
 configure_args=()
 
-if [ $# -gt 0 ]; then
+if [[ $# -eq 1 && $1 = --update ]]; then
+	prefix=
+elif [ $# -gt 0 ]; then
 	version=$1
 	[[ ! -e "${prefix:=$HOME/.ruby/$version}" ]] || abort "$prefix already exists"
 	[[ $version = *-* ]] && configure_args+=("cppflags=-DRUBY_PATCHLEVEL_NAME=${version#*-}")
@@ -30,6 +31,9 @@ fi
 set -x
 
 git -C "$repo" fetch --quiet https://github.com/ruby/ruby.git --tags
+[[ ! $prefix ]] && exit
+
+tmpdir=$(mktemp -d -t ruby-make.XXX)
 git -C "$repo" worktree add "$tmpdir" "$ref" &>/dev/null || abort "couldn't find version $version"
 trap 'git -C "$repo" worktree remove "$tmpdir"' EXIT
 
