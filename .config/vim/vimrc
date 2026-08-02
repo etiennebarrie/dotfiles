@@ -279,6 +279,10 @@ augroup ProjectSpecific|autocmd!
   autocmd! BufReadPost,BufNewFile * call <SID>gitVimrc()
 augroup end
 
+let g:pear_tree_map_special_keys = 0
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+
 " local
 if filereadable(expand('~/.vim/local.vimrc'))
   source ~/.vim/local.vimrc
