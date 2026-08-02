@@ -195,7 +195,10 @@ nmap <leader>p pDdd<C-O>"-p
 nmap <C-@> @@
 
 " vim-test
-let test#strategy = "terminal"
+let g:test#custom_strategies = {
+      \ 'terminal': { cmd -> execute('silent !'.shellescape(g:test#plugin_path.'/bin/osx_terminal').' '.shellescape(cmd)) }
+      \ }
+let g:test#strategy = "terminal"
 let g:test#preserve_screen = 1
 nmap <leader>t <Cmd>TestNearest<CR>
 nmap <leader>T <Cmd>TestFile<CR>
