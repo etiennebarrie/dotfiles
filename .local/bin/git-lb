@@ -2,16 +2,17 @@
 
 GIT_PAGER=$(printf 'less -e +"/\xb^commit [[:xdigit:]]{40,}"')
 export GIT_PAGER
-branch="@"
 remote=$(git config --local --name-only --fixed-value --get-regexp 'remote.*.gh-resolved' base)
 remote=${remote#remote.}
 remote=${remote%.gh-resolved}
 remote=${remote:=origin}
+opt="--patch"
+rev="@"
 
 for arg; do
 	case $arg in
-		(-*) unset GIT_PAGER; break;;
-		(*) branch="$arg"; shift;;
+		(-*) unset GIT_PAGER; opt=;;
+		(*) rev=;;
 	esac
 done
-git log --topo-order --reverse "$(git merge-base "$branch" "$remote"/HEAD)".."$branch" "${@:---patch}"
+git log --topo-order --reverse $opt "$@" $rev ^"$remote"/HEAD
