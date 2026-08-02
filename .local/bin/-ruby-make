@@ -35,7 +35,7 @@ git -C "$repo" fetch --quiet https://github.com/ruby/ruby.git --tags
 
 tmpdir=$(mktemp -d -t ruby-make.XXX)
 git -C "$repo" worktree add "$tmpdir" "$ref" &>/dev/null || abort "couldn't find version $version"
-trap 'git -C "$repo" worktree remove "$tmpdir"' EXIT
+trap 'git -C "$repo" worktree remove --force "$tmpdir"' EXIT
 
 configure_args+=(--enable-yjit)
 if type brew >&/dev/null; then
