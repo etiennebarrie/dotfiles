@@ -39,10 +39,11 @@ trap 'git -C "$repo" worktree remove --force "$tmpdir"' EXIT
 
 configure_args+=(--enable-yjit)
 if type brew >&/dev/null; then
-	brew install --quiet autoconf openssl@3 libyaml
+	brew install --quiet autoconf bison openssl@3 libyaml
 	configure_args+=(
 		--with-libyaml-dir="$(brew --prefix libyaml)"
 	)
+	PATH=$(brew --prefix bison)/bin:$PATH
 elif type apt-get >&/dev/null; then
 	packages=(autoconf libssl-dev libyaml-dev zlib1g-dev)
 	type rustc >&/dev/null || packages+=(rustc)
