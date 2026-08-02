@@ -82,7 +82,11 @@ let g:fzf_vim = {}
 let g:fzf_vim.buffers_jump = 1
 
 " Command line and status line
-setglobal ruler showcmd
+setglobal ruler showcmd rulerformat=ʟ%l/%L\ ᴄ%c%V
+setglobal statusline=
+setglobal statusline+=%<%f\ %h%w%m%r
+setglobal statusline+=\ %{exists('w:quickfix_title')?\ w:quickfix_title\ :\ ''}
+setglobal statusline+=%=ʟ%l/%L\ ᴄ%c%V
 setglobal laststatus=2
 setglobal wildmenu wildmode=longest:full,full wildoptions=pum
 let g:qf_disable_statusline = 1
