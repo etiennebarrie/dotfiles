@@ -9,6 +9,7 @@ export GIT_DIR
 if ! git config --local core.worktree >/dev/null; then
 	if [ "${GIT_DIR:-}" != $git_dir ]; then
 		mkdir -p "$(dirname $git_dir)"
+		[ -e $git_dir ] && >&2 echo "~${git_dir#"$HOME"} already exists" && exit 1
 		mv "$GIT_DIR" $git_dir
 		GIT_DIR=$git_dir
 	fi
