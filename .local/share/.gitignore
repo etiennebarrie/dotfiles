@@ -1,0 +1,4 @@
+# RubyGems specs and credentials
+/gem
+# bundler-audit
+/ruby-advisory-db

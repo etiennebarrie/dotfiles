@@ -1,5 +1,5 @@
 [status]
-	showUntrackedFiles = no
+	showUntrackedFiles = true
 	relativePaths = false
 [submodule]
 	recurse = false
@@ -9,7 +9,4 @@
 	console = !irb -r ~/.local/share/dotfiles/package
 	edit = !${EDITOR%% *} +0G
 	update = !git pull && ./setup
-# remove danger of --include-untracked
 	cl = !"f() { >&2 echo \"dotfiles clean disabled\"; return 1;}; f"
-	s = stash
-	sk = stash push --keep-index --quiet
