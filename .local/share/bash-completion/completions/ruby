@@ -1,0 +1,13 @@
+_comp_ruby() {
+	# shellcheck disable=SC2034
+	local cur prev words cword comp_args
+	_comp_initialize -- "$@" || return
+
+	if [[ $cur == -* ]]; then
+		_comp_compgen_help
+		compopt -o nospace -o nosort
+		return
+	fi
+	_comp_compgen -a filedir rb
+}
+complete -F _comp_ruby ruby
