@@ -1,5 +1,5 @@
 target() {
-	[[ $# = 0 && -v make_target ]] && { unset make_target; return 0; }
+	[[ $# = 0 && -v make_target ]] && { unset make_target ps1_make; return 0; }
 	if [[ $# -ne 1 || -z $1 || ! -d target/$1/ ]]; then
 		local targets choice
 		_comp_compgen -v targets -C target -- -d
