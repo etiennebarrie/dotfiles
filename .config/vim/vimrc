@@ -248,6 +248,9 @@ let g:pear_tree_smart_backspace = 1
 
 autocmd FileType ruby let b:pear_tree_pairs = extend(deepcopy(g:pear_tree_pairs), { '|': {'closer': '|'} })
 
+" Browse
+command -nargs=1 Browse URLOpen <args>
+
 " sort
 command Sort normal vii:sort<CR>
 
