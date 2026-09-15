@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+# shellcheck disable=SC2016
+branch=$(git branch | fzf --preview='
+rev={}
+rev=${rev/#[*+ ] /}
+git log --color --oneline ^main@{u} "$rev"
+echo
+git diff --color main@{u}..."$rev"
+')
+branch=${branch/#[*+ ] /}
+git checkout "$branch" --
