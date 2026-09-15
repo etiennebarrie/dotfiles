@@ -47,6 +47,7 @@ autoload make
 autoload mkdird
 autoload setenv
 autoload target
+autoload wt
 
 unset autoload
 

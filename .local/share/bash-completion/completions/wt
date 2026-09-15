@@ -1,0 +1,7 @@
+_comp_wt() {
+	# shellcheck disable=SC2034
+	local cur prev words cword comp_args
+	_comp_initialize -- "$@" || return
+	__git_complete_revlist;
+}
+complete -F _comp_wt wt
