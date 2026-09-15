@@ -195,7 +195,7 @@ nmap gyy yygccp
 omap gy ygvgcp
 vmap gy ygvgc'>p
 "" paste line word-wise
-nmap <leader>p pDdd<C-O>"-p
+nmap <leader>p m'"+pDdd`'"-p
 "" replay last macro
 nmap <C-@> @@
 
