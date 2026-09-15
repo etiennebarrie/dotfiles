@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby --disable-all
+
+def `(argv) = super.chomp.tap { exit(false) unless Process.last_status.success? }
+def system(...) = super || exit(false)
+def usage = abort "usage: dependabot [approve] [<pull request url>]"
+
+ARGV.shift if ARGV.first == "approve"
+pull_request_url = ARGV.shift unless ARGV.empty?
+pull_request_url ||= %x(pbpaste)
+
+usage unless pull_request_url.match?(%r{\Ahttps://github\.com/[^/]+/[^/]+/pull/\d+})
+
+system(*%W[gh pr checks #{pull_request_url}])
+system(*%W[gh pr diff #{pull_request_url}])
+print "Approve?"
+begin
+  case gets(chomp: true)
+  when /^y(es)?$/i, ""
+  else
+    exit(true)
+  end
+rescue Interrupt
+  exit(false)
+end
+
+system(*%W[gh pr review --approve #{pull_request_url}])
+system(*%W[gh pr merge  --squash  #{pull_request_url}])
